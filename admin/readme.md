@@ -2,7 +2,7 @@
 
 A school managemnt system.
 
-* Admin can manage full this software.
+Admin can manage full this software.
 * Add dynamic class, section and group.
 * Admin can select student capacity in a class and section.
 * Admin can view, edit and delete class’s information, section and group.
