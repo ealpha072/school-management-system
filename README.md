@@ -1,5 +1,6 @@
 # school-management-system
-** A school managemnt system.
+
+A school managemnt system.
 
 Admin can manage full this software.
 Add dynamic class, section and group.
