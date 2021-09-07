@@ -11,56 +11,60 @@
 
             <!--dashboard items-->
             <ul class="list-unstyled components">
-                <!--COURSES-->
+                <!-- dashboard-->
                 <li class="active">
-                    <a href="#courses" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Courses</a>
-                    <ul class="collapse list-unstyled" id="courses">
+                    <a href=" " data-toggle="collapse"> Dashboard</a>
+                </li>
+                <!--students -->
+                <li>
+                    <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
+                    <ul class="collapse list-unstyled" id="student">
                         <li>
-                            <a href="addcourse.php">Add Courses</a>
+                            <a href="">Add Student</a>
                         </li>
                         <li>
-                            <a href="viewcourse.php">View Courses</a>
+                            <a href="">Add Bulk Student</a>
                         </li>
                         <li>
-                            <a href="managecourses.php">Manage Courses</a>
+                            <a href="">Student Information</a>
                         </li>
                     </ul>
-                </li>
-                <!--UNITS-->
+                </li>                
+                <!--syllabus-->
                 <li>
-                    <a href="#subjects" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Units</a>
-                    <ul class="collapse list-unstyled" id="subjects">
+                    <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Academic Syllabus</a>
+                    <ul class="collapse list-unstyled" id="syllabus">
                         <li>
-                            <a href="addunit.php">Add Units</a>
+                            <a href="">Add Units</a>
                         </li>
                         <li>
-                            <a href="viewunits.php">View Units</a>
+                            <a href="">View Units</a>
                         </li>
                         <li>
-                            <a href="manageunits.php" >Manage unit</a>
+                            <a href="" >Manage unit</a>
                             
                         </li>
                     </ul>
                 </li>
-                <!--DEPARTMENTS-->
+                <!--Finance-->
                 <li>
-                    <a href="#dpts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Departments</a>
+                    <a href="#dpts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
                     <ul class="collapse list-unstyled" id="dpts">
                         <li>
-                            <a href="adddept.php">Add Department</a>
+                            <a href="">Add Department</a>
                         </li>
                         <li>
-                            <a href="viewdepts.php">View Departments</a>
+                            <a href="">View Departments</a>
                         </li>
                         <li>
-                            <a href="managedepartment.php">Manage Departments</a>
+                            <a href="">Manage Departments</a>
                     
                         </li>
                     </ul>
                 </li>
-                <!--SCHOOLS-->
+                <!---->
                 <li>
-                    <a href="#schools" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Schools</a>
+                    <a href="#schools" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Parents</a>
                     <ul class="collapse list-unstyled" id="schools">
                         <li>
                             <a href="addschool.php">Add Schools</a>
