@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <!--form for admitting new student-->
-            <form action="" method="get">
+            <form action="" method="get" enctype="multipart/form-data"> 
                 <!--Academic info card-->
                 <div class="card academic_info">
                     <div class="card-header">
@@ -44,6 +44,10 @@
                                     <option value="">Mars</option>
                                     <option value="">Pluto</option>
                                 </select>
+                            </div>
+                            <div class="col">
+                                <label for="admission-date">Admission Date</label>
+                                <input type="text" disabled value="<?php echo date("Y/m/d")?>" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -84,6 +88,12 @@
                                 <input type="text" placeholder="County" class="form-control">
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="photo">Passport photo <sup>*</sup></label>
+                                <input type="file" placeholder= "Upload a passport file" class="form-control">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- END OF CARD-->
@@ -120,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+                <!--end of card-->
             </form>
             <!--END OF FORM-->
         </div>
