@@ -20,13 +20,13 @@
                     <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
                     <ul class="collapse list-unstyled" id="student">
                         <li>
-                            <a href="">Add Student</a>
+                            <a href="addst.php">Add Student</a>
                         </li>
                         <li>
-                            <a href="">Add Bulk Student</a>
+                            <a href="">View Student</a>
                         </li>
                         <li>
-                            <a href="">Student Information</a>
+                            <a href="">Manage Student</a>
                         </li>
                     </ul>
                 </li>                
@@ -35,13 +35,13 @@
                     <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Academic Syllabus</a>
                     <ul class="collapse list-unstyled" id="syllabus">
                         <li>
-                            <a href="">Add Units</a>
+                            <a href="">Add Subjects</a>
                         </li>
                         <li>
-                            <a href="">View Units</a>
+                            <a href="">View Subjects</a>
                         </li>
                         <li>
-                            <a href="" >Manage unit</a>
+                            <a href="" >Manage Subjects</a>
                             
                         </li>
                     </ul>
@@ -51,13 +51,13 @@
                     <a href="#dpts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
                     <ul class="collapse list-unstyled" id="dpts">
                         <li>
-                            <a href="">Add Department</a>
+                            <a href="">Add Teacher</a>
                         </li>
                         <li>
-                            <a href="">View Departments</a>
+                            <a href="">View Teacher</a>
                         </li>
                         <li>
-                            <a href="">Manage Departments</a>
+                            <a href="">Manage Teacher</a>
                     
                         </li>
                     </ul>
@@ -67,33 +67,18 @@
                     <a href="#schools" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Parents</a>
                     <ul class="collapse list-unstyled" id="schools">
                         <li>
-                            <a href="addschool.php">Add Schools</a>
+                            <a href="addschool.php">Add Parent</a>
                         </li>
                         <li>
-                            <a href="viewschool.php">View Schools</a>
+                            <a href="viewschool.php">View Parents</a>
                         </li>
                         <li>
-                            <a href="manageschools.php">Manage schools</a>
+                            <a href="manageschools.php">Manage Parents</a>
                             
                         </li>
                     </ul>
                 </li>
                 <!--REGISTER-->
-                <li>
-                    <a href="#students" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
-                    <ul class="collapse list-unstyled" id="students">
-                        <li>
-                            <a href="addstudent.php">Add new student</a>
-                        </li>
-                        <li>
-                            <a href="viewstudents.php">View students</a>
-                        </li>
-                        <li>
-                            <a href="managestudents.php" >Manage students</a>
-                        
-                        </li>
-                    </ul>
-                </li>
                 <!--OTHERS-->
                 <li>
                     <a href="login.php">Logout</a>
