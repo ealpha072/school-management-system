@@ -77,7 +77,11 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="gender">Gender<sup>*</sup></label>
-                                <input type="text" placeholder="Gender" class="form-control">
+                                <select name="" id="" class="form-control">
+                                    <option value="" selected disabled>Choose Gender</option>
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select>
                             </div>
                             <div class="col">
                                 <label for="Nationality">Nationality<sup>*</sup></label>
