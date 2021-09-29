@@ -36,6 +36,16 @@
                                 <label for="phone-number">Phone Number <sup>*</sup></label>
                                 <input type="text" placeholder="Phone Number" class="form-control">
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="gender">Gender<sup>*</sup></label>
+                                    <select name="" id="" class="form-control">
+                                        <option value="" selected disabled>Choose Gender</option>
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                    </select>
+                            </div>
                             <div class="col">
                                 <label for="photo">Photo <sup>*</sup></label>
                                 <input type="file" placeholder="Upload photo" class="form-control">
