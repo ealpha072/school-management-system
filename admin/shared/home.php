@@ -23,10 +23,38 @@
                             <a href="../students/addst.php">Add Student</a>
                         </li>
                         <li>
-                            <a href="../students/viewst.php">View Student</a>
-                        </li>
-                        <li>
-                            <a href="">Manage Student</a>
+                            <a href="#forms" data-toggle="collapse" class="dropdown-toggle">Manage Students</a>
+                            <!--consider populating this using php-->
+                            <ul class="collapse list-unstyled" id="forms">
+                                <li>
+                                    <a href="#form1streams" data-toggle="collapse" class="dropdown-toggle">Form 1</a>
+                                    <ul class="collapse list-unstyled" id="form1streams">
+                                        <li><a href="">Blue</a></li>
+                                        <li><a href="">Green</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#form2streams" data-toggle="collapse" class="dropdown-toggle">Form 2</a>
+                                    <ul class="collapse list-unstyled" id="form2streams">
+                                        <li><a href="">Blue</a></li>
+                                        <li><a href="">Green</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#form3streams" data-toggle="collapse" class="dropdown-toggle">Form 3</a>
+                                    <ul class="collapse list-unstyled" id="form3streams">
+                                        <li><a href="">Blue</a></li>
+                                        <li><a href="">Green</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#form4streams" data-toggle="collapse" class="dropdown-toggle">Form 4</a>
+                                    <ul class="collapse list-unstyled" id="form4streams">
+                                        <li><a href="">Blue</a></li>
+                                        <li><a href="">Green</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>                
@@ -35,10 +63,7 @@
                     <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Academic Syllabus</a>
                     <ul class="collapse list-unstyled" id="syllabus">
                         <li>
-                            <a href="">Add Subjects</a>
-                        </li>
-                        <li>
-                            <a href="">View Subjects</a>
+                            <a href="../subjects/addsub.php">Add Subjects</a>
                         </li>
                         <li>
                             <a href="" >Manage Subjects</a>
@@ -51,13 +76,10 @@
                     <a href="#dpts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
                     <ul class="collapse list-unstyled" id="dpts">
                         <li>
-                            <a href="">Add Teacher</a>
+                            <a href="../teachers/addteach.php">Add Teacher</a>
                         </li>
                         <li>
-                            <a href="">View Teacher</a>
-                        </li>
-                        <li>
-                            <a href="">Manage Teacher</a>
+                            <a href="">Manage Teachers</a>
                     
                         </li>
                     </ul>
@@ -67,14 +89,7 @@
                     <a href="#schools" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Parents</a>
                     <ul class="collapse list-unstyled" id="schools">
                         <li>
-                            <a href="addschool.php">Add Parent</a>
-                        </li>
-                        <li>
-                            <a href="viewschool.php">View Parents</a>
-                        </li>
-                        <li>
-                            <a href="manageschools.php">Manage Parents</a>
-                            
+                            <a href="../parents/managepar.php">Manage Parents</a>                           
                         </li>
                     </ul>
                 </li>
