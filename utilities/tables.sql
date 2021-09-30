@@ -64,3 +64,8 @@ CREATE TABLE `scms`.`staff_roles`
 ( `id` INT(100) NOT NULL AUTO_INCREMENT , `role_name` TEXT NOT NULL , 
 `staff_incharge` TEXT NOT NULL COMMENT 'name of staff incharge of this role' , PRIMARY KEY (`id`)) 
 ENGINE = InnoDBm COMMENT = 'Table for roles of support staff';
+
+/*table for hostels*/
+CREATE TABLE `scms`. 
+( `id` INT(100) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , 
+`teacher_incharge` INT(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
