@@ -18,8 +18,8 @@
                     <div class="col">
                         <select name="" id="" class="form-control">
                             <option value="" selected disabled>Choose a stream</option>
-                            <option value="">Form 1</option>
-                            <option value="">Form 2</option>
+                            <option value="">Red</option>
+                            <option value="">Green</option>
                         </select>
                     </div>
                     <div class="col">
