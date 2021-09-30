@@ -13,7 +13,7 @@
             <ul class="list-unstyled components">
                 <!-- dashboard-->
                 <li class="">
-                    <a href="home.php" data-toggle="collapse"> Dashboard</a>
+                    <a href="../dashboard/dashboard.php"> Dashboard</a>
                 </li>
                 <!--students -->
                 <li>
