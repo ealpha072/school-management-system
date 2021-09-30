@@ -52,6 +52,8 @@ CREATE TABLE `scms`.`forms`
 ( `id` INT(10) NOT NULL AUTO_INCREMENT , `name` TEXT NOT NULL , PRIMARY KEY (`id`)) 
 ENGINE = InnoDB COMMENT = 'Table For new Classes/Forms';
 
+INSERT INTO `forms` (`id`, `name`) VALUES (NULL, 'FORM ONE'), (NULL, 'FORM TWO'), (NULL, 'FORM THREE'), (NULL, 'FORM FOUR') ;
+
 /*table for teacher roles*/
 CREATE TABLE `scms`.`teacher_roles` 
 ( `id` INT(100) NOT NULL , `role_name` TEXT NOT NULL , `teacher` TEXT NOT NULL ) 
