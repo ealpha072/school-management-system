@@ -12,8 +12,8 @@
             <!--dashboard items-->
             <ul class="list-unstyled components">
                 <!-- dashboard-->
-                <li class="active">
-                    <a href=" " data-toggle="collapse"> Dashboard</a>
+                <li class="">
+                    <a href="home.php" data-toggle="collapse"> Dashboard</a>
                 </li>
                 <!--students -->
                 <li>
@@ -23,38 +23,7 @@
                             <a href="../students/addst.php">Add Student</a>
                         </li>
                         <li>
-                            <a href="#forms" data-toggle="collapse" class="dropdown-toggle">Manage Students</a>
-                            <!--consider populating this using php-->
-                            <ul class="collapse list-unstyled" id="forms">
-                                <li>
-                                    <a href="#form1streams" data-toggle="collapse" class="dropdown-toggle">Form 1</a>
-                                    <ul class="collapse list-unstyled" id="form1streams">
-                                        <li><a href="">Blue</a></li>
-                                        <li><a href="">Green</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#form2streams" data-toggle="collapse" class="dropdown-toggle">Form 2</a>
-                                    <ul class="collapse list-unstyled" id="form2streams">
-                                        <li><a href="">Blue</a></li>
-                                        <li><a href="">Green</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#form3streams" data-toggle="collapse" class="dropdown-toggle">Form 3</a>
-                                    <ul class="collapse list-unstyled" id="form3streams">
-                                        <li><a href="">Blue</a></li>
-                                        <li><a href="">Green</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#form4streams" data-toggle="collapse" class="dropdown-toggle">Form 4</a>
-                                    <ul class="collapse list-unstyled" id="form4streams">
-                                        <li><a href="">Blue</a></li>
-                                        <li><a href="">Green</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <a href="../students/managest.php">Manage Students</a>                            
                         </li>
                     </ul>
                 </li>                
@@ -66,7 +35,7 @@
                             <a href="../subjects/addsub.php">Add Subjects</a>
                         </li>
                         <li>
-                            <a href="" >Manage Subjects</a>
+                            <a href="../subjects/managesub.php">Manage Subjects</a>
                             
                         </li>
                     </ul>
@@ -79,7 +48,7 @@
                             <a href="../teachers/addteach.php">Add Teacher</a>
                         </li>
                         <li>
-                            <a href="">Manage Teachers</a>
+                            <a href="../teachers/manageteach.php">Manage Teachers</a>
                     
                         </li>
                     </ul>
@@ -94,6 +63,53 @@
                     </ul>
                 </li>
                 <!--REGISTER-->
+
+                <li>
+                    <a href="#staff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Support Staff</a>
+                    <ul class="collapse list-unstyled" id="staff">
+                        <li>
+                            <a href="../staff/addstaff.php">Add Staff</a>                           
+                        </li>
+                        <li>
+                            <a href="../staff/managestaff.php">Manage Staff</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#streams" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Streams</a>
+                    <ul class="collapse list-unstyled" id="streams">
+                        <li>
+                            <a href="">Add Streams</a>                           
+                        </li>
+                        <li>
+                            <a href="">Manage Streams</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#roles" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Roles</a>
+                    <ul class="collapse list-unstyled" id="roles">
+                        <li>
+                            <a href="../roles/addrole.php">Add a Role</a>                           
+                        </li>
+                        <li>
+                            <a href="../roles/managerole.php">Manage Roles</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#hostels" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hostels</a>
+                    <ul class="collapse list-unstyled" id="hostels">
+                        <li>
+                            <a href="../hostels/addhostel.php">Add a hostel</a>                           
+                        </li>
+                        <li>
+                            <a href="../hostels/managehost.php">Manage Hostels</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!--OTHERS-->
                 <li>
                     <a href="login.php">Logout</a>
