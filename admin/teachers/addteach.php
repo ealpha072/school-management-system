@@ -27,6 +27,7 @@
                                 <input type="text" placeholder="Last Name" class="form-control">
                             </div>
                         </div>
+                        <hr>
                         <div class="form-row">
                             <div class="col">
                                 <label for="email">Email <sup>*</sup></label>
@@ -37,6 +38,7 @@
                                 <input type="text" placeholder="Phone Number" class="form-control">
                             </div>
                         </div>
+                        <hr>
                         <div class="form-row">
                             <div class="col">
                                 <label for="gender">Gender<sup>*</sup></label>
@@ -61,15 +63,27 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col">
-                                <label for="">Subject Combo</label>
-                                <input type="text" placeholder="Subject Combo" class="form-control">
-                            </div>
-                            <div class="col">
                                 <label for="role">Role</label>
                                 <select name="" id="" class="form-control">
                                     <option value="" selected disabled>Choose Role</option>
                                     <!--consider more roles-->
                                 </select>
+                            </div>
+                            <div class="col">
+                                <label for="">Date Employed</label>
+                                <input type="text" class="form-control" disabled value="<?php echo date("Y/m/d")?>" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-row">
+                            <!--populate subjects using php-->
+                            <div class="col">
+                                <label for="">Subject 1</label>
+                                <input type="text" placeholder="Subject One" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="">Subject 2</label>
+                                <input type="text" placeholder="Subject Two" class="form-control">
                             </div>
                         </div>
                     </div>
