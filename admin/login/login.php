@@ -22,12 +22,7 @@
 				</div>
 			  	<!--<label for="password">Password</label>-->
 			  	<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
-				<?php 
-					if(isset($loginerror)){ ?>
-						<div class="invalid-feedback">
-      						<?php echo $loginerror[0]; ?>
-    					</div>
-					<?php } ?>
+				<?php  echo displayLoginError(); ?>
 		  	</div>
 
 		  	<div class="row">
