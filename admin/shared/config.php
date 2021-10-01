@@ -21,7 +21,7 @@
 
     //SQL statements
     $sql1 = $conn->prepare("SELECT * FROM `admin` WHERE username=? AND password =? ");
-    
+
     
 
 
@@ -83,6 +83,26 @@
     }
 
     function newStudent() {
+        $error = array();
+
+        $adm_number = $_POST['adm_num'];
+        $form = $_POST['form'];
+        $stream = $_POST['stream'];
+        $hostel = $_POST['hostel'];
+        $first_name = $_POST['first-name'];
+        $mid_name = $_POST['mid-name'];
+        $last_name = $_POST['last-name'];
+        $gender = $_POST['gender'];
+        $nationality = $_POST['nationality'];
+        $county = $_POST['county'];
+        $photo = $_POST['student_photo'];
+        $pfirst_name = $_POST['pfirst_name'];
+        $pmid_name = $_POST['pmid_name'];
+        $plast_name = $_POST['plast_name'];
+        $pemail = $_POST['pemail'];
+        $pphone_number = $_POST['pphone_number'];
+
+        //form-validation
 
     }
 
