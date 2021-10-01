@@ -85,6 +85,42 @@
                 </div>
             </div>
             <hr>
+            <div class="form-row">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">Events</div>
+                        <div class="card-body">
+                            <!--display calender-->
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                                Velit omnis modi deserunt, eos rem temporibus nesciunt quasi facilis? 
+                                Perspiciatis saepe, amet voluptatem quas dolor hic deleniti dolorum error 
+                                voluptatum eaque?
+                            </p>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                                Velit omnis modi deserunt, eos rem temporibus nesciunt quasi facilis? 
+                                Perspiciatis saepe, amet voluptatem quas dolor hic deleniti dolorum error 
+                                voluptatum eaque?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card form-row">
+                        <div class="card-header">Statistics</div>
+                        <div class="card-body">
+                            <!--display school statistics-->
+                        </div>
+                    </div>
+                    <hr>
+                   <div class="card form-row">
+                        <div class="card-header">Charts</div>
+                        <div class="card-body">
+                            <!--display school statistics-->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
