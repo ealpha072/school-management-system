@@ -112,7 +112,7 @@
 
                 <!--OTHERS-->
                 <li>
-                    <a href="login.php">Logout</a>
+                    <a href="../login/login.php">Logout</a>
                 </li>
             </ul>
     </nav>
