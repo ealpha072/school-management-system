@@ -17,11 +17,11 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="admission-number">Adm Number<sup>*</sup></label>
-                                <input type="text" placeholder="Adm Number" class="form-control" name="adm_num">
+                                <input type="text" placeholder="Adm Number" class="form-control" name="adm_num" required>
                             </div>
                             <div class="col">
                                 <label for="form">Form<sup>*</sup></label>
-                                <select name="form" id="" class="form-control">
+                                <select name="form" id="" class="form-control" required>
                                     <option value="" selected disabled>Choose a form</option>
                                     <option value="">Form One</option>
                                     <option value="">Form Two</option>
@@ -31,7 +31,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="stream">Stream<sup>*</sup></label>
-                                <select name="stream" id="" class="form-control">
+                                <select name="stream" id="" class="form-control" required>
                                     <option value="" selected disabled>Choose a stream</option>
                                     <option value="">Blue</option>
                                     <option value="">Red</option>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col">
                                 <label for="hostel">Hostel<sup>*</sup></label>
-                                <select name="hostel" id="" class="form-control">
+                                <select name="hostel" id="" class="form-control" required>
                                     <option value="" selected disabled>Choose a hostel</option>
                                     <option value="">Mars</option>
                                     <option value="">Pluto</option>
@@ -63,21 +63,21 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="first-name">First Name<sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" name="first-name">
+                                <input type="text" placeholder="First Name" class="form-control" name="first-name" required>
                             </div>
                             <div class="col">
                                 <label for="middle-name">Middle Name<sup>*</sup></label>
-                                <input type="text" placeholder="Middle Name" class="form-control" name="middle-name">
+                                <input type="text" placeholder="Middle Name" class="form-control" name="middle-name" required>
                             </div>
                             <div class="col">
                                 <label for="last-name">Last Name<sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="last-name">
+                                <input type="text" placeholder="Last Name" class="form-control" name="last-name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="gender">Gender<sup>*</sup></label>
-                                <select name="gender" id="" class="form-control">
+                                <select name="gender" id="" class="form-control" required>
                                     <option value="" selected disabled>Choose Gender</option>
                                     <option value="">Male</option>
                                     <option value="">Female</option>
@@ -85,17 +85,17 @@
                             </div>
                             <div class="col">
                                 <label for="Nationality">Nationality<sup>*</sup></label>
-                                <input type="text" placeholder="Nationality" class="form-control" name="nationality">
+                                <input type="text" placeholder="Nationality" class="form-control" name="nationality" required>
                             </div>
                             <div class="col">
                                 <label for="county">County<sup>*</sup></label>
-                                <input type="text" placeholder="County" class="form-control" name="county">
+                                <input type="text" placeholder="County" class="form-control" name="county" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="photo">Passport photo <sup>*</sup></label>
-                                <input type="file" placeholder= "Upload a passport file" class="form-control" name="student_photo">
+                                <input type="file" placeholder= "Upload a passport file" class="form-control" name="student_photo" required>
                             </div>
                         </div>
                     </div>
@@ -111,26 +111,30 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="first-name">First Name<sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" name="first-name">
+                                <input type="text" placeholder="First Name" class="form-control" name="pfirst-name" required>
                             </div>
                             <div class="col">
                                 <label for="mid-name">Mid Name<sup>*</sup></label>
-                                <input type="text" placeholder="Mid Name" class="form-control" name="mid-name">
+                                <input type="text" placeholder="Mid Name" class="form-control" name="pmid-name" required>
                             </div>
                             <div class="col">
                                 <label for="last-name">Last Name<sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="last-name">
+                                <input type="text" placeholder="Last Name" class="form-control" name="plast-name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="email">Email <sup>*</sup></label>
-                                <input type="email" placeholder="Email Address" class="form-control" name="email">
+                                <input type="email" placeholder="Email Address" class="form-control" name="pemail" required>
                             </div>
                             <div class="col">
                                 <label for="phone-number">Phone Number <sup>*</sup></label>
-                                <input type="text" placeholder="Phone Number" class="form-control" name="phone-number">
+                                <input type="text" placeholder="Phone Number" class="form-control" name="pphone-number" required>
                             </div>
+                        </div>
+                        <hr>
+                        <div class="submit">
+                            <button class="btn btn-primary" type="submit" name="add-student">Add Student</button>
                         </div>
                     </div>
                 </div>
