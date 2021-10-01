@@ -1,14 +1,14 @@
 
 <?php 
-  require "../config/config.php";
   require "../shared/header.php";
+  require "../shared/config.php";
 ?>
 
 <!--consider customizing more-->
 <div class="row h-100 justify-content-center align-items-center">
     <div class="col-10 col-md-8 col-lg-4">
       <h3>Login</h3>
-    	<form action="config.php" method="post">
+    	<form action="../shared/config.php" method="post">
           <div class="form-group input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -32,7 +32,7 @@
               </div>
             </div>
             <div class="col-4">
-              <button type="submit" class="btn btn-dark" name="login"> Sign In</button>
+              <button type="submit" class="btn btn-primary" name="login" id="loginbtn"> Login</button>
             </div>
           </div>
         </form>
