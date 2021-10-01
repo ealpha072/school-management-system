@@ -15,8 +15,13 @@
         //echo "Connection failed".$e->getMessage();
     }
 
+    //error arays
+    $loginerror = array();
+
+
     //SQL statements
     $sql1 = $conn->prepare("SELECT * FROM `admin` WHERE username=? AND password =? ");
+    
 
 
     if(isset($_POST['login']) && $_SERVER["REQUEST_METHOD"]=="POST"){ 
@@ -33,6 +38,7 @@
         $results = $sql1->fetchAll(PDO::FETCH_ASSOC);
 
         if($username ==='' || $password===''){
+            array_push($loginerror, 'Fields cannot be empty');
             exit("Error logging you in, please check your credentials and try again");
         }
 
@@ -55,8 +61,14 @@
             ';
             header("refresh:3;url='../dashboard/dashboard.php'");
             exit();
+        }else{
+            array_push($loginerror, "Incorrect password or username, try again");
         }
         
+    }
+
+    function addStudent() {
+
     }
 
 
