@@ -1,5 +1,8 @@
-<?php require "../shared/header.php"?>
 
+<?php 
+  require "../config/config.php";
+  require "../shared/header.php";
+?>
 
 <!--consider customizing more-->
 <div class="row h-100 justify-content-center align-items-center">

@@ -69,3 +69,8 @@ ENGINE = InnoDBm COMMENT = 'Table for roles of support staff';
 CREATE TABLE `scms`. 
 ( `id` INT(100) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , 
 `teacher_incharge` INT(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+/*table for admin*/
+CREATE TABLE `scms`.`admin` 
+( `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL ) 
+ENGINE = InnoDB;
