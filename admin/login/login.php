@@ -1,22 +1,39 @@
 <?php require "../shared/header.php"?>
 
-<div class="row">
-    <div class="col-md-6 mx-auto p-0">
-        <div class="card">
-            <div class="login-box">
-                <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                    <div class="login-space">
-                        <div class="login">
-                            <div class="group"> <label for="user" class="label">Username</label> <input id="user" type="text" class="input" placeholder="Enter your username"> </div>
-                            <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
-                            <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div>
-                            <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
-                            <div class="hr"></div>
-                            <div class="foot"> <a href="#">Forgot Password?</a> </div>
-                        </div>
-                    </div>
-                </div>
+
+<!--consider customizing more-->
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-4">
+      <h3>Login</h3>
+    	<form action="config.php" method="post">
+          <div class="form-group input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
             </div>
-        </div>
+              <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter username" name="username">
+          </div>
+
+          <div class="form-group input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+            </div>
+              <!--<label for="password">Password</label>-->
+              <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" name="terms">
+                <label for="agreetoterms">Remember me</label>
+              </div>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-dark" name="login"> Sign In</button>
+            </div>
+          </div>
+        </form>
     </div>
 </div>
+
+<?php require "../shared/footer.php";?>
