@@ -29,7 +29,7 @@
                 </li>                
                 <!--syllabus-->
                 <li>
-                    <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Academic Syllabus</a>
+                    <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Subjects</a>
                     <ul class="collapse list-unstyled" id="syllabus">
                         <li>
                             <a href="../subjects/addsub.php">Add Subjects</a>
