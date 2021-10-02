@@ -1,4 +1,15 @@
-<?php require "../shared/home.php";?>
+<?php 
+    require "../shared/config.php";  
+    
+
+    if(empty($_SESSION['userLogin']) || $_SESSION['userLogin'] == ''){
+        //echo "Login first";
+        header("Location: ../login/login.php");
+        die();
+    }
+
+    require "../shared/home.php";
+?>
 
 <div class="container">
     <div class="card">
@@ -95,7 +106,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="photo">Passport photo <sup>*</sup></label>
-                                <input type="file" placeholder= "Upload a passport file" class="form-control" name="student_photo" required>
+                                <input type="file" placeholder= "Upload a passport file" class="form-control" name="student-photo" required>
                             </div>
                         </div>
                     </div>

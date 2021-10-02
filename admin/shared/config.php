@@ -33,6 +33,10 @@
         login();
     }
 
+    if(isset($_POST['add-student']) && $_SERVER['REQUEST_METHOD']=='POST'){
+        newStudent();
+    }
+
 
 
     function login() {
@@ -46,7 +50,7 @@
 
             if(count($results)==1){
                 if($username===$results[0]['username'] && $password===$results[0]['password']){
-                    $_SESSION['loggedin'] = True;
+                    $_SESSION['userLogin'] = 'admin';
                     $_SESSION['msg'] = 'Successful login';
                     require "../shared/header.php";
                     require "../shared/footer.php";
@@ -101,7 +105,7 @@
         $gender = $_POST['gender'];
         $nationality = $_POST['nationality'];
         $county = $_POST['county'];
-        $photo = $_POST['student_photo'];
+        $photo = $_FILES['student-photo']['name'];
         $pfirst_name = $_POST['pfirst_name'];
         $pmid_name = $_POST['pmid_name'];
         $plast_name = $_POST['plast_name'];
@@ -110,8 +114,30 @@
 
         //form-validation
 
+        //student image...
+        $target_dir = "../images/students";
+        $target_file_path = $target_dir.basename($_FILES['student-photo']['name']);
+        $extension = strtolower(pathinfo($target_file_path,PATHINFO_EXTENSION));
+
+        if(file_exists($target_dir)){
+            $file_exist_error = "Photo already exists.";
+            array_push($error, $file_exist_error);
+        }
+
+        if(!in_array($extension, ['jpg','png'])){
+            $image_type_error = "Invalid image extension";
+            array_push($error, $image_type_error);
+        }
+
+        if($_FILES['student-photo']['size'] > 5000000){
+            $image_size_error = "The image size is too large";
+            array_push($error, $image_size_error);
+        }
+
         //add student
         if(count($error)==0){
+            move_uploaded_file($_FILES['student-photo']['tmp_name'],$target_file_path);
+                
             $sql2->execute(array($adm_number,$form, $stream, $hostel, $first_name, $mid_name, $last_name, $county, 
                 $gender, $nationality, $photo, $pfirst_name, $pmid_name, $plast_name, $pemail, $pphone_number, $adm_date));
         }
@@ -119,4 +145,11 @@
 
     }
 
+    function isLoggedin() {
+        if(isset($_SESSION['user'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
 ?>
