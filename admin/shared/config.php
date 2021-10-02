@@ -37,8 +37,6 @@
         newStudent();
     }
 
-
-
     function login() {
         global $sql1, $loginerror;
         $username = $_POST["username"];
@@ -140,16 +138,11 @@
                 
             $sql2->execute(array($adm_number,$form, $stream, $hostel, $first_name, $mid_name, $last_name, $county, 
                 $gender, $nationality, $photo, $pfirst_name, $pmid_name, $plast_name, $pemail, $pphone_number, $adm_date));
+            
+            echo "New student added successfully";
         }
 
 
     }
 
-    function isLoggedin() {
-        if(isset($_SESSION['user'])){
-            return true;
-        }else{
-            return false;
-        }
-    }
 ?>

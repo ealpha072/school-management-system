@@ -1,14 +1,15 @@
 <?php 
     require "../shared/config.php";  
-    
+    require "../shared/home.php";
 
     if(empty($_SESSION['userLogin']) || $_SESSION['userLogin'] == ''){
-        //echo "Login first";
+        //consider animating before sending to login page
+        echo "You must be logged in";
         header("Location: ../login/login.php");
         die();
     }
 
-    require "../shared/home.php";
+    
 ?>
 
 <div class="container">
