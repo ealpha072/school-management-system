@@ -115,7 +115,7 @@
 
                 <!--OTHERS-->
                 <li>
-                    <a href="../login/login.php">Logout</a>
+                    <a href="../shared/endsession.php">Logout</a>
                 </li>
             </ul>
     </nav>

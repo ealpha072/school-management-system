@@ -140,4 +140,6 @@
         }
     }
 
+    session_destroy();
+
 ?>
