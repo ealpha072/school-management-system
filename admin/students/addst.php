@@ -1,19 +1,18 @@
 <?php 
     require "../shared/config.php";  
-    $login = $_GET[$_SESSION['userLogin']];
 
-    if(empty($login) || $login == ''){
-        echo "You must login";
-        header("Location: ../login/login.php");
-        die();
-    } 
+    if(!isset($_SESSION['userLogin'])){
+        echo "Please login to proceed";
+        header("refresh:1; url='../login/login.php'");
+        exit();
+    }
     require "../shared/home.php";   
 ?>
 
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <p class="header">Admit new student</p>
+            <p class="header">Admit new student <?php //echo $log?></p>
         </div>
         <div class="card-body">
             <!--form for admitting new student-->

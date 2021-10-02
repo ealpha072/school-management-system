@@ -25,9 +25,6 @@
     county, gender, nationality, photo, p_first_name, p_mid_name, p_last_name, p_email, p_phone, adm_date) 
     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-    
-    
-
 
     if(isset($_POST['login']) && $_SERVER["REQUEST_METHOD"]=="POST"){ 
         login();
@@ -48,7 +45,7 @@
 
             if(count($results)==1){
                 if($username===$results[0]['username'] && $password===$results[0]['password']){
-                    $_SESSION['userLogin'] = 'admin';
+                    $_SESSION['userLogin'] = $username;
                     $_SESSION['msg'] = 'Successful login';
                     require "../shared/header.php";
                     require "../shared/footer.php";
@@ -141,8 +138,6 @@
             
             echo "New student added successfully";
         }
-
-
     }
 
 ?>

@@ -1,7 +1,7 @@
 
-<?php 
-  require "../shared/header.php";
-  require "../shared/config.php";
+<?php
+	require "../shared/header.php";
+  	require "../shared/config.php"; 
 ?>
 
 <!--consider customizing more-->

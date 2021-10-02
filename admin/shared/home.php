@@ -1,4 +1,4 @@
-<?php    
+<?php   
     require "header.php"; 
 ?>
 
@@ -8,7 +8,8 @@
             <div class="sidebar-header">
                 <h3>School System</h3>
                 <img src="" alt="">
-                <h5>Admin</h5>
+                <h5><?php //echo $loggedIn?></h5>
+                <h6>Thanks</h6>
             </div>
 
             <!--dashboard items-->
