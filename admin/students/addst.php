@@ -17,7 +17,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="admission-number">Adm Number<sup>*</sup></label>
-                                <input type="text" placeholder="Adm Number" class="form-control" name="adm_num" required>
+                                <input type="number" placeholder="Adm Number" class="form-control" name="adm_num" required>
                             </div>
                             <div class="col">
                                 <label for="form">Form<sup>*</sup></label>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="col">
                                 <label for="admission-date">Admission Date</label>
-                                <input type="text" disabled value="<?php echo date("Y/m/d")?>" class="form-control">
+                                <input type="text" disabled value="<?php echo date("Y/m/d")?>" class="form-control" name= "adm-date">
                             </div>
                         </div>
                     </div>
