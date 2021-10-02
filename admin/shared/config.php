@@ -21,7 +21,11 @@
 
     //SQL statements
     $sql1 = $conn->prepare("SELECT * FROM `admin` WHERE username=? AND password =? ");
+    $sql2 = $conn->prepare("INSERT INTO students(adm_num,form,stream,hostel,first_name,mid_name, last_name, 
+    county, gender, nationality, photo, p_first_name, p_mid_name, p_last_name, p_email, p_phone, adm_date) 
+    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
+    
     
 
 
@@ -83,12 +87,14 @@
     }
 
     function newStudent() {
+        global $sql2;
         $error = array();
 
         $adm_number = $_POST['adm_num'];
         $form = $_POST['form'];
         $stream = $_POST['stream'];
         $hostel = $_POST['hostel'];
+        $adm_date = $_POST['adm-date'];
         $first_name = $_POST['first-name'];
         $mid_name = $_POST['mid-name'];
         $last_name = $_POST['last-name'];
@@ -103,6 +109,13 @@
         $pphone_number = $_POST['pphone_number'];
 
         //form-validation
+
+        //add student
+        if(count($error)==0){
+            $sql2->execute(array($adm_number,$form, $stream, $hostel, $first_name, $mid_name, $last_name, $county, 
+                $gender, $nationality, $photo, $pfirst_name, $pmid_name, $plast_name, $pemail, $pphone_number, $adm_date));
+        }
+
 
     }
 
