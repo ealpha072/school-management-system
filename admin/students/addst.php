@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <!--form for admitting new student-->
-            <form action="" method="get" enctype="multipart/form-data"> 
+            <form action="../shared/config.php" method="POST" enctype="multipart/form-data"> 
                 <!--Academic info card-->
                 <div class="card academic_info">
                     <div class="card-header">

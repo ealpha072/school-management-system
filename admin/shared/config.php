@@ -22,7 +22,7 @@
     //SQL statements
     $sql1 = $conn->prepare("SELECT * FROM `admin` WHERE username=? AND password =? ");
     $sql2 = $conn->prepare("INSERT INTO students(adm_num,form,stream,hostel,first_name,mid_name, last_name, 
-    county, gender, nationality, photo, p_first_name, p_mid_name, p_last_name, p_email, p_phone, adm_date) 
+    county, gender, nationality, photo, p_first_name, p_mid_name, p_last_name, p_email, p_phone_num, adm_date) 
     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 
@@ -93,28 +93,28 @@
         $form = $_POST['form'];
         $stream = $_POST['stream'];
         $hostel = $_POST['hostel'];
-        $adm_date = $_POST['adm-date'];
+        $adm_date = date('Y/m/d');
         $first_name = $_POST['first-name'];
-        $mid_name = $_POST['mid-name'];
+        $mid_name = $_POST['middle-name'];
         $last_name = $_POST['last-name'];
         $gender = $_POST['gender'];
         $nationality = $_POST['nationality'];
         $county = $_POST['county'];
         $photo = $_FILES['student-photo']['name'];
-        $pfirst_name = $_POST['pfirst_name'];
-        $pmid_name = $_POST['pmid_name'];
-        $plast_name = $_POST['plast_name'];
+        $pfirst_name = $_POST['pfirst-name'];
+        $pmid_name = $_POST['pmid-name'];
+        $plast_name = $_POST['plast-name'];
         $pemail = $_POST['pemail'];
-        $pphone_number = $_POST['pphone_number'];
+        $pphone_number = $_POST['pphone-number'];
 
         //form-validation
 
         //student image...
-        $target_dir = "../images/students";
+        $target_dir = "../images/students/";
         $target_file_path = $target_dir.basename($_FILES['student-photo']['name']);
         $extension = strtolower(pathinfo($target_file_path,PATHINFO_EXTENSION));
 
-        if(file_exists($target_dir)){
+        if(file_exists($target_file_path)){
             $file_exist_error = "Photo already exists.";
             array_push($error, $file_exist_error);
         }
@@ -137,9 +137,11 @@
                 $gender, $nationality, $photo, $pfirst_name, $pmid_name, $plast_name, $pemail, $pphone_number, $adm_date));
             
             echo "New student added successfully";
+        }else{
+            echo "Error in adding"."<br>";
+            var_dump($error);
         }
     }
-
-    session_destroy();
+    //session_destroy();
 
 ?>
