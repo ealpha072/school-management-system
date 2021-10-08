@@ -144,7 +144,8 @@
                 ':p_phone_num'=>$pphone_number,
                 ':adm_date'=>$adm_date
             ));
-
+            $_SESSION['success'] = "New record added to database";
+            $_SESSION['adm'] = 'Admission number '.$adm_number.' added to database';
         }
 
     }
@@ -158,6 +159,18 @@
                     // code...
                     echo $error.'<br>';
                 }
+        }
+    }
+
+    function addStudentSuccess(){
+        global $add_student_error;
+        if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
+            echo '<div class="alert alert-success" role="alert">';
+            echo $_SESSION['adm'];
+            echo '</div>';
+
+            unset($_SESSION['success']);
+            unset($_SESSION['adm']);
         }
     }
 
