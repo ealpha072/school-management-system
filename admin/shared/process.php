@@ -40,7 +40,7 @@
                 $_SESSION['userLogin'] = $username;
                 $_SESSION['msg'] = 'Successful login';
 
-                header('location: login_switch.php');
+                header('location: ../shared/login_switch.php');
                 exit();
             }
         }else{
@@ -60,5 +60,13 @@
                     // code...
                     echo $error.'<br>';
                 }
+        }
+    }
+
+    function isLoggedIn() {
+        if(isset($_SESSION['userLogin'])){
+            return True;
+        }else{
+            return False;
         }
     }
