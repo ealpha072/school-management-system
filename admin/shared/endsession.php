@@ -7,7 +7,6 @@
     }
 
     echo 'You have been successfully loged out. Do you want to '.'<a href=\'../login/login.php\'>login</a>';
-    //header('');
     session_destroy();
 
     exit();
