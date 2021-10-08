@@ -12,6 +12,7 @@
     //declairing error variables
     $login_error = [];
     $add_student_error = [];
+    $add_subject_error = [];
 
     //sql statements
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -36,7 +37,10 @@
             :p_email,:p_phone_num,:adm_date)'
     );
 
+    $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department) values(:name, :subject_type, :head_of_subject, :department)');
 
+
+    //button pushes
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
         login();
     }
@@ -45,7 +49,13 @@
         addStudent();
     }
 
+    if(isset($_POST['add-subject']) && $_SERVER['REQUEST_METHOD']=='POST'){
+        addSubject();
+    }
 
+
+
+    //main functions
     function login() {
         global $login_sql, $login_error;
 
@@ -75,8 +85,6 @@
         }
 
     }
-
-
 
     function addStudent(){
         global $add_student_sql, $add_student_error;
@@ -144,17 +152,36 @@
                 ':p_phone_num'=>$pphone_number,
                 ':adm_date'=>$adm_date
             ));
-            $_SESSION['success'] = "New record added to database";
-            $_SESSION['adm'] = 'Admission number '.$adm_number.' added to database';
+            $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
         }
 
     }
 
-    function displayLoginErrors() {
-        global $login_error;
+    function addSubject(){
+        global $add_subject_sql;
+        $name = htmlspecialchars($_POST['subject-name']);
+        $head_of_subject=htmlspecialchars($_POST['hos']);
+        $subject_type=htmlspecialchars($_POST['subject-type']);
+        $department=htmlspecialchars($_POST['department']);
+
+        //form validation
+
+        //push to database
+        $add_subject_sql->execute(array(
+            ':name'=> $name,
+            ':subject_type'=> $subject_type,
+            ':head_of_subject'=> $head_of_subject,
+            ':department'=> $department
+        ));
+        $_SESSION['success'] = 'Subject '.$name.' added successfully';
+    }
+
+    //helper functions
+    function displayErrors() {
+        global $login_error, $add_student_error, $add_subject_error;
 
         if(count($login_error)>0){
-            echo '<div class=\'errordiv\'>';
+            echo '<div class=\'alert alert-danger\'>';
                 foreach ($login_error as $error) {
                     // code...
                     echo $error.'<br>';
@@ -162,11 +189,10 @@
         }
     }
 
-    function addStudentSuccess(){
-        global $add_student_error;
+    function showSuccessMessage(){
         if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
             echo '<div class="alert alert-success" role="alert">';
-            echo $_SESSION['adm'];
+            echo $_SESSION['success'];
             echo '</div>';
 
             unset($_SESSION['success']);
