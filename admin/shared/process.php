@@ -12,6 +12,7 @@
     //declairing error variables
     $login_error = [];
     $add_student_error = [];
+    $add_subject_error = [];
 
     //sql statements
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -176,8 +177,8 @@
     }
 
     //helper functions
-    function displayLoginErrors() {
-        global $login_error;
+    function displayErrors() {
+        global $login_error, $add_student_error, $add_subject_error;
 
         if(count($login_error)>0){
             echo '<div class=\'alert alert-danger\'>';
