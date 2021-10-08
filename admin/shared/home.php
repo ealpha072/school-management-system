@@ -1,5 +1,13 @@
 <?php   
-    require "header.php"; 
+    require 'process.php';
+
+    if(!isLoggedIn()){
+        $_SESSION['msg'] = 'You must be logged in to use the application,
+        taking you to login page...';
+        header('location:../login/login.php');
+    }
+
+    require 'header.php';
 ?>
 
 <div class="wrapper">
