@@ -6,8 +6,11 @@
         $db = new PDO('sqlite:../../mydatabase.db');
         $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
-        echo 'Connection failed '.$e->getMessage();
+        echo 'Connection to database failed '.$e->getMessage();
     }
+
+    //declairing error variables
+    $login_error = [];
 
     //sql statements
     $sql_1 = $db->prepare('select * from admin where user_name=:username
@@ -19,7 +22,8 @@
     }
 
     function login() {
-        global $sql_1;
+        global $sql_1, $login_error;
+
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -36,23 +40,25 @@
                 $_SESSION['userLogin'] = $username;
                 $_SESSION['msg'] = 'Successful login';
 
-                require "../shared/header.php";
-                require "../shared/footer.php";
-                echo
-                    '<div class="container h-100">
-                        <div class="row h-100 justify-content-center align-items-center">
-                            <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div>
-                                <h1>Loading, please wait...</h1>
-                            </div>
-                        </div>
-                    </div>';
-
-                header('refresh:3;url=\'../dashboard/dashboard.php\'');
+                header('location: login_switch.php');
                 exit();
             }
+        }else{
+
+            $error = 'Could not find your credentials, please try again';
+            array_push($login_error, $error);
         }
 
+    }
+
+    function displayLoginErrors() {
+        global $login_error;
+
+        if(count($login_error)>0){
+            echo '<div class=\'errordiv\'>';
+                foreach ($login_error as $error) {
+                    // code...
+                    echo $error.'<br>';
+                }
+        }
     }
