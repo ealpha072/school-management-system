@@ -34,10 +34,14 @@
             :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
+    $select_all_students_sql = $db->prepare('select adm_num, stream from students where adm_num=:adm and stream=:stream');
+
         //subject sql statements;
-    $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department) values(:name, :subject_type, :head_of_subject, :department)');
+    $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department)
+        values(:name, :subject_type, :head_of_subject, :department)');
 
     $select_all_subjects_sql = $db->prepare('select name from subjects where name=:name');
+
 
 
     //button pushes
@@ -86,7 +90,7 @@
     }
 
     function addStudent(){
-        global $add_student_sql, $add_student_error;
+        global $add_student_sql, $add_student_error, $select_all_students_sql;
 
         $adm_number = htmlspecialchars($_POST['adm_num']);
         $form = htmlspecialchars($_POST['form']);
@@ -112,6 +116,18 @@
             $pemail = $pemail;
         }
 
+        //check if student exists;
+        $select_all_students_sql->execute(array(
+            ':adm'=>$adm_number,
+            'stream'=>$stream
+        ));
+
+        $results = $select_all_students_sql->fetchAll(PDO::FETCH_ASSOC);
+        if(count($results) > 0){
+            $student_exists_error = 'Cannot add student, the adm number: '.$adm_number.' is already taken.';
+            array_push($add_student_error, $student_exists_error);
+        }
+
         //student image processing
         $target_dir = "../images/students/";
         $target_file_path = $target_dir.basename($_FILES['student-photo']['name']);
@@ -123,7 +139,7 @@
         }
 
         if(!in_array($extension, ['jpg','png'])){
-            $image_type_error = "Invalid image extension, please choose a valid format";
+            $image_type_error = "Invalid image extension, please choose a valid format.";
             array_push($add_student_error, $image_type_error);
         }
 
@@ -132,7 +148,7 @@
             array_push($add_student_error, $image_size_error);
         }
 
-        //add to database
+        //add new student to database
         if(count($add_student_error)==0){
             move_uploaded_file($_FILES['student-photo']['tmp_name'], $target_file_path);
 
@@ -172,7 +188,7 @@
         $results = $select_all_subjects_sql->fetchAll(PDO::FETCH_ASSOC);
 
         if(count($results)>0){
-            $subject_exists_error = 'Cannot add subject: '.$name.' it already exists in database';
+            $subject_exists_error = 'Cannot add subject: '.$name.' it already exists in database. Try a different name';
             array_push($add_subject_error, $subject_exists_error);
         }
 
