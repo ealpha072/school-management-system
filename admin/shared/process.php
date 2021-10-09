@@ -12,6 +12,7 @@
     $login_error = [];
     $add_student_error = [];
     $add_subject_error = [];
+    $add_teacher_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -229,6 +230,11 @@
             $subject_addition_error = "Error adding new subject, fix below errors";
             array_unshift($add_subject_error, $subject_addition_error);
         }
+
+    }
+
+    function addTeacher(){
+        global $add_teacher_error;
 
     }
 
