@@ -1,12 +1,18 @@
 
 <?php
-    $first_name = '  Alpha  ';
-    $mid_name = 'Emmanuel Ochieng<>';
-    $names_array = array($first_name, $mid_name);
+    $errors = ["Hello", "Hi there", "come here"];
+    $login_err = ["Incorrect username", "Wrong poassword"];
 
-    foreach ($names_array as $name) {
-        // code...
-        $new_name  = trim(htmlspecialchars(str_replace(' ', '', $name)));
-        echo $new_name.'<br>';
+
+    function display($array){
+        echo '<div>';
+            echo '<ul>';
+                foreach ($array as $error_msg) {
+                    // code...
+                    echo '<li>'.$error_msg.'</li>';
+                }
+            echo '</ul>';
+        echo '</div>';
     }
-?>
+
+    display($errors);

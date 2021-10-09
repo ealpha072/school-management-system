@@ -7,7 +7,15 @@
         </div>
         <div class="card-body">
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-                <?php echo showSuccessMessage(); ?>
+                <?php
+                    echo showSuccessMessage();
+
+                    if(isset($add_subject_error) && !empty($add_subject_error)){
+                        displayErrors($add_subject_error);
+                    }
+
+
+                ?>
                 <div class="card subject-info">
                     <div class="card-header">
                         <h5>Subject Info</h5>

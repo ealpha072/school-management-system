@@ -12,7 +12,10 @@
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
                 <?php
                     echo showSuccessMessage();
-                    echo displayErrors();
+
+                    if(isset($add_student_error) && !empty($add_student_error)){
+                        displayErrors($add_student_error);
+                    }
                 ?>
                 <!--Academic info card-->
                 <div class="card academic_info">

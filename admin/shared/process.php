@@ -13,7 +13,7 @@
     $add_student_error = [];
     $add_subject_error = [];
 
-    //sql statements
+    //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
             and password = :password');
 
@@ -34,8 +34,10 @@
             :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
-
+        //subject sql statements;
     $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department) values(:name, :subject_type, :head_of_subject, :department)');
+
+    $select_all_subjects_sql = $db->prepare('select name from subjects where name=:name');
 
 
     //button pushes
@@ -158,48 +160,40 @@
     }
 
     function addSubject(){
-        global $add_subject_sql;
-        $name = htmlspecialchars($_POST['subject-name']);
-        $head_of_subject=htmlspecialchars($_POST['hos']);
-        $subject_type=htmlspecialchars($_POST['subject-type']);
-        $department=htmlspecialchars($_POST['department']);
+        global $add_subject_sql, $add_subject_error, $select_all_subjects_sql;
+
+        $name = trim(htmlspecialchars($_POST['subject-name']));
+        $head_of_subject= trim(htmlspecialchars($_POST['hos']));
+        $subject_type= trim(htmlspecialchars($_POST['subject-type']));
+        $department= trim(htmlspecialchars($_POST['department']));
 
         //form validation
+        $select_all_subjects_sql->execute(array(':name'=>$name));
+        $results = $select_all_subjects_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results)>0){
+            $subject_exists_error = 'Cannot add subject: '.$name.' it already exists in database';
+            array_push($add_subject_error, $subject_exists_error);
+        }
 
         //push to database
-        $add_subject_sql->execute(array(
-            ':name'=> $name,
-            ':subject_type'=> $subject_type,
-            ':head_of_subject'=> $head_of_subject,
-            ':department'=> $department
-        ));
-        $_SESSION['success'] = 'Subject '.$name.' added successfully';
+        if(count($add_subject_error) == 0){
+
+            $add_subject_sql->execute(array(
+                ':name'=> $name,
+                ':subject_type'=> $subject_type,
+                ':head_of_subject'=> $head_of_subject,
+                ':department'=> $department
+            ));
+            $_SESSION['success'] = 'Subject '.$name.' added successfully';
+        }else{
+            $subject_addition_error = "Error adding new subject, fix below errors";
+            array_unshift($add_subject_error, $subject_addition_error);
+        }
+
     }
 
     //helper functions
-    function displayErrors() {
-        global $login_error, $add_student_error, $add_subject_error;
-
-        if(isset($login_error) && !empty($login_error)){
-            echo '<div class = "alert alert-danger">';
-            foreach ($login_error as $error) {
-                // code...
-                echo $error.'<br>';
-            }
-            echo '</div>';
-        }
-
-        if(isset($add_student_error) && !empty($add_student_error)){
-            echo '<div class = "alert alert-danger">';
-            echo '<ul class = "list-group">';
-            foreach ($add_student_error as $error) {
-                // code...
-                echo '<li>'.$error.'</li>';
-            }
-            echo '</li>';
-            echo '</div>';
-        }
-    }
 
     function showSuccessMessage(){
         if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
@@ -217,4 +211,15 @@
         }else{
             return False;
         }
+    }
+
+    function displayErrors($array){
+        echo '<div class = "alert alert-danger">';
+            echo '<ul class = "list-group">';
+                foreach ($array as $error_msg) {
+                    // code...
+                    echo '<li>'.$error_msg.'</li>';
+                }
+            echo '</ul>';
+        echo '</div>';
     }
