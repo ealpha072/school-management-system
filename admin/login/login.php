@@ -9,7 +9,11 @@
 	<div class="col-10 col-md-8 col-lg-4">
 	  	<h3>Login</h3>
 		<form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-			<?php echo displayErrors($login_error); ?>
+			<?php
+				if(isset($login_error) && !empty($login_error)){
+					displayErrors($login_error);
+				}
+			?>
 		  	<div class="form-group input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>

@@ -257,7 +257,7 @@
             echo '<ul class = "list-group">';
                 foreach ($array as $error_msg) {
                     // code...
-                    echo '<li>'.$error_msg.'</li>';
+                    echo '<li class = "">'.$error_msg.'</li>';
                 }
             echo '</ul>';
         echo '</div>';
