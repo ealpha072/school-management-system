@@ -12,6 +12,7 @@
     $login_error = [];
     $add_student_error = [];
     $add_subject_error = [];
+    $add_parent_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -34,7 +35,10 @@
             :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
+
     $select_all_students_sql = $db->prepare('select adm_num, stream from students where adm_num=:adm and stream=:stream');
+    $add_parent_sql = $db->prepare('insert into parents(parent_name, phone_number, email, childs_name)
+        values(:parent_name, :phone_number, :email, :childs_name)');
 
         //subject sql statements;
     $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department)
@@ -148,8 +152,8 @@
             array_push($add_student_error, $image_size_error);
         }
 
-        //add new student to database
-        if(count($add_student_error)==0){
+        //add new student and parent to database
+        if(count($add_student_error) == 0){
             move_uploaded_file($_FILES['student-photo']['tmp_name'], $target_file_path);
 
             $add_student_sql->execute(array(
