@@ -12,7 +12,6 @@
     $login_error = [];
     $add_student_error = [];
     $add_subject_error = [];
-    $add_parent_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -37,8 +36,10 @@
     );
 
     $select_all_students_sql = $db->prepare('select adm_num, stream from students where adm_num=:adm and stream=:stream');
+
     $add_parent_sql = $db->prepare('insert into parents(parent_name, phone_number, email, childs_name)
         values(:parent_name, :phone_number, :email, :childs_name)');
+    $select_all_parents_sql = $db->prepare('select email from parents where email = :email');
 
         //subject sql statements;
     $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department)
@@ -94,7 +95,8 @@
     }
 
     function addStudent(){
-        global $add_student_sql, $add_student_error, $select_all_students_sql, $add_parent_sql;
+        global $add_student_sql, $add_student_error, $select_all_students_sql,
+        $add_parent_sql, $select_all_parents_sql;
 
         $adm_number = htmlspecialchars($_POST['adm_num']);
         $form = htmlspecialchars($_POST['form']);
@@ -125,11 +127,20 @@
             ':adm'=>$adm_number,
             'stream'=>$stream
         ));
+        //check if parents email is taken
+        $select_all_parents_sql->execute(array(':email'=>$pemail));
 
-        $results = $select_all_students_sql->fetchAll(PDO::FETCH_ASSOC);
-        if(count($results) > 0){
+        $results_select_students = $select_all_students_sql->fetchAll(PDO::FETCH_ASSOC);
+        $results_select_parents_email = $select_all_parents_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results_select_students) > 0){
             $student_exists_error = 'Cannot add student, the adm number: '.$adm_number.' is already taken.';
             array_push($add_student_error, $student_exists_error);
+        }
+
+        if(count($results_select_parents_email) > 0){
+            $email_exists_error = "Parents email is already taken";
+            array_push($add_student_error, $email_exists_error);
         }
 
         //student image processing
