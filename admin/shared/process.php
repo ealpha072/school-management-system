@@ -1,7 +1,6 @@
 <?php
     session_start();
 
-
     try {
         $db = new PDO('sqlite:../../mydatabase.db');
         $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -79,7 +78,6 @@
                 exit();
             }
         }else{
-
             $error = 'Wrong username or password, please try again';
             array_push($login_error, $error);
         }
@@ -89,25 +87,33 @@
     function addStudent(){
         global $add_student_sql, $add_student_error;
 
-        $adm_number = $_POST['adm_num'];
-        $form = $_POST['form'];
-        $stream = $_POST['stream'];
-        $hostel = $_POST['hostel'];
+        $adm_number = trim(htmlspecialchars($_POST['adm_num']));
+        $form = htmlspecialchars($_POST['form']);
+        $stream = htmlspecialchars($_POST['stream']);
+        $hostel = htmlspecialchars($_POST['hostel']);
         $adm_date = date('Y/m/d');
-        $first_name = $_POST['first-name'];
-        $mid_name = $_POST['middle-name'];
-        $last_name = $_POST['last-name'];
-        $gender = $_POST['gender'];
-        $nationality = $_POST['nationality'];
-        $county = $_POST['county'];
-        $photo = $_FILES['student-photo']['name'];
-        $pfirst_name = $_POST['pfirst-name'];
-        $pmid_name = $_POST['pmid-name'];
-        $plast_name = $_POST['plast-name'];
+        $first_name = trim(htmlspecialchars($_POST['first-name']));
+        $mid_name = trim(htmlspecialchars($_POST['middle-name']));
+        $last_name = trim(htmlspecialchars($_POST['last-name']));
+        $gender = htmlspecialchars($_POST['gender']);
+        $nationality = trim(htmlspecialchars($_POST['nationality']));
+        $county = trim(htmlspecialchars($_POST['county']));
+        $photo = htmlspecialchars($_FILES['student-photo']['name']);
+        $pfirst_name = trim(htmlspecialchars($_POST['pfirst-name']));
+        $pmid_name = trim(htmlspecialchars($_POST['pmid-name']));
+        $plast_name = trim(htmlspecialchars($_POST['plast-name']));
         $pemail = $_POST['pemail'];
-        $pphone_number = $_POST['pphone-number'];
+        $pphone_number = trim(htmlspecialchars($_POST['pphone-number']));
 
-        //form validation
+        //FORM VALIDATION AND INPUT PROCESSING
+        //email validation
+        if(!filter_var($pemail, FILTER_VALIDATE_EMAIL)){
+            $email_error = "Incorrect email format, please try again";
+            array_push($add_student_error, $email_error);
+        }
+
+        //names validation
+        $names_array = array($first_name, $mid_name, $last_name, $pfirst_name, $pmid_name, $plast_name);
 
         //student image processing
         $target_dir = "../images/students/";
@@ -120,7 +126,7 @@
         }
 
         if(!in_array($extension, ['jpg','png'])){
-            $image_type_error = "Invalid image extension";
+            $image_type_error = "Invalid image extension, please choose a valid format";
             array_push($add_student_error, $image_type_error);
         }
 

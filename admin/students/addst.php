@@ -20,7 +20,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="admission-number">Adm Number<sup>*</sup></label>
-                                <input type="number" placeholder="Adm Number" class="form-control" name="adm_num" required value="1121">
+                                <input type="number" placeholder="Adm Number" class="form-control" name="adm_num" required value="1121" min="00001">
                             </div>
                             <div class="col">
                                 <label for="form">Form<sup>*</sup></label>
@@ -113,16 +113,8 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col">
-                                <label for="first-name">First Name<sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" name="pfirst-name" required value="Lucas">
-                            </div>
-                            <div class="col">
-                                <label for="mid-name">Mid Name<sup>*</sup></label>
-                                <input type="text" placeholder="Mid Name" class="form-control" name="pmid-name" required value="Omollddd">
-                            </div>
-                            <div class="col">
-                                <label for="last-name">Last Name<sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="plast-name" required value="Ohienta">
+                                <label for="parent-name">Full Name<sup>*</sup></label>
+                                <input type="text" placeholder="Firstname Midname Lastname" class="form-control" name="pfirst-name" required value="Lucas">
                             </div>
                         </div>
                         <div class="form-row">
