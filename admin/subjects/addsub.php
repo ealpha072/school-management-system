@@ -16,11 +16,11 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="name">Name</label>
-                                <input type="text" placeholder="Name of subject" class="form-control" name="subject-name">
+                                <input type="text" placeholder="Name of subject" class="form-control" name="subject-name" required="">
                             </div>
                             <div class="col">
                                 <label for="teacher">Head of Subject</label>
-                                <select name="hos" id="" class="form-control">
+                                <select name="hos" id="" class="form-control" required="">
                                     <option value="" disabled>--Head of subject--</option>
                                     <!--populate this with the teachers-->
                                     <option value="Mr Njiru" selected="">Mr Njiru</option>
@@ -30,7 +30,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="subject-type">Subject type</label>
-                                <select name="subject-type" id="" class="form-control">
+                                <select name="subject-type" id="" class="form-control" required="">
                                     <option value="" selected disabled>Choose subject type</option>
                                     <option value="compulsory">Complusory</option>
                                     <option value="elective">Elective</option>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col">
                                 <label for="department">Department</label>
-                                <select name="department" id="" class="form-control">
+                                <select name="department" id="" class="form-control" required="">
                                     <option value="" selected disabled>Choose Department</option>
                                     <!--consider adding this-->
                                     <option value="Chemistry">Chemistry</option>

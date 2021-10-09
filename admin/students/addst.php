@@ -87,10 +87,6 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="Nationality">Nationality<sup>*</sup></label>
-                                <input type="text" placeholder="Nationality" class="form-control" name="nationality" required value="Kenyan">
-                            </div>
-                            <div class="col">
                                 <label for="county">County<sup>*</sup></label>
                                 <input type="text" placeholder="County" class="form-control" name="county" required value="Kisumu">
                             </div>
@@ -114,7 +110,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="parent-name">Full Name<sup>*</sup></label>
-                                <input type="text" placeholder="Firstname Midname Lastname" class="form-control" name="pfirst-name" required value="Lucas">
+                                <input type="text" placeholder="Firstname Midname Lastname" class="form-control" name="pfirst-name" required value="Lucas Owala Okoth">
                             </div>
                         </div>
                         <div class="form-row">

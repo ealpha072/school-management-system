@@ -23,16 +23,15 @@
             stream,hostel,
             first_name,mid_name, last_name,
             county, gender,
-            nationality, photo,
-            p_first_name, p_mid_name, p_last_name,
-            p_email, p_phone_number, adm_date)
+            photo,
+            parent_name, p_email, p_phone_number, adm_date)
         values (
             :adm_num,:form,
             :stream,:hostel,
             :first_name,:mid_name,:last_name,
             :county,:gender,
-            :nationality,:photo,
-            :p_first_name,:p_mid_name,:p_last_name,
+            :photo,
+            :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
 
@@ -45,7 +44,12 @@
     }
 
     if(isset($_POST['add-student']) && $_SERVER['REQUEST_METHOD']=='POST'){
-        addStudent();
+        try {
+            addStudent();
+            echo "Added new record";
+        } catch (Exception $e) {
+            echo 'Error '.$e->getMessage();
+        }
     }
 
     if(isset($_POST['add-subject']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -87,33 +91,29 @@
     function addStudent(){
         global $add_student_sql, $add_student_error;
 
-        $adm_number = trim(htmlspecialchars($_POST['adm_num']));
+        $adm_number = htmlspecialchars($_POST['adm_num']);
         $form = htmlspecialchars($_POST['form']);
         $stream = htmlspecialchars($_POST['stream']);
         $hostel = htmlspecialchars($_POST['hostel']);
         $adm_date = date('Y/m/d');
-        $first_name = trim(htmlspecialchars($_POST['first-name']));
-        $mid_name = trim(htmlspecialchars($_POST['middle-name']));
-        $last_name = trim(htmlspecialchars($_POST['last-name']));
+        $first_name = htmlspecialchars($_POST['first-name']);
+        $mid_name = htmlspecialchars($_POST['middle-name']);
+        $last_name = htmlspecialchars($_POST['last-name']);
         $gender = htmlspecialchars($_POST['gender']);
-        $nationality = trim(htmlspecialchars($_POST['nationality']));
-        $county = trim(htmlspecialchars($_POST['county']));
+        $county = htmlspecialchars($_POST['county']);
         $photo = htmlspecialchars($_FILES['student-photo']['name']);
-        $pfirst_name = trim(htmlspecialchars($_POST['pfirst-name']));
-        $pmid_name = trim(htmlspecialchars($_POST['pmid-name']));
-        $plast_name = trim(htmlspecialchars($_POST['plast-name']));
+        $parent_name = htmlspecialchars($_POST['pfirst-name']);
         $pemail = $_POST['pemail'];
-        $pphone_number = trim(htmlspecialchars($_POST['pphone-number']));
+        $pphone_number = htmlspecialchars($_POST['pphone-number']);
 
         //FORM VALIDATION AND INPUT PROCESSING
         //email validation
         if(!filter_var($pemail, FILTER_VALIDATE_EMAIL)){
             $email_error = "Incorrect email format, please try again";
             array_push($add_student_error, $email_error);
+        }else{
+            $pemail = $pemail;
         }
-
-        //names validation
-        $names_array = array($first_name, $mid_name, $last_name, $pfirst_name, $pmid_name, $plast_name);
 
         //student image processing
         $target_dir = "../images/students/";
@@ -139,7 +139,7 @@
         if(count($add_student_error)==0){
             move_uploaded_file($_FILES['student-photo']['tmp_name'], $target_file_path);
 
-            $add_student_sql->execute(array(
+            /*$add_student_sql->execute(array(
                 ':adm_num'=>$adm_number,
                 ':form'=>$form,
                 ':stream'=>$stream,
@@ -149,15 +149,12 @@
                 ':last_name'=>$last_name,
                 ':county'=>$county,
                 ':gender'=>$gender,
-                ':nationality'=>$nationality,
                 ':photo'=>$photo,
-                ':p_first_name'=>$pfirst_name,
-                ':p_mid_name'=>$pmid_name,
-                ':p_last_name'=>$plast_name,
+                ':parent_name'=>$parent_name,
                 ':p_email'=>$pemail,
                 ':p_phone_num'=>$pphone_number,
                 ':adm_date'=>$adm_date
-            ));
+            ));*/
             $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
         }
     }
@@ -202,7 +199,6 @@
             echo '</div>';
 
             unset($_SESSION['success']);
-            unset($_SESSION['adm']);
         }
     }
 
