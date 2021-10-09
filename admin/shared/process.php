@@ -94,7 +94,7 @@
     }
 
     function addStudent(){
-        global $add_student_sql, $add_student_error, $select_all_students_sql;
+        global $add_student_sql, $add_student_error, $select_all_students_sql, $add_parent_sql;
 
         $adm_number = htmlspecialchars($_POST['adm_num']);
         $form = htmlspecialchars($_POST['form']);
@@ -172,6 +172,14 @@
                 ':p_phone_num'=>$pphone_number,
                 ':adm_date'=>$adm_date
             ));
+
+            $add_parent_sql->execute(array(
+                ':parent_name'=>$parent_name,
+                ':phone_number'=>$pphone_number,
+                ':email'=>$pemail,
+                ':childs_name'=>$first_name.' '.$mid_name.' '. $last_name
+            ));
+
             $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
         }else{
             $addition_error = "Error adding student to database, correct below errors:";
