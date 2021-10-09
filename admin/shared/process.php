@@ -44,12 +44,7 @@
     }
 
     if(isset($_POST['add-student']) && $_SERVER['REQUEST_METHOD']=='POST'){
-        try {
-            addStudent();
-            echo "Added new record";
-        } catch (Exception $e) {
-            echo 'Error '.$e->getMessage();
-        }
+        addStudent();
     }
 
     if(isset($_POST['add-subject']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -139,7 +134,7 @@
         if(count($add_student_error)==0){
             move_uploaded_file($_FILES['student-photo']['tmp_name'], $target_file_path);
 
-            /*$add_student_sql->execute(array(
+            $add_student_sql->execute(array(
                 ':adm_num'=>$adm_number,
                 ':form'=>$form,
                 ':stream'=>$stream,
@@ -154,8 +149,11 @@
                 ':p_email'=>$pemail,
                 ':p_phone_num'=>$pphone_number,
                 ':adm_date'=>$adm_date
-            ));*/
+            ));
             $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
+        }else{
+            $addition_error = "Error adding student to database, correct below errors:";
+            array_unshift($add_student_error, $addition_error);
         }
     }
 
@@ -188,6 +186,17 @@
                 // code...
                 echo $error.'<br>';
             }
+            echo '</div>';
+        }
+
+        if(isset($add_student_error) && !empty($add_student_error)){
+            echo '<div class = "alert alert-danger">';
+            echo '<ul class = "list-group">';
+            foreach ($add_student_error as $error) {
+                // code...
+                echo '<li>'.$error.'</li>';
+            }
+            echo '</li>';
             echo '</div>';
         }
     }

@@ -10,7 +10,10 @@
         <div class="card-body">
             <!--form for admitting new student-->
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
-                <?php echo showSuccessMessage(); ?>
+                <?php
+                    echo showSuccessMessage();
+                    echo displayErrors();
+                ?>
                 <!--Academic info card-->
                 <div class="card academic_info">
                     <div class="card-header">
