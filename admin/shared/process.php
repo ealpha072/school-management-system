@@ -80,7 +80,7 @@
             }
         }else{
 
-            $error = 'Could not find your credentials, please try again';
+            $error = 'Wrong username or password, please try again';
             array_push($login_error, $error);
         }
 
@@ -154,7 +154,6 @@
             ));
             $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
         }
-
     }
 
     function addSubject(){
@@ -180,12 +179,13 @@
     function displayErrors() {
         global $login_error, $add_student_error, $add_subject_error;
 
-        if(count($login_error)>0){
-            echo '<div class=\'alert alert-danger\'>';
-                foreach ($login_error as $error) {
-                    // code...
-                    echo $error.'<br>';
-                }
+        if(isset($login_error) && !empty($login_error)){
+            echo '<div class = "alert alert-danger">';
+            foreach ($login_error as $error) {
+                // code...
+                echo $error.'<br>';
+            }
+            echo '</div>';
         }
     }
 
