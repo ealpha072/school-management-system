@@ -15,6 +15,7 @@
     $add_teacher_error = [];
     $add_staff_error = [];
     $add_hostel_error = [];
+    $add_role_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -98,6 +99,9 @@
         values (:name, :teacher)');
 
     $select_hostel_sql = $db->prepare('select name from hostels where name = :name');
+    $add_role_sql = $db->prepare('insert into
+        staff_roles(role_name, staff_type, staff_name, date_created)
+        values(:role_name, :staff_type, :staff_name, :date_created)');
 
 
     //button pushes
@@ -125,8 +129,9 @@
         addHostel();
     }
 
-
-
+    if(isset($_POST['add-role']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+        addRole();
+    }
 
 
 
@@ -464,6 +469,31 @@
             array_unshift($add_hostel_error, $hostel_addition_error);
         }
 
+    }
+
+    function addRole(){
+        global $add_role_sql, $add_role_error;
+
+        $role_name = htmlspecialchars($_POST['role-name']);
+        $staff_type = htmlspecialchars($_POST['staff-type']);
+        $staff_name = htmlspecialchars($_POST['staff-name']);
+        $date = date('Y/m/d');
+
+        //check if exists
+
+        //push to databse
+        if(count($add_role_error) == 0){
+            $add_role_sql->execute(array(
+                ':role_name'=> $role_name,
+                ':staff_type'=> $staff_type,
+                ':staff_name'=> $staff_name,
+                ':date_created'=> $date
+            ));
+            $_SESSION['success'] = "New role, added to database successfully";
+        }else{
+            $role_addition_error = 'Unable to add role to database, correct below errors and try again';
+            array_unshift($add_role_error, $role_addition_error);
+        }
     }
 
 
