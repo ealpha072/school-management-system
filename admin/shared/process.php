@@ -97,6 +97,8 @@
     $add_hostel_sql =$db->prepare('insert into hostels (name, teacher_incharge)
         values (:name, :teacher)');
 
+    $select_hostel_sql = $db->prepare('select name from hostels where name = :name');
+
 
     //button pushes
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -412,6 +414,8 @@
         $select_all_subjects_sql->execute(array(':name'=>$name));
         $results = $select_all_subjects_sql->fetchAll(PDO::FETCH_ASSOC);
 
+        //check if exists
+
         if(count($results)>0){
             $subject_exists_error = 'Cannot add subject: '.$name.' it already exists in database. Try a different name';
             array_push($add_subject_error, $subject_exists_error);
@@ -435,10 +439,22 @@
     }
 
     function addHostel(){
-        global $add_hostel_sql, $add_hostel_error;
+        global $add_hostel_sql, $add_hostel_error, $select_hostel_sql;
 
         $name = htmlspecialchars($_POST['name']);
         $teacher = htmlspecialchars($_POST['teacher']);
+
+        //check if exists
+
+        $select_hostel_sql->execute(array(':name'=>$name));
+        $results = $select_hostel_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results) > 0){
+            $hostel_exists_error = "Hostel name is already taken, try a different name";
+            array_push($add_hostel_error, $hostel_exists_error);
+        }
+
+        //push to database
 
         if(count($add_hostel_error) == 0){
              $add_hostel_sql->execute(array(':name'=>$name, ':teacher'=>$teacher));
