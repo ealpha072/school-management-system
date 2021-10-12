@@ -6,7 +6,14 @@
             <h5>Add new Teacher</h5>
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="<?php $_SERVER['PHP_SELF']; ?> " method="post" enctype = "multipart/form-data">
+                <?php
+                    echo showSuccessMessage();
+
+                    if(isset($add_teacher_error) && !empty($add_teacher_error)){
+                        displayErrors($add_teacher_error);
+                    }
+                ?>
                 <!--personal info card-->
                 <div class="card">
                     <div class="card-header">
@@ -16,26 +23,26 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="first-name">First Name <sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" value = "Njiru" required="">
+                                <input type="text" placeholder="First Name" class="form-control" value = "Njiru" required="" name="first-name">
                             </div>
                             <div class="col">
                                 <label for="mid-name">Mid Name <sup>*</sup></label>
-                                <input type="text" placeholder="Mid Name" class="form-control" value = "Maina" required="">
+                                <input type="text" placeholder="Mid Name" class="form-control" value = "Maina" required="" name="mid-name">
                             </div>
                             <div class="col">
                                 <label for="">Last Name <sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" value="Waithera" required="">
+                                <input type="text" placeholder="Last Name" class="form-control" value="Waithera" required="" name="last-name">
                             </div>
                         </div>
                         <hr>
                         <div class="form-row">
                             <div class="col">
                                 <label for="email">Email <sup>*</sup></label>
-                                <input type="text" placeholder="Email" class="form-control" value="ealpha072@gmail.com" required="">
+                                <input type="text" placeholder="Email" class="form-control" value="ealpha072@gmail.com" required="" name="email">
                             </div>
                             <div class="col">
                                 <label for="phone-number">Phone Number <sup>*</sup></label>
-                                <input type="text" placeholder="Phone Number" class="form-control" value="0798975799" required="">
+                                <input type="text" placeholder="Phone Number" class="form-control" value="0798975799" required="" name="phone-number">
                             </div>
                         </div>
                         <hr>
@@ -50,7 +57,7 @@
                             </div>
                             <div class="col">
                                 <label for="photo">Photo <sup>*</sup></label>
-                                <input type="file" placeholder="Upload photo" class="form-control" required="">
+                                <input type="file" placeholder="Upload photo" class="form-control" required="" name="teacher-photo">
                             </div>
                         </div>
                     </div>
@@ -80,11 +87,11 @@
                             <!--populate subjects using php-->
                             <div class="col">
                                 <label for="">Subject 1</label>
-                                <input type="text" placeholder="Subject One" class="form-control" value="Mathematics" required="">
+                                <input type="text" placeholder="Subject One" class="form-control" value="Mathematics" required="" name="subject-1">
                             </div>
                             <div class="col">
                                 <label for="">Subject 2</label>
-                                <input type="text" placeholder="Subject Two" class="form-control" value="History" required="">
+                                <input type="text" placeholder="Subject Two" class="form-control" value="History" required="" name="subject-2">
                             </div>
                         </div>
                     </div>
