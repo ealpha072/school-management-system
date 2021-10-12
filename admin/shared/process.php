@@ -94,7 +94,8 @@
 
     $select_staff_sql = $db->prepare('select email from support_staff where email=:email');
 
-    $add_hostel_sql =$db->prepare('insert into hostels') ///start here
+    $add_hostel_sql =$db->prepare('insert into hostels (name, teacher_incharge)
+        values (:name, :teacher)');
 
 
     //button pushes
@@ -117,6 +118,13 @@
     if(isset($_POST['add-staff']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         addStaff();
     }
+
+    if(isset($_POST['add-hostel']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+        addHostel();
+    }
+
+
+
 
 
 
@@ -427,6 +435,18 @@
     }
 
     function addHostel(){
+        global $add_hostel_sql, $add_hostel_error;
+
+        $name = htmlspecialchars($_POST['name']);
+        $teacher = htmlspecialchars($_POST['teacher']);
+
+        if(count($add_hostel_error) == 0){
+             $add_hostel_sql->execute(array(':name'=>$name, ':teacher'=>$teacher));
+            $_SESSION['success'] = 'New hostel added to database';
+        }else{
+            $hostel_addition_error = "Unable to add hostel, correct below errors and try again";
+            array_unshift($add_hostel_error, $hostel_addition_error);
+        }
 
     }
 
