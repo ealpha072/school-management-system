@@ -91,6 +91,8 @@
             :gender
     )');
 
+    $select_staff_sql = $db->prepare('select email from support_staff where email=:email');
+
 
 
     //button pushes
@@ -321,7 +323,7 @@
     }
 
     function addStaff(){
-        global $add_staff_sql, $add_staff_error;
+        global $add_staff_sql, $add_staff_error, $select_staff_sql;
 
         $first_name = htmlspecialchars($_POST['first-name']);
         $mid_name = htmlspecialchars($_POST['mid-name']);
@@ -336,6 +338,13 @@
         //FORM VALIDATION
 
         //Check if email is taken
+        $select_staff_sql->execute(array(':email'=>$email));
+        $results = $select_staff_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results) > 0){
+            $staff_exists_error = "Email is already taken, try a different one";
+            array_push($add_staff_error, $staff_exists_error);
+        }
 
         //photo processing
         $target_dir = "../images/staffs/";
