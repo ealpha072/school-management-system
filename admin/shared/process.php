@@ -141,9 +141,6 @@
     }
 
 
-
-
-
     //main functions
     function login() {
         global $login_sql, $login_error;

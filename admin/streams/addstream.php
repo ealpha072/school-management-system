@@ -22,7 +22,7 @@
                 </div>
                 <hr>
                 <div class="button">
-                    <button class="btn btn-primary" name="add-stream">Add Stream</button><!--button spacing consider correcting-->
+                    <button class="btn btn-primary" name="add-stream">Add Stream</button>
                 </div>
             </form>
         </div>
