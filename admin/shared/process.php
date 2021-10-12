@@ -14,6 +14,7 @@
     $add_subject_error = [];
     $add_teacher_error = [];
     $add_staff_error = [];
+    $add_hostel_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -93,6 +94,7 @@
 
     $select_staff_sql = $db->prepare('select email from support_staff where email=:email');
 
+    $add_hostel_sql =$db->prepare('insert into hostels') ///start here
 
 
     //button pushes
@@ -421,6 +423,10 @@
             $subject_addition_error = "Error adding new subject, fix below errors";
             array_unshift($add_subject_error, $subject_addition_error);
         }
+
+    }
+
+    function addHostel(){
 
     }
 
