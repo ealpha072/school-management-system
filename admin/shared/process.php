@@ -66,6 +66,8 @@
 
         )');
 
+    $select_teacher_sql = $db->prepare('select email from teachers where email=:email');
+
 
 
     //button pushes
@@ -222,7 +224,7 @@
     }
 
     function addTeacher(){
-        global $add_teacher_error, $add_teacher_sql;
+        global $add_teacher_error, $add_teacher_sql, $select_teacher_sql;
 
         $first_name = htmlspecialchars($_POST['first-name']);
         $mid_name = htmlspecialchars($_POST['mid-name']);
@@ -237,6 +239,16 @@
         $date = date('Y/m/d');
 
         //FORM VALIDATION
+
+
+        //check if teachers email is already taken
+        $select_teacher_sql ->execute(array(':email'=>$email));
+        $results  = $select_teacher_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results) > 0){
+            $teacher_exits_error = "Email address is already taken, try a different one.";
+            array_push($add_teacher_error, $teacher_exits_error);
+        }
 
         //IMAGE PROCESSING
         $target_dir = "../images/teachers/";
