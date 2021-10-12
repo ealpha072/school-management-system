@@ -16,6 +16,7 @@
     $add_staff_error = [];
     $add_hostel_error = [];
     $add_role_error = [];
+    $add_stream_error = [];
 
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -102,6 +103,8 @@
     $add_role_sql = $db->prepare('insert into
         staff_roles(role_name, staff_type, staff_name, date_created)
         values(:role_name, :staff_type, :staff_name, :date_created)');
+    $add_stream_sql = $db->prepare('insert into streams(name) values(:name)');
+    $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
 
     //button pushes
@@ -132,6 +135,12 @@
     if(isset($_POST['add-role']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         addRole();
     }
+
+     if(isset($_POST['add-stream']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+        addStream();
+    }
+
+
 
 
 
@@ -496,6 +505,29 @@
         }
     }
 
+    function addStream(){
+        global $add_stream_sql, $add_stream_error, $select_stream_sql;
+
+
+        $name = htmlspecialchars($_POST['stream-name']);
+        $select_stream_sql->execute(array(':name'=>$name));
+        $results = $select_stream_sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($results) > 0){
+            $stream_exists_error = 'Stream name already taken, please choose new name';
+            array_push($add_stream_error, $stream_exists_error);
+        }
+
+        //form validation
+        //push to database
+        if(count($add_stream_error) == 0){
+            $add_stream_sql->execute(array(':name'=>$name));
+            $_SESSION['success'] = 'New stream added successfully to database';
+        }else{
+            $stream_addition_error = 'Error adding new stream, please fix below issues';
+            array_unshift($add_stream_error, $stream_addition_error);
+        }
+    }
 
 
     //helper functions

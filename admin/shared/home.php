@@ -90,10 +90,10 @@
                     <a href="#streams" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Streams</a>
                     <ul class="collapse list-unstyled" id="streams">
                         <li>
-                            <a href="">Add Streams</a>                           
+                            <a href="../streams/addstream.php">Add Streams</a>
                         </li>
                         <li>
-                            <a href="">Manage Streams</a>
+                            <a href="../streams/managestreams.php">Manage Streams</a>
                         </li>
                     </ul>
                 </li>
