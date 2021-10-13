@@ -1,6 +1,8 @@
 <?php
     require "../shared/home.php";
 
+    $select_roles = $db->prepare('select role_name from staff_roles where staff_type = :type and staff_name = :name');
+
 ?>
 
 <div class="container">
@@ -77,7 +79,12 @@
                                 <select name="teacher-role" id="" class="form-control" required="">
                                     <option value="" disabled>Choose Role</option>
                                     <!--consider more roles-->
-                                    <option value="deputy" selected="">Deputy Teacher</option>
+                                    <option value="No role" selected="">No role</option>
+                                    <?php
+                                        $select_roles->execute(array(':type'=>'Teaching Staff', ':name'=>'Unassigned'));
+
+                                        displayMenu($select_roles, 'role_name');
+                                    ?>
                                 </select>
                             </div>
                             <div class="col">

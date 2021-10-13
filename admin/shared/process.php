@@ -487,6 +487,8 @@
         $staff_name = htmlspecialchars($_POST['staff-name']);
         $date = date('Y/m/d');
 
+
+        //form validation
         //check if exists
 
         //push to databse

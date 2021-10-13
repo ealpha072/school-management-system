@@ -32,8 +32,9 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="staff-name">Staff Incharge</label>
-                        <select name="staff-name" id="" class="form-control" required="">
+                        <select name="staff-name" id="" class="form-control">
                             <option value="" selected disabled>Choose Name of Staff Incharge</option>
+                            <option value="Dont asign">Dont asign</option>
                             <option value="Mr Njiru">Mr Njiru</option>
                             <!--php population-->
                         </select>
