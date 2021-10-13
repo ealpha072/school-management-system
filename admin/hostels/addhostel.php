@@ -1,4 +1,8 @@
-<?php require "../shared/home.php";?>
+<?php
+    require "../shared/home.php";
+
+    $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -24,8 +28,13 @@
                         <label for="staff-name">Teacher in Incharge</label>
                         <select name="teacher" id="" class="form-control">
                             <option value="" selected disabled>Choose name of Teacher Incharge</option>
-                            <option value="Mr Njiru">Mr Njiru</option>
-                            <!--php population-->
+                            <?php
+                                $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($results as $result) {
+                                    $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                                    echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>

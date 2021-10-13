@@ -35,7 +35,6 @@
                                 <label for="teacher">Head of Subject</label>
                                 <select name="hos" id="" class="form-control" required="">
                                     <option value="" disabled selected="">--Head of subject--</option>
-                                    <!--populate this with the teachers-->
                                     <?php
                                         $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($results as $result) {
