@@ -2,7 +2,10 @@
     require "../shared/home.php";
 
     $select_classes = $db->prepare('select name from forms');
+    $select_stream = $db->prepare('select name from streams');
+
     $select_classes->execute();
+    $select_stream->execute();
 ?>
 
 <div class="container-fluid">
@@ -34,9 +37,9 @@
                             <div class="col">
                                 <label for="form">Form<sup>*</sup></label>
                                 <select name="form" id="" class="form-control" required>
-                                    <option value=""  disabled>--Choose a form--</option>
+                                    <option value=""  disabled selected="">--Choose a form--</option>
                                     <?php
-                                        displayMenu($select_classes);
+                                        displayMenu($select_classes, 'name');
                                     ?>
                                 </select>
                             </div>
@@ -45,9 +48,8 @@
                             <div class="col">
                                 <label for="stream">Stream<sup>*</sup></label>
                                 <select name="stream" id="" class="form-control" required>
-                                    <option value="" disabled>--Choose a stream--</option>
-                                    <option value="blue" selected="">Blue</option>
-                                    <option value="red">Red</option>
+                                    <option value="" disabled selected="">--Choose a stream--</option>
+                                    <?php displayMenu($select_stream, 'name'); ?>
                                 </select>
                             </div>
                             <div class="col">

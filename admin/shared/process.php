@@ -560,11 +560,11 @@
         echo '</div>';
     }
 
-    function displayMenu($query){
+    function displayMenu($query, $column){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach($results as $result){
-            echo '<option value ="'.$result['name'].'">'.$result['name'].'</option>';
+            echo '<option value ="'.$result[$column].'">'.$result[$column].'</option>';
         }
 
     }
