@@ -2,8 +2,9 @@
     require "../shared/home.php";
 
     $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
-
+    $select_department = $db->prepare('select dpt_name from departments');
     $select_teacher->execute();
+    $select_department->execute();
 ?>
 
 <div class="container">
@@ -59,8 +60,9 @@
                                 <label for="department">Department</label>
                                 <select name="department" id="" class="form-control" required="">
                                     <option value="" selected disabled>Choose Department</option>
-                                    <!--consider adding this-->
-                                    <option value="Chemistry">Chemistry</option>
+                                    <?php
+                                        displayMenu($select_department, 'dpt_name');
+                                    ?>
                                 </select>
                             </div>
                         </div>

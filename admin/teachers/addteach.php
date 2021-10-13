@@ -1,4 +1,7 @@
-<?php require "../shared/home.php"; ?>
+<?php
+    require "../shared/home.php";
+
+?>
 
 <div class="container">
     <div class="card">
