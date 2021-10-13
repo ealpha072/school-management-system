@@ -3,9 +3,11 @@
 
     $select_classes = $db->prepare('select name from forms');
     $select_stream = $db->prepare('select name from streams');
+    $select_hostel = $db->prepare('select name from hostels');
 
     $select_classes->execute();
     $select_stream->execute();
+    $select_hostel->execute();
 ?>
 
 <div class="container-fluid">
@@ -55,9 +57,8 @@
                             <div class="col">
                                 <label for="hostel">Hostel<sup>*</sup></label>
                                 <select name="hostel" id="" class="form-control" required>
-                                    <option value="" disabled>--Choose a hostel--</option>
-                                    <option value="mars" selected="">Mars</option>
-                                    <option value="pluto">Pluto</option>
+                                    <option value="" disabled selected="">--Choose a hostel--</option>
+                                    <?php displayMenu($select_hostel, 'name');?>
                                 </select>
                             </div>
                             <div class="col">

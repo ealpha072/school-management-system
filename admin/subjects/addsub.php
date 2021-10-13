@@ -1,4 +1,10 @@
-<?php require "../shared/home.php"?>
+<?php
+    require "../shared/home.php";
+
+    $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
+
+    $select_teacher->execute();
+?>
 
 <div class="container">
     <div class="card">
@@ -13,8 +19,6 @@
                     if(isset($add_subject_error) && !empty($add_subject_error)){
                         displayErrors($add_subject_error);
                     }
-
-
                 ?>
                 <div class="card subject-info">
                     <div class="card-header">
@@ -29,9 +33,16 @@
                             <div class="col">
                                 <label for="teacher">Head of Subject</label>
                                 <select name="hos" id="" class="form-control" required="">
-                                    <option value="" disabled>--Head of subject--</option>
+                                    <option value="" disabled selected="">--Head of subject--</option>
                                     <!--populate this with the teachers-->
-                                    <option value="Mr Njiru" selected="">Mr Njiru</option>
+                                    <?php
+                                        $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($results as $result) {
+                                            // code...
+                                            $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                                            echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
