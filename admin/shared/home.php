@@ -139,6 +139,9 @@
                     <span>Toggle Sidebar</span>
                 </button>
             </div>
+            <div class="logout">
+                <a href="../shared/endsession.php">Logout</a>
+            </div>
         </nav>
         <hr>
         

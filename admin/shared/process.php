@@ -106,7 +106,6 @@
     $add_stream_sql = $db->prepare('insert into streams(name) values(:name)');
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
-    //select all from tables...for populating select menus
 
 
     //button pushes
@@ -170,7 +169,6 @@
             $error = 'Wrong username or password, please try again';
             array_push($login_error, $error);
         }
-
     }
 
     function addStudent(){
@@ -448,7 +446,6 @@
             $subject_addition_error = "Error adding new subject, fix below errors";
             array_unshift($add_subject_error, $subject_addition_error);
         }
-
     }
 
     function addHostel(){
@@ -476,7 +473,6 @@
             $hostel_addition_error = "Unable to add hostel, correct below errors and try again";
             array_unshift($add_hostel_error, $hostel_addition_error);
         }
-
     }
 
     function addRole(){
@@ -529,7 +525,6 @@
             array_unshift($add_stream_error, $stream_addition_error);
         }
     }
-
 
     //helper functions
 

@@ -1,4 +1,11 @@
-<?php require "../shared/home.php"; ?>
+<?php require "../shared/home.php";
+
+    $select_classes = $db->prepare('select name from forms');
+    $select_stream = $db->prepare('select name from streams');
+
+    $select_classes->execute();
+    $select_stream->execute();
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -11,21 +18,21 @@
                     <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
                         <div class="form-row">
                             <div class="col">
-                                <select name="" id="" class="form-control">
+                                <select name="" id="" class="form-control" required="" id="class-option">
                                     <option value="" selected disabled>Choose a class</option>
-                                    <option value="Form 1">Form 1</option>
-                                    <option value="Form 2">Form 2</option>
+                                    <?php
+                                        displayMenu($select_classes, 'name');
+                                    ?>
                                 </select>
                             </div>
                             <div class="col">
-                                <select name="" id="" class="form-control">
+                                <select name="" id="" class="form-control" required="" id="stream-option">
                                     <option value="" selected disabled>Choose a stream</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Green">Green</option>
+                                    <?php displayMenu($select_stream, 'name'); ?>
                                 </select>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-primary" onclick="" name="manage-student">Manage</button>
+                                <button type="button" class="btn btn-primary" onclick="showResults()" >Manage</button>
                             </div>
                         </div>
                     </form>
@@ -37,7 +44,7 @@
                                 <input type="text" class="form-control" placeholder="Search student Adm No">
                             </div>
                             <div class="col">
-                                <button class="btn btn-primary mb-2" type="submit">Search</button>
+                                <button class="btn btn-primary mb-2" type="button" onclick="">Search</button>
                             </div>
                         </div>                        
                     </form>
@@ -47,7 +54,7 @@
                 <div class="card-header">
                     <h5>Results</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="result-holder">
                     <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
                     ---------------------------------------------------------
                     ---------------------------------------------------->
@@ -56,3 +63,4 @@
         </div>
     </div>
 </div>
+<script src="../scripts/ajax/managest.js" type=""></script>
