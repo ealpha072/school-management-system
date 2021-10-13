@@ -2,6 +2,7 @@
     require "../shared/home.php";
 
     $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
+    $select_teacher->execute();
 ?>
 
 <div class="container-fluid">
@@ -18,7 +19,6 @@
                         displayErrors($add_hostel_error);
                     }
                 ?>
-
                 <div class="form-row">
                     <div class="col">
                         <label for="role-name">Hostel Name</label>
