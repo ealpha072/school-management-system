@@ -106,6 +106,8 @@
     $add_stream_sql = $db->prepare('insert into streams(name) values(:name)');
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
+    //select all from tables...for populating select menus
+
 
     //button pushes
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -556,4 +558,13 @@
                 }
             echo '</ul>';
         echo '</div>';
+    }
+
+    function displayMenu($query){
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($results as $result){
+            echo '<option value ="'.$result['name'].'">'.$result['name'].'</option>';
+        }
+
     }

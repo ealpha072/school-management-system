@@ -8,24 +8,24 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <form action="" method="post">
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
                         <div class="form-row">
                             <div class="col">
                                 <select name="" id="" class="form-control">
                                     <option value="" selected disabled>Choose a class</option>
-                                    <option value="">Form 1</option>
-                                    <option value="">Form 2</option>
+                                    <option value="Form 1">Form 1</option>
+                                    <option value="Form 2">Form 2</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <select name="" id="" class="form-control">
                                     <option value="" selected disabled>Choose a stream</option>
-                                    <option value="">Red</option>
-                                    <option value="">Green</option>
+                                    <option value="Red">Red</option>
+                                    <option value="Green">Green</option>
                                 </select>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-primary" onclick="">Manage</button>
+                                <button type="submit" class="btn btn-primary" onclick="" name="manage-student">Manage</button>
                             </div>
                         </div>
                     </form>

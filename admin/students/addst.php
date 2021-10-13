@@ -1,5 +1,8 @@
 <?php
-    require "../shared/home.php";   
+    require "../shared/home.php";
+
+    $select_classes = $db->prepare('select name from forms');
+    $select_classes->execute();
 ?>
 
 <div class="container-fluid">
@@ -26,14 +29,15 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="admission-number">Adm Number<sup>*</sup></label>
-                                <input type="number" placeholder="Adm Number" class="form-control" name="adm_num" required value="1121" min="00001">
+                                <input type="number" placeholder="Adm Number" class="form-control" name="adm_num" required>
                             </div>
                             <div class="col">
                                 <label for="form">Form<sup>*</sup></label>
                                 <select name="form" id="" class="form-control" required>
                                     <option value=""  disabled>--Choose a form--</option>
-                                    <option value="form one" selected="">Form One</option>
-                                    <option value="form two">Form Two</option>
+                                    <?php
+                                        displayMenu($select_classes);
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -72,29 +76,29 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="first-name">First Name<sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" name="first-name" required value="Alpha">
+                                <input type="text" placeholder="First Name" class="form-control" name="first-name" required>
                             </div>
                             <div class="col">
                                 <label for="middle-name">Middle Name<sup>*</sup></label>
-                                <input type="text" placeholder="Middle Name" class="form-control" name="middle-name" required value="Emmanuel">
+                                <input type="text" placeholder="Middle Name" class="form-control" name="middle-name" required>
                             </div>
                             <div class="col">
                                 <label for="last-name">Last Name<sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="last-name" required value="Ochieng">
+                                <input type="text" placeholder="Last Name" class="form-control" name="last-name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="gender">Gender<sup>*</sup></label>
                                 <select name="gender" id="" class="form-control" required>
-                                    <option value="" disabled>--Choose Gender--</option>
-                                    <option value="male" selected="">Male</option>
+                                    <option value="" disabled selected="">--Choose Gender--</option>
+                                    <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <label for="county">County<sup>*</sup></label>
-                                <input type="text" placeholder="County" class="form-control" name="county" required value="Kisumu">
+                                <input type="text" placeholder="County" class="form-control" name="county" required>
                             </div>
                         </div>
                         <div class="form-row">
@@ -116,17 +120,17 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="parent-name">Full Name<sup>*</sup></label>
-                                <input type="text" placeholder="Firstname Midname Lastname" class="form-control" name="pfirst-name" required value="Lucas Owala Okoth">
+                                <input type="text" placeholder="Firstname Midname Lastname" class="form-control" name="pfirst-name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="email">Email <sup>*</sup></label>
-                                <input type="email" placeholder="Email Address" class="form-control" name="pemail" required value="ealpha@gmail.com">
+                                <input type="email" placeholder="Email Address" class="form-control" name="pemail" required="">
                             </div>
                             <div class="col">
                                 <label for="phone-number">Phone Number <sup>*</sup></label>
-                                <input type="text" placeholder="Phone Number" class="form-control" name="pphone-number" required value="0798989655">
+                                <input type="text" placeholder="Phone Number" class="form-control" name="pphone-number" required>
                             </div>
                         </div>
                         <hr>
