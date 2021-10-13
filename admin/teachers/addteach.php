@@ -77,9 +77,9 @@
                             <div class="col">
                                 <label for="role">Role</label>
                                 <select name="teacher-role" id="" class="form-control" required="">
-                                    <option value="" disabled>Choose Role</option>
+                                    <option value="" disabled selected="">Choose Role</option>
                                     <!--consider more roles-->
-                                    <option value="No role" selected="">No role</option>
+                                    <option value="No role">No role</option>
                                     <?php
                                         $select_roles->execute(array(':type'=>'Teaching Staff', ':name'=>'Unassigned'));
 

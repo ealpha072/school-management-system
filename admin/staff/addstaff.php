@@ -1,4 +1,9 @@
-<?php require "../shared/home.php"; ?>
+<?php
+
+    require "../shared/home.php";
+
+    $select_roles = $db->prepare('select role_name from staff_roles where staff_type = :type and staff_name = :name');
+?>
 
 <div class="container">
     <div class="card">
@@ -75,8 +80,11 @@
                                 <label for="role">Role</label>
                                 <select name="staff-role" id="" class="form-control">
                                     <option value="" selected disabled>Choose Role</option>
-                                    <option value="">Accountant</option>
-                                    <option value="">Caterer</option>
+                                    <option value="No role">No role</option>
+                                    <?php
+                                        $select_roles->execute(array(':type'=>'Support Staff', ':name'=>'Unassigned'));
+                                        displayMenu($select_roles, 'role_name');
+                                    ?>
                                     <!--consider more roles-->
                                 </select>
                             </div>
