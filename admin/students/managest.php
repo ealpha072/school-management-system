@@ -15,7 +15,7 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">
                         <div class="form-row">
                             <div class="col">
                                 <select name="" class="form-control" required="" id="class-option">
@@ -57,7 +57,7 @@
                 <div class="card-body" id="result-holder">
                     <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
                     ---------------------------------------------------------
-                    ---------------------------------------------------->
+                    --------------------------------------------------------->
                 </div>
             </div>
         </div>
