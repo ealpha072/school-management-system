@@ -7,7 +7,7 @@
     $select_stream->execute();
 ?>
 
-<div class="container-fluid" id="manage">
+<div class="container-fluid">
     <div class="card">
         <div class="card-header">
             <h4>Manage Students</h4>
@@ -38,13 +38,13 @@
                     </form>
                 </div>
                 <div class="col">
-                    <form action="" method="post" class="form-inline">
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="post" class="form-inline">
                         <div class="form-row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Search student Adm No">
+                                <input type="text" class="form-control" placeholder="Search student Adm No" id="adm-no">
                             </div>
                             <div class="col">
-                                <button class="btn btn-primary mb-2" type="button" onclick="">Search</button>
+                                <button class="btn btn-primary mb-2" type="button" id="search-student">Search</button>
                             </div>
                         </div>                        
                     </form>

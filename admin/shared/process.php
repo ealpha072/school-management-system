@@ -44,6 +44,37 @@
         echo '</table>';
     }
 
+    if(isset($_GET['admnum'])){
+        $adm = $_GET['admnum'];
+        $select_this_adm = $db->prepare('select * from students where adm_num=:num');
+        $select_this_adm->execute(array(':num'=>$adm));
+        $results = $select_this_adm->fetchAll(PDO::FETCH_ASSOC);
+
+        echo '<table class="table table-stripped table-bordered">';
+        echo '<caption>'.$form_name.' '.$stream_name.' students</caption>
+            <thead>
+                <tr>
+                    <th scope=col>Adm No</th>
+                    <th scope=col>Full Name</th>
+                    <th scope=col>Hostel Name</th>
+                    <th scope=col colspan=2 class=\"text-center\">Action</th>            
+                </tr>
+            </thead>
+            <tbody>';
+                foreach ($results as $row) {
+                    $full_name = $row['first_name'].' '.$row['mid_name'].' '.$row['last_name'];
+                    echo '<tr>';
+                        echo '<td>'.$row['adm_num'].'</td>';
+                        echo '<td>'.$full_name.'</td>';
+                        echo '<td>'.$row['hostel'].'</td>';
+                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
+                        echo '<td><a href="" class="link-primary">Delete</a></td>';
+                    echo '</tr>';
+                }
+            echo '</tbody>'; 
+        echo '</table>';
+    }
+
     //declairing error variables
     $login_error = [];
     $add_student_error = [];
