@@ -167,6 +167,15 @@
         displayTable($select_this_adm);
     }
 
+    if(isset($_GET['to_find_subj'])){
+        $subject = htmlspecialchars($_GET['to_find_subj']);
+        $select_this_sub = $db->prepare('select * from subjects where name=:name');
+        $select_this_sub->execute(array(':name'=>$subject));
+        $results = $select_this_sub->fetchAll(PDO::FETCH_ASSOC);
+
+
+    }
+
     //main functions
     function login() {
         global $login_sql, $login_error;
@@ -593,7 +602,6 @@
 
     function displayTable($query){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
         echo '<table class="table table-stripped table-bordered">';
         echo '<thead>
                 <tr>

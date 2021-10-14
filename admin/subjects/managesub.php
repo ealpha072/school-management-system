@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <select name="" id="" class="form-control">
+                    <select name="" id="manage-subject" class="form-control">
                         <!--consider populationg with php-->
                         <option value="" selected disabled>Subject to manage</option>
                         <?php
