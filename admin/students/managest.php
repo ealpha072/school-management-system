@@ -1,5 +1,5 @@
-<?php require "../shared/home.php";
-
+<?php 
+    require "../shared/home.php";
     $select_classes = $db->prepare('select name from forms');
     $select_stream = $db->prepare('select name from streams');
 
@@ -7,7 +7,7 @@
     $select_stream->execute();
 ?>
 
-<div class="container-fluid">
+<div class="container-fluid" id="manage">
     <div class="card">
         <div class="card-header">
             <h4>Manage Students</h4>
@@ -18,7 +18,7 @@
                     <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
                         <div class="form-row">
                             <div class="col">
-                                <select name="" id="" class="form-control" required="" id="class-option">
+                                <select name="" class="form-control" required="" id="class-option">
                                     <option value="" selected disabled>Choose a class</option>
                                     <?php
                                         displayMenu($select_classes, 'name');
@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <select name="" id="" class="form-control" required="" id="stream-option">
+                                <select name="" class="form-control" required="" id="stream-option">
                                     <option value="" selected disabled>Choose a stream</option>
                                     <?php displayMenu($select_stream, 'name'); ?>
                                 </select>

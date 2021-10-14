@@ -21,11 +21,11 @@ $(document).ready(function() {
             }
         }
 
-        var form = $('#class-option').val()
-        var stream = $('#stream-option').val()
+        var form = $('#class-option').find(":selected").text()
+        var stream = $('#stream-option').find(":selected").text()
         var query = '?form_name=' + form + '&stream_name=' + stream
 
-        request.open('GET', '../requests/managest.php' + query, true)
+        request.open('GET', '../shared/process.php' + query, true)
         request.send(null)
     })
 });
