@@ -8,29 +8,6 @@
         echo 'Connection to database failed '.$e->getMessage();
     }
 
-    //require('../requests/managest.php');
-    if(isset($_GET['form_name']) && isset($_GET['stream_name'])){
-        //set variables
-        $form_name = htmlspecialchars($_GET['form_name']);
-        $stream_name = htmlspecialchars($_GET['stream_name']);
-
-        //query and execute
-        $select_this_student = $db->prepare('select adm_num, hostel, first_name, mid_name, last_name 
-        from students where form =:form and stream=:stream');
-
-        $select_this_student->execute(array(':form'=>$form_name, ':stream'=>$stream_name));
-
-        //call funtion
-        displayTable($select_this_student, []);
-    }
-
-    if(isset($_GET['admnum'])){
-        $adm = htmlspecialchars($_GET['admnum']);
-        $select_this_adm = $db->prepare('select * from students where adm_num=:num');
-        $select_this_adm->execute(array(':num'=>$adm));
-
-        displayTable($select_this_adm);
-    }
 
     //declairing error variables
     $login_error = [];
@@ -162,6 +139,28 @@
         addStream();
     }
 
+    //ajax queries handling
+    if(isset($_GET['form_name']) && isset($_GET['stream_name'])){
+        //set variables
+        $form_name = htmlspecialchars($_GET['form_name']);
+        $stream_name = htmlspecialchars($_GET['stream_name']);
+
+        //query and execute
+        $select_this_student = $db->prepare('select adm_num, hostel, first_name, mid_name, last_name
+        from students where form =:form and stream=:stream');
+
+        $select_this_student->execute(array(':form'=>$form_name, ':stream'=>$stream_name));
+
+        //call funtion
+        displayTable($select_this_student, []);
+    }
+
+    if(isset($_GET['admnum'])){
+        $adm = htmlspecialchars($_GET['admnum']);
+        $select_this_adm = $db->prepare('select * from students where adm_num=:num');
+        $select_this_adm->execute(array(':num'=>$adm));
+        displayTable($select_this_adm);
+    }
 
     //main functions
     function login() {
