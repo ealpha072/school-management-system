@@ -8,6 +8,8 @@
         echo 'Connection to database failed '.$e->getMessage();
     }
 
+    require
+
     //declairing error variables
     $login_error = [];
     $add_student_error = [];
@@ -21,7 +23,6 @@
     //SQL STATEMENTS
     $login_sql = $db->prepare('select * from admin where user_name=:username
             and password = :password');
-
     $add_student_sql = $db->prepare('insert into
         students(
             adm_num,form,

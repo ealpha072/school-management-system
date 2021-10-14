@@ -32,7 +32,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-primary" onclick="showResults()" >Manage</button>
+                                <button type="button" class="btn btn-primary" id="manage-st" >Manage</button>
                             </div>
                         </div>
                     </form>
@@ -63,4 +63,6 @@
         </div>
     </div>
 </div>
-<script src="../scripts/ajax/managest.js" type=""></script>
+
+
+
