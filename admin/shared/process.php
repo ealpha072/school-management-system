@@ -19,7 +19,7 @@
     $add_role_error = [];
     $add_stream_error = [];
 
-    //SQL STATEMENTS
+    //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username
             and password = :password');
     $add_student_sql = $db->prepare('insert into
@@ -106,7 +106,12 @@
     $add_stream_sql = $db->prepare('insert into streams(name) values(:name)');
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
-    //button pushes
+    //SQL STATEMENTS--Below statemnts have been used in different pages...
+    $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
+    $select_department = $db->prepare('select dpt_name from departments');
+    $select_subjects = $db->prepare('select name from subjects');
+
+    //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
         login();
     }

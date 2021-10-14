@@ -1,8 +1,5 @@
 <?php
     require "../shared/home.php";
-
-    $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
-    $select_department = $db->prepare('select dpt_name from departments');
     $select_teacher->execute();
     $select_department->execute();
 ?>

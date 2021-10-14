@@ -1,4 +1,7 @@
-<?php require "../shared/home.php"; ?>
+<?php
+    require "../shared/home.php";
+
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -11,19 +14,11 @@
                     <select name="" id="" class="form-control">
                         <!--consider populationg with php-->
                         <option value="" selected disabled>Subject to manage</option>
-                        <option value="">Maths</option>
-                        <option value="">English</option>
+                        <?php
+                            $select_subjects->execute();
+                            displayMenu($select_subjects, 'name');
+                        ?>
                     </select>
-                </div>
-                <div class="col">
-                    <form action="" method="post">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search Subject" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2"><button class="btn btn-primary">Search</button></span><!--FIX THIS ISSUE-->
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
             <hr>
