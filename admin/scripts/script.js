@@ -30,7 +30,7 @@ $(document).ready(function() {
     })
 
     $('#search-student').on('click', function() {
-        var div = $('#result-holder')
+        var results_div = $('#result-holder')
         var request;
         try {
             request = new XMLHttpRequest
