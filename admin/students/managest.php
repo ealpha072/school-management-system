@@ -50,7 +50,7 @@
                     </form>
                 </div>
             </div>
-            <div class="card result-holder">
+            <div class="card">
                 <div class="card-header">
                     <h5>Results</h5>
                 </div>

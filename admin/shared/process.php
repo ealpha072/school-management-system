@@ -106,7 +106,7 @@
     $add_stream_sql = $db->prepare('insert into streams(name) values(:name)');
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
-    //SQL STATEMENTS--Below statemnts have been used in different pages...
+    //SQL STATEMENTS--these qeuries are executed in different pages mainly for select option population
     $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
     $select_department = $db->prepare('select dpt_name from departments');
     $select_subjects = $db->prepare('select name from subjects');
@@ -173,10 +173,34 @@
         $select_this_sub->execute(array(':name'=>$subject));
         $results = $select_this_sub->fetchAll(PDO::FETCH_ASSOC);
 
-
+        echo '<table class="table table-stripped table-bordered">';
+        echo '<thead>
+                <tr>
+                    <th scope=col>Serial No</th>
+                    <th scope=col>Name</th>
+                    <th scope=col>Type</th>
+                    <th scope=col>HOS</th>
+                    <th scope=col>Department</th>
+                    <th scope=col>Action</th>
+                </tr>
+            </thead>
+            <tbody>';
+                foreach ($results as $row) {
+                    echo '<tr>';
+                        echo '<td>'.$row['id'].'</td>';
+                        echo '<td>'.$row['name'].'</td>';
+                        echo '<td>'.$row['subject_type'].'</td>';
+                        echo '<td>'.$row['head_of_subject'].'</td>';
+                        echo '<td>'.$row['department'].'</td>';
+                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
+                    echo '</tr>';
+                }
+            echo '</tbody>';
+        echo '</table>';
     }
 
-    //main functions
+    //..........MAIN FUCTIONS HERE.........................//
+    //....................................................//
     function login() {
         global $login_sql, $login_error;
 

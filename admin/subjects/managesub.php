@@ -1,6 +1,5 @@
 <?php
     require "../shared/home.php";
-
 ?>
 
 <div class="container-fluid">
@@ -26,8 +25,10 @@
                 <div class="card-header">
                     <h5>Results</h5>
                 </div>
-                <div class="card-body">
-
+                <div class="card-body" id="result-holder">
+                    <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
+                    ---------------------------------------------------------
+                    --------------------------------------------------------->
                 </div>
             </div>
         </div>
