@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <select name="" id="" class="form-control">
+                            <select name="" id="to-find-teacher" class="form-control">
                                 <option value="" selected disabled>Choose Teacher</option>
                                 <?php
                                     $select_teacher->execute();
@@ -34,7 +34,7 @@
                 <div class="card-header">
                     <h5>My Teachers(Based on Search/Select Value)</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="result-holder">
                     <!--RESULTS FOR TEACHERS QUERRY-->
                 </div>
             </div>

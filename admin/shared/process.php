@@ -199,6 +199,12 @@
         echo '</table>';
     }
 
+    if(isset($_GET['to_find_teacher']) && isset($_GET['name_1']) 
+        && isset($_GET['name_2']) && isset($_GET['name_3'])){
+        $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname, 
+        mid_name=:mname, last_name=:lname');
+    }
+
     //..........MAIN FUCTIONS HERE.........................//
     //....................................................//
     function login() {
