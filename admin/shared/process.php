@@ -199,10 +199,40 @@
         echo '</table>';
     }
 
-    if(isset($_GET['to_find_teacher']) && isset($_GET['name_1']) 
-        && isset($_GET['name_2']) && isset($_GET['name_3'])){
-        $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname, 
-        mid_name=:mname, last_name=:lname');
+    if(isset($_GET['name_1']) && isset($_GET['name_2']) && isset($_GET['name_3'])){
+
+        $fname =htmlspecialchars($_GET['name_1']);
+        $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname');
+        $select_this_teacher->execute(array(':fname'=> $fname));
+        $results = $select_this_teacher->fetchAll(PDO::FETCH_ASSOC);
+
+        echo '<table class="table table-stripped table-bordered">';
+        echo '<thead>
+                <tr>
+                    <th scope=col>Serial No</th>
+                    <th scope=col>Name</th>
+                    <th scope=col>Role</th>
+                    <th scope=col>Subject 1</th>
+                    <th scope=col>Sebject 2</th>
+                    <th scope=col>Email</th>
+                    <th scope=col>Action</th>
+                </tr>
+            </thead>
+            <tbody>';
+                foreach ($results as $row) {
+                    $full_name = $row['first_name'].' '.$row['mid_name'].' '.$row['last_name'];
+                    echo '<tr>';
+                        echo '<td>'.$row['id'].'</td>';
+                        echo '<td>'.$full_name.'</td>';
+                        echo '<td>'.$row['role'].'</td>';
+                        echo '<td>'.$row['subject_1'].'</td>';
+                        echo '<td>'.$row['subject_2'].'</td>';
+                        echo '<td>'.$row['email'].'</td>';
+                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
+                    echo '</tr>';
+                }
+            echo '</tbody>';
+        echo '</table>';
     }
 
     //..........MAIN FUCTIONS HERE.........................//
@@ -653,6 +683,8 @@
             echo '</tbody>';
         echo '</table>';
     }
+
+    
 
 
 

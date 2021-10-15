@@ -67,7 +67,7 @@ $(document).ready(function() {
         var searchValue = $('#to-find-teacher').find(':selected').text()
         var nameArray = searchValue.trim().split(' ')
 
-        var queryString = '?to_find_teacher=' + searchValue + '&name_1=' + nameArray[0] + '$name_2=' + nameArray[1] + '&name_3=' + nameArray[2]
+        var queryString = '?name_1=' + nameArray[0] + '&name_2=' + nameArray[1] + '&name_3=' + nameArray[2]
         request.open('GET', '../shared/process.php' + queryString, true) 
         request.send(null)
     })
