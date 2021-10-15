@@ -237,6 +237,39 @@
         echo '</table>';
     }
 
+    if (isset($_GET['form_name_parent']) && isset($_GET['stream_name_parent'])) {
+        $form = htmlspecialchars($_GET['form_name_parent']);
+        $stream = htmlspecialchars($_GET['stream_name_parent']);
+
+        $select_this_parent = $db->prepare('select id, parent_name, p_phone_number, 
+        p_email from students where form=:form and stream=:stream ');
+        $select_this_parent->execute(array(':form'=>$form, ':stream'=>$stream));
+        $results = $select_this_parent->fetchAll(PDO::FETCH_ASSOC);
+
+        echo '<table class="table table-stripped table-bordered">';
+        echo '<thead>
+                <tr>
+                    <th scope=col>Serial No</th>
+                    <th scope=col>Name</th>
+                    <th scope=col>Phone num</th>
+                    <th scope=col>Eamil</th>
+                    <th scope=col>Action</th>
+                </tr>
+            </thead>
+            <tbody>';
+                foreach ($results as $row) {
+                    echo '<tr>';
+                        echo '<td>'.$row['id'].'</td>';
+                        echo '<td>'.$row['parent_name'].'</td>';
+                        echo '<td>'.$row['p_phone_number'].'</td>';
+                        echo '<td>'.$row['p_email'].'</td>';
+                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
+                    echo '</tr>';
+                }
+            echo '</tbody>';
+        echo '</table>';
+    }
+
     //..........MAIN FUCTIONS HERE.........................//
     //....................................................//
     function login() {
