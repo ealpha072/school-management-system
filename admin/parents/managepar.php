@@ -1,4 +1,8 @@
-<?php require "../shared/home.php"?>
+<?php 
+    require "../shared/home.php";
+    $select_classes->execute();
+    $select_stream->execute();    
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -15,24 +19,26 @@
                         <div class="col">
                             <select name="" id="" class="form-control">
                                 <!--php population-->
-                                <option value="" selected disabled>Choose a class</option>
-                                <option value="">Form 1</option>
+                                <option value="" selected disabled>--Choose a class--</option>
+                                <?php
+                                    displayMenu($select_classes, 'name');
+                                ?>
                             </select>
                         </div>
                         <div class="col">
                             <select name="" id="" class="form-control">
-                                <!--php population-->
-                                <option value="">Choose a stream</option>
-                                <option value="">Blue</option>
-                                <option value="">Green</option>
+                                <option value="" selected disabled>--Choose a stream--</option>
+                                <?php displayMenu($select_stream, 'name'); ?>
                             </select>
                         </div>
                         <div class="co">
-                            <form action="" method="POST">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search Parent" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2"><button class="btn btn-primary">Search</button></span><!--FIX THIS ISSUE-->
+                            <form action="" method="GET">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Search Parent" id="adm-no">
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary mb-2" type="button" id="search-student">Search</button>
                                     </div>
                                 </div>
                             </form>
@@ -41,13 +47,14 @@
                 </div>
             </div>
             <hr>
-
             <div class="card results">
                 <div class="card-header">
                     <h6>My Parents(Based on Search/Select value)</h6>
                 </div>
                 <div class="card-body">
-
+                    <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
+                    ---------------------------------------------------------
+                    --------------------------------------------------------->
                 </div>
             </div>
         </div>

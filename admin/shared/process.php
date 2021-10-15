@@ -110,6 +110,8 @@
     $select_teacher = $db->prepare('select * from teachers');
     $select_department = $db->prepare('select dpt_name from departments');
     $select_subjects = $db->prepare('select name from subjects');
+    $select_classes = $db->prepare('select name from forms');
+    $select_stream = $db->prepare('select name from streams');
 
     //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
