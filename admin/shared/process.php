@@ -8,7 +8,6 @@
         echo 'Connection to database failed '.$e->getMessage();
     }
 
-
     //declairing error variables
     $login_error = [];
     $add_student_error = [];
@@ -718,9 +717,3 @@
             echo '</tbody>';
         echo '</table>';
     }
-
-    
-
-
-
-

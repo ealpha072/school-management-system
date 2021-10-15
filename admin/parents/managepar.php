@@ -39,18 +39,6 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col">
-                            <form action="<?php $_SERVER['PHP_SELF']?>" method="GET" class="form-inline">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Search parent name" id="adm-no">
-                                    </div>
-                                    <div class="col">
-                                        <button class="btn btn-primary mb-2" type="button" id="search-parent">Search</button>
-                                    </div>
-                                </div>                        
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
