@@ -82,7 +82,6 @@
                                     <option value="No role">No role</option>
                                     <?php
                                         $select_roles->execute(array(':type'=>'Teaching Staff', ':name'=>'Unassigned'));
-
                                         displayMenu($select_roles, 'role_name');
                                     ?>
                                 </select>
@@ -96,12 +95,24 @@
                         <div class="form-row">
                             <!--populate subjects using php-->
                             <div class="col">
-                                <label for="">Subject 1</label>
-                                <input type="text" placeholder="Subject One" class="form-control" value="Mathematics" required="" name="subject-1">
+                                <label for="subject_1">Subject 1</label>
+                                <select name="subject-1" id="" required="" class="form-control">
+                                    <option value="" selected="" disabled="">--Choose first subject--</option>
+                                    <?php
+                                        $select_subjects->execute();
+                                        displayMenu($select_subjects, 'name');
+                                    ?>
+                                </select>
                             </div>
                             <div class="col">
-                                <label for="">Subject 2</label>
-                                <input type="text" placeholder="Subject Two" class="form-control" value="History" required="" name="subject-2">
+                                <label for="subject-2">Subject 2</label>
+                                <select name="subject-1" id="" required="" class="form-control">
+                                    <option value="" selected="" disabled="">--Choose second subject--</option>
+                                    <?php
+                                        $select_subjects->execute();
+                                        displayMenu($select_subjects, 'name');
+                                    ?>
+                                </select>
                             </div>
                         </div>
                     </div>

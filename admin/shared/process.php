@@ -107,7 +107,7 @@
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
     //SQL STATEMENTS--these qeuries are executed in different pages mainly for select option population
-    $select_teacher = $db->prepare('select first_name, mid_name, last_name from teachers');
+    $select_teacher = $db->prepare('select * from teachers');
     $select_department = $db->prepare('select dpt_name from departments');
     $select_subjects = $db->prepare('select name from subjects');
 
@@ -468,7 +468,6 @@
             $staff_addition_error = "Failed to add staff to database, please correct below errors";
             array_unshift($add_staff_error, $staff_addition_error);
         }
-
     }
 
     function addSubject(){
@@ -621,7 +620,6 @@
         foreach($results as $result){
             echo '<option value ="'.$result[$column].'">'.$result[$column].'</option>';
         }
-
     }
 
     function displayTable($query){

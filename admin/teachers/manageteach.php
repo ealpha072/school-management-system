@@ -15,19 +15,16 @@
                         <div class="col">
                             <select name="" id="" class="form-control">
                                 <option value="" selected disabled>Choose Teacher</option>
-                                <option value="">Teacher 1</option>
-                                <option value="">Teacher 2</option>
+                                <?php
+                                    $select_teacher->execute();
+                                    $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach ($results as $result) {
+                                        // code...
+                                        $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                                        echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+                                    }
+                                ?>
                             </select>
-                        </div>
-                        <div class="col">
-                            <form action="" method="POST">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search Teacher" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2"><button class="btn btn-primary">Search</button></span><!--FIX THIS ISSUE-->
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
