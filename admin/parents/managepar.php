@@ -17,30 +17,38 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <select name="" id="" class="form-control">
-                                <!--php population-->
-                                <option value="" selected disabled>--Choose a class--</option>
-                                <?php
-                                    displayMenu($select_classes, 'name');
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select name="" id="" class="form-control">
-                                <option value="" selected disabled>--Choose a stream--</option>
-                                <?php displayMenu($select_stream, 'name'); ?>
-                            </select>
-                        </div>
-                        <div class="co">
-                            <form action="" method="GET">
+                            <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Search Parent" id="adm-no">
+                                        <select name="" class="form-control" required="" id="class-option">
+                                            <option value="" selected disabled>--Choose a class--</option>
+                                            <?php
+                                                displayMenu($select_classes, 'name');
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="col">
-                                        <button class="btn btn-primary mb-2" type="button" id="search-student">Search</button>
+                                        <select name="" class="form-control" required="" id="stream-option">
+                                            <option value="" selected disabled>--Choose a stream--</option>
+                                            <?php displayMenu($select_stream, 'name'); ?>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" id="manage-parent" >Manage</button>
                                     </div>
                                 </div>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <form action="<?php $_SERVER['PHP_SELF']?>" method="GET" class="form-inline">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Search parent name" id="adm-no">
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-primary mb-2" type="button" id="search-parent">Search</button>
+                                    </div>
+                                </div>                        
                             </form>
                         </div>
                     </div>
