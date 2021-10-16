@@ -95,9 +95,6 @@
                         <li>
                             <a href="../streams/addstream.php">Add Streams</a>
                         </li>
-                        <li>
-                            <a href="../streams/managestreams.php">Manage Streams</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
