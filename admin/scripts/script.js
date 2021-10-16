@@ -91,4 +91,22 @@ $(document).ready(function() {
         request.send(null)
 
     })
+
+    $('#staff-name').on('change', function(){
+        var results_div = $('#results-holder')
+        var request = new XMLHttpRequest
+
+        request.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200){
+                results_div.html('')
+                results_div.html(this.responseText)
+            }
+        }
+
+        var name = $('#staff-name').find(':selected').text()
+        var nameArray = name.trim().split(' ')
+        var query = `?staff_fname=${nameArray[0]}&staff_mname=${nameArray[1]}&staff_lname=${nameArray[2]}`
+        request.open('GET', '../shared/process.php' + query, true)
+        request.send(null)
+    })
 });

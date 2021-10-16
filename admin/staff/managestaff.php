@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <select name="" id="" class="form-control">
+                            <select name="" id="staff-name" class="form-control">
                                 <option value="" selected disabled>--Choose Staff name--</option>
                                 <?php 
                                     $select_staff ->execute();
