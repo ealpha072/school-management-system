@@ -9,21 +9,14 @@
             <div class="form-row">
                 <div class="col">
                     <select name="" id="" class="form-control">
-                        <!--consider populationg with php-->
                         <option value="" selected disabled>Role to manage</option>
-                        <option value="">Accountant</option>
+                        <?php 
+                            $select_role->execute();
+                            displayMenu($select_role, 'role_name');
+                        ?>
                     </select>
                 </div>
-                <div class="col">
-                    <form action="" method="post">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search Role" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2"><button class="btn btn-primary">Search</button></span><!--FIX THIS ISSUE-->
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                
             </div>
             <hr>
             <div class="card results-holder">
