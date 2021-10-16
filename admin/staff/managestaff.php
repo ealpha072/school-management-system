@@ -31,11 +31,11 @@
                 </div>
             </div>
             <hr>
-            <div class="card results">
+            <div class="card">
                 <div class="card-header">
                     <h5>My Staff(Based on Search/Select Value)</h5>
                 </div>
-                <div class="card-body result-holder">
+                <div class="card-body" id="results-holder">
                     <!--RESULTS FOR TEACHERS QUERRY-->
                 </div>
             </div>
