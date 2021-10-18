@@ -737,7 +737,7 @@
 
     function displayTable($query){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        echo '<table class="table table-stripped table-sm">';
+        echo '<table class="table table-stripped table-bordered">';
         echo '<thead>
                 <tr>
                     <th scope=col>SNo</th>
@@ -760,13 +760,14 @@
                         echo '
                             <td>
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
+                                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Manage
+                                    </a>
+                                
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item text-info" href="#">Edit</a>
+                                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                                        <a class="dropdown-item text-warning" href="#">More Info</a>
                                     </div>
                                 </div>
                             </td>
