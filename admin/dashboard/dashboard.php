@@ -21,16 +21,22 @@
                             <h6>Total Students</h6>
                         </div>
                         <div class="card-footer">
-                            <a href="">View</a>
+                            <a href="../students/managest.php">View</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
-                            <h3>9</h3>
-                            <h4>Teachers</h5>
+                            <?php 
+                                $select_teacher->execute(); 
+                                $teachers = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+                            <h4>Teachers: <?php echo count($teachers)?></h5>
                             <h6>Total Teachers</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">View</a>
                         </div>
                     </div>
                 </div>
