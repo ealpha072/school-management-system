@@ -772,8 +772,6 @@
                                 </div>
                             </td>
                         ';
-                        /*echo '<td><a href="#" class="btn btn-primary">Edit</a></td>';
-                        echo '<td><a href="" class="btn btn-danger">Delete</a></td>';*/
                     echo '</tr>';
                 }
             echo '</tbody>';
