@@ -115,6 +115,7 @@
     $select_role = $db->prepare('select * from staff_roles');
     $select_student = $db->prepare('select * from students');
     $select_hostel = $db->prepare('select * from hostels');
+    $select_parent = $db->prepare('select * from parents');
 
     //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){

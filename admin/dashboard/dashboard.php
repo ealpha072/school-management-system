@@ -57,9 +57,16 @@
                 <div class="col">
                     <div class="card text-white bg-dark">
                         <div class="card-body">
-                            <h3>2</h3>
-                            <h4>Streams</h5>
+                            <h4>Streams: 
+                                <?php
+                                    $select_stream->execute();
+                                    echo count($select_stream->fetchAll(PDO::FETCH_ASSOC));
+                                ?>
+                            </h5>
                             <h6>Total Streams</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">View</a>
                         </div>
                     </div>
                 </div>
@@ -70,19 +77,31 @@
                 <div class="col">
                     <div class="card text-white bg-warning">
                         <div class="card-body">
-                            <h3>10</h3>
-                            <h4>Parents</h5>
+                            <h4>Parents: 
+                                <?php
+                                    $select_parent->execute();
+                                    echo count($select_parent->fetchAll(PDO::FETCH_ASSOC));
+                                ?>
+                            </h5>
                             <h6>Total Parents</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">View</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card text-white bg-danger">
                         <div class="card-body">
-                            <h3>10</h3>
-                            <h4>Subjects</h5>
+                            <h4>Subjects: 
+                                <?php
+                                    $select_subjects->execute();
+                                    echo count($select_subjects->fetchAll(PDO::FETCH_ASSOC));
+                                ?>
+                            </h5>
                             <h6>Total Subjects</h6>
                         </div>
+                        <div class="card-footer"><a href="">View</a></div>
                     </div>
                 </div>
                 <div class="col">
