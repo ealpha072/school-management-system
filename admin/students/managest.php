@@ -51,7 +51,7 @@
                 <div class="card-header">
                     <h5>Results</h5>
                 </div>
-                <div class="card-body" id="result-holder">
+                <div class="card-body" id="result-holder" >
                     <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
                     ---------------------------------------------------------
                     --------------------------------------------------------->

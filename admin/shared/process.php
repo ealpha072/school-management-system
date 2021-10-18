@@ -743,7 +743,7 @@
                     <th scope=col>Adm No</th>
                     <th scope=col>Full Name</th>
                     <th scope=col>Hostel Name</th>
-                    <th scope=col colspan=2 class=\"text-center\">Action</th>
+                    <th scope=col colspan=2 class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>';
@@ -753,8 +753,8 @@
                         echo '<td>'.$row['adm_num'].'</td>';
                         echo '<td>'.$full_name.'</td>';
                         echo '<td>'.$row['hostel'].'</td>';
-                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
-                        echo '<td><a href="" class="link-primary">Delete</a></td>';
+                        echo '<td><a href="#" class="btn btn-primary">Edit</a></td>';
+                        echo '<td><a href="" class="btn btn-danger">Delete</a></td>';
                     echo '</tr>';
                 }
             echo '</tbody>';
