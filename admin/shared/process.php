@@ -116,6 +116,7 @@
     $select_student = $db->prepare('select * from students');
     $select_hostel = $db->prepare('select * from hostels');
     $select_parent = $db->prepare('select * from parents');
+    $select_support_staff = $db->prepare('select * from support_staff');
 
     //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -766,8 +767,7 @@
         $count = count($results);
         echo "<div class = \"card {$classes[0]} {$classes[1]}\">";
             echo "<div class = \"card-body\">
-                    <h3>{$count}</h3>
-                    <h4>{$name}</h5>
+                    <h4>{$name}: {$count}</h5>
                     <h6>Total {$name}</h6>
                 </div>
                 <div class=\"card-footer\">
