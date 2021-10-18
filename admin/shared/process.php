@@ -767,8 +767,8 @@
         echo "<div class = \"card {$classes[0]} {$classes[1]}\">";
             echo "<div class = \"card-body\">
                     <h3>{$count}</h3>
-                    <h4>Students</h5>
-                    <h6>Total Students</h6>
+                    <h4>{$name}</h5>
+                    <h6>Total {$name}</h6>
                 </div>
                 <div class=\"card-footer\">
                     <a href = \"\">View</a>

@@ -1,8 +1,7 @@
 <?php 
     require "../shared/home.php";
 
-    $card_names = ['forms', 'hostels', 'streams', 'teachers', 'subjects', 'students',
-    'parents', 'support_staff', 'departments', 'staff_roles'];
+    $card_names = ['hostels', 'subjects','parents', 'support_staff', 'departments', 'staff_roles'];
     
 ?>
 
@@ -14,98 +13,26 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <div class="card text-white bg-primary">
-                        <div class="card-body">
-                            <?php
-                                $select_student->execute();
-                                $results = $select_student->fetchAll(PDO::FETCH_ASSOC);
-                            ?>
-                            <h4>Students: <?php echo count($results) ?></h5>
-                            <h6>Total Students</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="../students/managest.php">View</a>
-                        </div>
-                    </div>
+                    <?php buildCard('Students', $select_student, ['text-white', 'bg-primary']); ?>
                 </div>
                 <div class="col">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-body">
-                            <?php 
-                                $select_teacher->execute(); 
-                                $teachers = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
-                            ?>
-                            <h4>Teachers: <?php echo count($teachers)?></h5>
-                            <h6>Total Teachers</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="">View</a>
-                        </div>
-                    </div>
+                    <?php buildCard('Teachers', $select_teacher, ['text-white','bg-dark'])?>
                 </div>
                 <div class="col">
-                    <div class="card text-white bg-success">
-                        <div class="card-body">
-                            <h4>Hostels: <?php 
-                                $select_hostel->execute();
-                                $hostels = $select_hostel->fetchAll(PDO::FETCH_ASSOC);
-                                echo  count($hostels);?></h5>
-                            <h6>Total Hostels</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="">View</a>
-                        </div>
-                    </div>
+                    <?php buildCard('Hostels', $select_hostel, ['text-white','bg-success'])?>
                 </div>
                 <div class="col">
-                    <div class="card text-white bg-dark">
-                        <div class="card-body">
-                            <h4>Streams: 
-                                <?php
-                                    $select_stream->execute();
-                                    echo count($select_stream->fetchAll(PDO::FETCH_ASSOC));
-                                ?>
-                            </h5>
-                            <h6>Total Streams</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="">View</a>
-                        </div>
-                    </div>
+                    <?php buildCard('Streams', $select_stream, ['text-white','bg-secondary'])?>
                 </div>
             </div>
             <hr>
 
             <div class="form-row">
                 <div class="col">
-                    <div class="card text-white bg-warning">
-                        <div class="card-body">
-                            <h4>Parents: 
-                                <?php
-                                    $select_parent->execute();
-                                    echo count($select_parent->fetchAll(PDO::FETCH_ASSOC));
-                                ?>
-                            </h5>
-                            <h6>Total Parents</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="">View</a>
-                        </div>
-                    </div>
+                    <?php buildCard('Parents', $select_parent, ['text-white','bg-danger'])?>
                 </div>
                 <div class="col">
-                    <div class="card text-white bg-danger">
-                        <div class="card-body">
-                            <h4>Subjects: 
-                                <?php
-                                    $select_subjects->execute();
-                                    echo count($select_subjects->fetchAll(PDO::FETCH_ASSOC));
-                                ?>
-                            </h5>
-                            <h6>Total Subjects</h6>
-                        </div>
-                        <div class="card-footer"><a href="">View</a></div>
-                    </div>
+                    <?php buildCard('Subjects', $select_subjects, ['text-white','bg-warning'])?>
                 </div>
                 <div class="col">
                     <div class="card text-white bg-info">
