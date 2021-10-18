@@ -43,9 +43,14 @@
                 <div class="col">
                     <div class="card text-white bg-success">
                         <div class="card-body">
-                            <h3>7</h3>
-                            <h4>Hostels</h5>
+                            <h4>Hostels: <?php 
+                                $select_hostel->execute();
+                                $hostels = $select_hostel->fetchAll(PDO::FETCH_ASSOC);
+                                echo  count($hostels);?></h5>
                             <h6>Total Hostels</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">View</a>
                         </div>
                     </div>
                 </div>
