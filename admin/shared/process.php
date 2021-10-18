@@ -764,7 +764,7 @@
         $sqlstatement->execute();
         $results = $sqlstatement->fetchAll(PDO::FETCH_ASSOC);
         $count = count($results);
-        echo '<div class = "card "'.$classes[0]. ' '.$classes[1]. '">';
+        echo "<div class = \"card {$classes[0]} {$classes[1]}\">";
             echo "<div class = \"card-body\">
                     <h3>{$count}</h3>
                     <h4>Students</h5>
