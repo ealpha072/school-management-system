@@ -140,7 +140,7 @@
                 </button>
             </div>
             <div class="logout">
-                <a href="../shared/endsession.php">Logout</a>
+                <b><a href="../shared/endsession.php" class="text-success">Logout</a></b>
             </div>
         </nav>
         <hr>

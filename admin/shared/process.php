@@ -158,13 +158,13 @@
         $stream_name = htmlspecialchars($_GET['stream_name']);
 
         //query and execute
-        $select_this_student = $db->prepare('select adm_num, hostel, first_name, mid_name, last_name
+        $select_this_student = $db->prepare('select id, stream, adm_num, hostel, first_name, mid_name, last_name
         from students where form =:form and stream=:stream');
 
         $select_this_student->execute(array(':form'=>$form_name, ':stream'=>$stream_name));
 
         //call funtion
-        displayTable($select_this_student, []);
+        displayTable($select_this_student);
     }
 
     if(isset($_GET['admnum'])){
@@ -737,24 +737,42 @@
 
     function displayTable($query){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        echo '<table class="table table-stripped table-bordered">';
+        echo '<table class="table table-stripped table-sm">';
         echo '<thead>
                 <tr>
+                    <th scope=col>SNo</th>
                     <th scope=col>Adm No</th>
                     <th scope=col>Full Name</th>
                     <th scope=col>Hostel Name</th>
-                    <th scope=col colspan=2 class="text-center">Action</th>
+                    <th scope=col>Stream</th>
+                    <th scope=col>Action</th>
                 </tr>
             </thead>
             <tbody>';
                 foreach ($results as $row) {
                     $full_name = $row['first_name'].' '.$row['mid_name'].' '.$row['last_name'];
                     echo '<tr>';
+                        echo '<td>'.$row['id'].'</td>';
                         echo '<td>'.$row['adm_num'].'</td>';
                         echo '<td>'.$full_name.'</td>';
                         echo '<td>'.$row['hostel'].'</td>';
-                        echo '<td><a href="#" class="btn btn-primary">Edit</a></td>';
-                        echo '<td><a href="" class="btn btn-danger">Delete</a></td>';
+                        echo '<td>'.$row['stream'].'</td>';
+                        echo '
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <button class="dropdown-item" type="button">Action</button>
+                                        <button class="dropdown-item" type="button">Another action</button>
+                                        <button class="dropdown-item" type="button">Something else here</button>
+                                    </div>
+                                </div>
+                            </td>
+                        ';
+                        /*echo '<td><a href="#" class="btn btn-primary">Edit</a></td>';
+                        echo '<td><a href="" class="btn btn-danger">Delete</a></td>';*/
                     echo '</tr>';
                 }
             echo '</tbody>';
