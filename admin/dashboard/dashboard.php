@@ -1,6 +1,9 @@
 <?php 
     require "../shared/home.php";
 
+    $card_names = ['forms', 'hostels', 'streams', 'teachers', 'subjects', 'students',
+    'parents', 'support_staff', 'departments', 'staff_roles'];
+    
 ?>
 
 <div class="container-fluid">
@@ -114,13 +117,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card text-black bg-light">
-                        <div class="card-body">
-                            <h3>10</h3>
-                            <h4>Students</h5>
-                            <h6>Total Students</h6>
-                        </div>
-                    </div>
+                    <?php buildCard('students', $select_student, ['text-white', 'bg-primary'])?>
                 </div>
             </div>
             <hr>

@@ -6,9 +6,16 @@ $(document).ready(function() {
 
     $('#manage-st').on('click', function() {
         var results_div = $('#result-holder');
-        var request = new XMLHttpRequest
+        var request;
+
+        try {
+            request = new XMLHttpRequest
+        } catch (error) {
+            alert('Your browser doesnt support ajax')
+        }
+
         request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
+            if (this.readyState === 4 && request.status === 200) {
                 results_div.html('')
                 results_div.html(request.responseText)
             }
@@ -24,9 +31,15 @@ $(document).ready(function() {
 
     $('#search-student').on('click', function() {
         var results_div = $('#result-holder')
-        var request = new XMLHttpRequest
+        var request;
+        try {
+            request = new XMLHttpRequest
+        } catch (error) {
+            alert('Error in ajax')
+        }
+
         request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
+            if (this.readyState === 4 && request.status === 200) {
                 results_div.html('')
                 results_div.html(request.responseText)
             }
@@ -38,75 +51,25 @@ $(document).ready(function() {
         request.send(null)
     })
 
-    $('#manage-subject').on('change', function() {
+    $('#manage-subject').on('change',function(){
         var results_div = $('#result-holder')
-        var request = new XMLHttpRequest
+        try {
+            request = new XMLHttpRequest
+        } catch (error) {
+            alert('Error in ajax')
+        }
+
         request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
+            if (this.readyState === 4 && request.status === 200) {
                 results_div.html('')
                 results_div.html(request.responseText)
             }
         }
+
         var searchValue = $('#manage-subject').find(':selected').text()
         var queryString = '?to_find_subj=' + searchValue
         request.open('GET', '../shared/process.php' + queryString, true)
         request.send(null)
     })
-
-    $('#to-find-teacher').on('change', function() {
-        var results_div = $('#result-holder')
-        var request = new XMLHttpRequest
-
-        request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                results_div.html('')
-                results_div.html(request.responseText)
-            }
-        }
-
-        var searchValue = $('#to-find-teacher').find(':selected').text()
-        var nameArray = searchValue.trim().split(' ')
-
-        var queryString = `?name_1=${nameArray[0]}&name_2=${nameArray[1]}&name_3=${nameArray[2]}`
-        request.open('GET', '../shared/process.php' + queryString, true) 
-        request.send(null)
-    })
-
-    $('#manage-parent').on('click',function () {
-        var results_div = $('#results-holder')
-        var request = new XMLHttpRequest
-
-        request.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                results_div.html('')
-                results_div.html(request.responseText)
-            }
-        }
-
-        var form = $('#class-option').find(":selected").text()
-        var stream = $('#stream-option').find(":selected").text()
-        var query = `?form_name_parent=${form}&stream_name_parent=${stream}`
-
-        request.open('GET', '../shared/process.php' + query, true)
-        request.send(null)
-
-    })
-
-    $('#staff-name').on('change', function(){
-        var results_div = $('#results-holder')
-        var request = new XMLHttpRequest
-
-        request.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200){
-                results_div.html('')
-                results_div.html(this.responseText)
-            }
-        }
-
-        var name = $('#staff-name').find(':selected').text()
-        var nameArray = name.trim().split(' ')
-        var query = `?staff_fname=${nameArray[0]}&staff_mname=${nameArray[1]}&staff_lname=${nameArray[2]}`
-        request.open('GET', '../shared/process.php' + query, true)
-        request.send(null)
-    })
 });
+
