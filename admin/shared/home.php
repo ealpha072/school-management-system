@@ -120,6 +120,9 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="">Application Settings</a>
+                </li>
 
                 <!--OTHERS-->
                 <li>

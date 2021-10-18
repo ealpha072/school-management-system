@@ -1,4 +1,7 @@
-<?php require "../shared/home.php"?>
+<?php 
+    require "../shared/home.php";
+
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -10,9 +13,15 @@
                 <div class="col">
                     <div class="card text-white bg-primary">
                         <div class="card-body">
-                            <h3>10</h3>
-                            <h4>Students</h5>
+                            <?php
+                                $select_student->execute();
+                                $results = $select_student->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+                            <h4>Students: <?php echo count($results) ?></h5>
                             <h6>Total Students</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="">View</a>
                         </div>
                     </div>
                 </div>

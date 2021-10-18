@@ -113,6 +113,7 @@
     $select_stream = $db->prepare('select name from streams');
     $select_staff = $db->prepare('select * from support_staff');
     $select_role = $db->prepare('select * from staff_roles');
+    $select_student = $db->prepare('select * from students');
 
     //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
