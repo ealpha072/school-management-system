@@ -19,7 +19,6 @@
                                     $select_teacher->execute();
                                     $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($results as $result) {
-                                        // code...
                                         $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
                                         echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
                                     }
