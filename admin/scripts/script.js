@@ -86,5 +86,26 @@ $(document).ready(function() {
         request.open('GET', '../shared/process.php' + queryString, true)
         request.send(null)
     })
+
+    $('#manage-parent').on('click', function(){
+        var results_div = $('#result-holder');
+        var request = new XMLHttpRequest
+
+        request.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                results_div.html('')
+                results_div.html(request.responseText)
+            }
+        }
+
+        var form = $('#class-option').find(":selected").text()
+        var stream = $('#stream-option').find(":selected").text()
+        var query = `?form_name_parent=${form}&stream_name_parent=${stream}`
+
+        request.open('GET', '../shared/process.php' + query, true)
+        request.send(null)
+    })
+
+
 });
 

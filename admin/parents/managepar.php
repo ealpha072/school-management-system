@@ -47,7 +47,7 @@
                 <div class="card-header">
                     <h6>My Parents(Based on Search/Select value)</h6>
                 </div>
-                <div class="card-body" id="results-holder">
+                <div class="card-body" id="result-holder">
                     <!--THIS SECTION HOLDS THE RESULTS OF THE SEARCHED ITEM--
                     ---------------------------------------------------------
                     --------------------------------------------------------->
