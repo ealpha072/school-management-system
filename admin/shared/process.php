@@ -204,34 +204,7 @@
 
         $select_this_staff = $db->prepare('select * from support_staff where first_name=:name1 and mid_name=:name2');
         $select_this_staff->execute(array(':name1'=>$first_name, ':name2'=>$mid_name));
-        $results = $select_this_staff->fetchAll(PDO::FETCH_ASSOC);
-
-        echo '<table class="table table-stripped table-bordered">';
-        echo '<thead>
-                <tr>
-                    <th scope=col>Serial No</th>
-                    <th scope=col>Full Name</th>
-                    <th scope=col>Phone num</th>
-                    <th scope=col>Role</th>
-                    <th scope=col>Email</th>
-                    <th scope=col>Action</th>
-                </tr>
-            </thead>
-            <tbody>';
-                foreach ($results as $row) {
-                    $full_name = $row['first_name'].' '.$row['mid_name'].' '.$row['last_name'];
-                    echo '<tr>';
-                        echo '<td>'.$row['id'].'</td>';
-                        echo '<td>'.$full_name.'</td>';
-                        echo '<td>'.$row['phone_number'].'</td>';
-                        echo '<td>'.$row['role'].'</td>';
-                        echo '<td>'.$row['email'].'</td>';
-                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
-                    echo '</tr>';
-                }
-            echo '</tbody>';
-        echo '</table>';
-
+        buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email']);
     }
 
     //..........MAIN FUCTIONS HERE.........................//
