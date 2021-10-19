@@ -144,9 +144,4 @@
             </div>
         </nav>
         <hr>
-        
-
-    <!--</div>-->
-<!--</div>-->
-
 <?php require "footer.php"?>
