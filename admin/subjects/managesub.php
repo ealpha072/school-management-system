@@ -11,7 +11,6 @@
             <div class="form-row">
                 <div class="col">
                     <select name="" id="manage-subject" class="form-control">
-                        <!--consider populationg with php-->
                         <option value="" selected disabled>Subject to manage</option>
                         <?php
                             $select_subjects->execute();

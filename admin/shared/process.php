@@ -164,7 +164,8 @@
         $select_this_student->execute(array(':form'=>$form_name, ':stream'=>$stream_name));
 
         //call funtion
-        displayTable($select_this_student);
+        //displayTable($select_this_student);
+        buildTable($select_this_student, ['id','Adm no','First Name','Mid Name', 'Last Name','Hostel', 'Stream']);
     }
 
     if(isset($_GET['admnum'])){
@@ -199,7 +200,7 @@
                         echo '<td>'.$row['subject_type'].'</td>';
                         echo '<td>'.$row['head_of_subject'].'</td>';
                         echo '<td>'.$row['department'].'</td>';
-                        echo '<td><a href="" class="link-primary">Edit<a/></td>';
+                        echo '<td><a href="" class="text-primary">Edit</a></td>';
                     echo '</tr>';
                 }
             echo '</tbody>';
@@ -791,4 +792,23 @@
                     <a href = \"\">View</a>
                 </div>";
         echo '</div>';
+    }
+
+    function buildTable($query, array $columns){
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        echo "<table class = \"table table-stripped table-bordered\">";
+            echo "<thead>";
+                echo "<tr>";
+                    foreach ($columns as $column) {
+                        echo "<th scope=col>{$column}</th>";
+                    }
+                    echo "<th scope=col>Action</th>";
+                echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+                    foreach ($results as $row) {
+                        
+                    }
+            echo "</tbody>";
+        echo "</table>";
     }

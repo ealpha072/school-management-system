@@ -15,7 +15,7 @@
     <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>School System</h3>
-                <img src="../images/staffs/admin.png" alt="" class="img-fluid rounded">
+                <img alt="" class="img-fluid rounded">
                 <h5><?php //echo $loggedIn?></h5>
                 <h6>Thanks</h6>
             </div>
