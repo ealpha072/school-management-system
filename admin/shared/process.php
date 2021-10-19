@@ -165,7 +165,7 @@
 
         //call funtion
         //displayTable($select_this_student);
-        buildTable($select_this_student, ['id','Adm no','First Name','Mid Name', 'Last Name','Hostel', 'Stream']);
+        buildTable($select_this_student, ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream']);
     }
 
     if(isset($_GET['admnum'])){
@@ -807,7 +807,22 @@
             echo "</thead>";
             echo "<tbody>";
                     foreach ($results as $row) {
-                        
+                        echo "<tr>";
+                            foreach ($columns as $index) {
+                                echo "<td>{$row[$index]}</td>";
+                            }
+                            echo "<td>
+                                <div class=\"dropdown\">
+                                    <a class=\"btn btn-success dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                        Manage
+                                    </a>
+                                    <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
+                                        <a class=\"dropdown-item text-info\" href=\"#\">Edit</a>
+                                        <a class=\"dropdown-item text-danger\" href=\"#\">Delete</a>
+                                    </div>
+                                </div>
+                            </td>";
+                        echo "</tr>";
                     }
             echo "</tbody>";
         echo "</table>";
