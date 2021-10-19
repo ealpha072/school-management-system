@@ -51,6 +51,8 @@ $(document).ready(function() {
         request.send(null)
     })
 
+    
+
     $('#manage-subject').on('change',function(){
         var results_div = $('#result-holder')
         try {

@@ -172,39 +172,15 @@
         $adm = htmlspecialchars($_GET['admnum']);
         $select_this_adm = $db->prepare('select * from students where adm_num=:num');
         $select_this_adm->execute(array(':num'=>$adm));
-        displayTable($select_this_adm);
+        buildTable($select_this_adm, ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream']);
     }
 
     if(isset($_GET['to_find_subj'])){
         $subject = htmlspecialchars($_GET['to_find_subj']);
         $select_this_sub = $db->prepare('select * from subjects where name=:name');
         $select_this_sub->execute(array(':name'=>$subject));
-        $results = $select_this_sub->fetchAll(PDO::FETCH_ASSOC);
 
-        echo '<table class="table table-stripped table-bordered">';
-        echo '<thead>
-                <tr>
-                    <th scope=col>Serial No</th>
-                    <th scope=col>Name</th>
-                    <th scope=col>Type</th>
-                    <th scope=col>HOS</th>
-                    <th scope=col>Department</th>
-                    <th scope=col>Action</th>
-                </tr>
-            </thead>
-            <tbody>';
-                foreach ($results as $row) {
-                    echo '<tr>';
-                        echo '<td>'.$row['id'].'</td>';
-                        echo '<td>'.$row['name'].'</td>';
-                        echo '<td>'.$row['subject_type'].'</td>';
-                        echo '<td>'.$row['head_of_subject'].'</td>';
-                        echo '<td>'.$row['department'].'</td>';
-                        echo '<td><a href="" class="text-primary">Edit</a></td>';
-                    echo '</tr>';
-                }
-            echo '</tbody>';
-        echo '</table>';
+        buildTable($select_this_sub, ['id', 'name', 'subject_type', 'head_of_subject', 'department']);
     }
 
     if(isset($_GET['name_1']) && isset($_GET['name_2']) && isset($_GET['name_3'])){
@@ -212,9 +188,9 @@
         $fname =htmlspecialchars($_GET['name_1']);
         $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname');
         $select_this_teacher->execute(array(':fname'=> $fname));
-        $results = $select_this_teacher->fetchAll(PDO::FETCH_ASSOC);
+        buildTable($select_this_teacher, ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2','email']);
 
-        echo '<table class="table table-stripped table-bordered">';
+        /*echo '<table class="table table-stripped table-bordered">';
         echo '<thead>
                 <tr>
                     <th scope=col>Serial No</th>
@@ -240,7 +216,7 @@
                     echo '</tr>';
                 }
             echo '</tbody>';
-        echo '</table>';
+        echo '</table>';*/
     }
 
     if (isset($_GET['form_name_parent']) && isset($_GET['stream_name_parent'])) {
