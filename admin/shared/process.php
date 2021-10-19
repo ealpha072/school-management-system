@@ -117,6 +117,7 @@
     $select_hostel = $db->prepare('select * from hostels');
     $select_parent = $db->prepare('select * from parents');
     $select_support_staff = $db->prepare('select * from support_staff');
+    ///UPDATE QUERIES
 
     //BUTTON PUSHES
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -686,4 +687,16 @@
                     }
             echo "</tbody>";
         echo "</table>";
+    }
+
+    function buildForm($results, $inputs, $selects){
+        foreach ($inputs as $input) {
+            echo '
+                <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+                </div>
+            </div>';
+        }
     }
