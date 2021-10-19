@@ -207,6 +207,14 @@
         buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email']);
     }
 
+    if(isset($_GET['to_find_role'])){
+        $role = $_GET['to_find_role'];
+
+        $select_this_role = $db->prepare('select * from staff_roles where role_name=:name');
+        $select_this_role->execute(array(':name'=>$name));
+        buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name']);
+    }
+
     //..........MAIN FUCTIONS HERE.........................//
     //....................................................//
     function login() {
@@ -628,49 +636,6 @@
         foreach($results as $result){
             echo '<option value ="'.$result[$column].'">'.$result[$column].'</option>';
         }
-    }
-
-    function displayTable($query){
-        $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        echo '<table class="table table-stripped table-bordered">';
-        echo '<thead>
-                <tr>
-                    <th scope=col>SNo</th>
-                    <th scope=col>Adm No</th>
-                    <th scope=col>Full Name</th>
-                    <th scope=col>Hostel Name</th>
-                    <th scope=col>Stream</th>
-                    <th scope=col>Action</th>
-                </tr>
-            </thead>
-            <tbody>';
-                foreach ($results as $row) {
-                    $full_name = $row['first_name'].' '.$row['mid_name'].' '.$row['last_name'];
-                    echo '<tr>';
-                        echo '<td>'.$row['id'].'</td>';
-                        echo '<td>'.$row['adm_num'].'</td>';
-                        echo '<td>'.$full_name.'</td>';
-                        echo '<td>'.$row['hostel'].'</td>';
-                        echo '<td>'.$row['stream'].'</td>';
-                        echo '
-                            <td>
-                                <div class="dropdown">
-                                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Manage
-                                    </a>
-                                
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item text-info" href="#">Edit</a>
-                                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                                        <a class="dropdown-item text-warning" href="#">More Info</a>
-                                    </div>
-                                </div>
-                            </td>
-                        ';
-                    echo '</tr>';
-                }
-            echo '</tbody>';
-        echo '</table>';
     }
 
     function buildCard(string $name, $sqlstatement, array $classes){
