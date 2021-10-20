@@ -1,8 +1,5 @@
 <?php
     require "../shared/home.php";
-
-    $select_classes = $db->prepare('select name from forms');
-    $select_stream = $db->prepare('select name from streams');
     $select_hostel = $db->prepare('select name from hostels');
 
     $select_classes->execute();
