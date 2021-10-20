@@ -20,7 +20,7 @@
                             <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">
                                 <div class="form-row">
                                     <div class="col">
-                                        <select name="" class="form-control" required="" id="class-option">
+                                        <select name="" class="form-control form-control-sm" required="" id="class-option">
                                             <option value="" selected disabled>--Choose a class--</option>
                                             <?php
                                                 displayMenu($select_classes, 'name');
@@ -28,13 +28,13 @@
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <select name="" class="form-control" required="" id="stream-option">
+                                        <select name="" class="form-control form-control-sm" required="" id="stream-option">
                                             <option value="" selected disabled>--Choose a stream--</option>
                                             <?php displayMenu($select_stream, 'name'); ?>
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <button type="button" class="btn btn-primary" id="manage-parent" >Manage</button>
+                                        <button type="button" class="btn btn-primary btn-sm" id="manage-parent" >Manage</button>
                                     </div>
                                 </div>
                             </form>
