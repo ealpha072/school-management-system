@@ -11,3 +11,4 @@ A school managemnt system.
 * Restructure the SQLs for universality
 * Provisions for no results in searches
 * Include Popper js
+* adding roles to test the pages
