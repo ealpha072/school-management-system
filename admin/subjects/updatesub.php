@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="btn btn-success">Update Subjects</button>
+                    <button type="submit" class="btn btn-success" name="">Update Subjects</button>
                 </div>
             </form>
         </div>
