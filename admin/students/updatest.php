@@ -8,7 +8,6 @@
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $results = $results[0];
     }
-    //print_r($results[0]['adm_num']);
 ?>
 
 <div class="container-fluid">
@@ -26,7 +25,7 @@
                     </div>
                     <label for="" class="col-sm-2 col-form-label col-form-label-sm">Hostel</label>
                     <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm">
+                        <select name="" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled><?php echo $results['hostel']?></option>
                             <?php 
                                 $select_hostel->execute();
@@ -58,7 +57,7 @@
                 <div class="form-group row">
                     <label for="form" class="col-sm-2 col-form-label col-form-label-sm">Form</label>
                     <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm">
+                        <select name="" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled><?php echo $results['form']?></option>
                             <?php 
                                 $select_classes->execute();
@@ -68,7 +67,7 @@
                     </div>
                     <label for="stream" class="col-sm-2 col-form-label col-form-label-sm">Stream</label>
                     <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm">
+                        <select name="" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled><?php echo $results['stream']?></option>
                             <?php 
                                 $select_stream->execute();
@@ -82,18 +81,20 @@
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Parent Number</label>
                     <div class="col-sm-4">
                         <input 
-                            type="number" class="form-control form-control-sm" id="name" 
+                            type="number" class="form-control form-control-sm" id="name" required
                             value="<?php echo $results['p_phone_number']?>"
                         >
                     </div>
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Parent Email</label>
                     <div class="col-sm-4">
                         <input 
-                            type="email" class="form-control form-control-sm" id="name" 
-                            value="<?php echo $results['parent_name']?>" 
-                            readonly
+                            type="email" class="form-control form-control-sm" id="name" required 
+                            value="<?php echo $results['p_email']?>" 
                         >
                     </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
