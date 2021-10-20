@@ -158,6 +158,7 @@
         $delete_id = $_SESSION['delete_id'];
         $delete_student->execute(array(':id'=>$delete_id));
         $_SESSION['success'] = 'Deleted record successfully';
+        header('location: managest.php');
     }
 
     //RESPONSE TEXTS FOR AJAX REQUESTS
