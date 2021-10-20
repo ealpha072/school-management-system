@@ -1,7 +1,6 @@
 <?php
     require '../shared/home.php';
 
-    $select_subjects->execute();
     if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='edit'){
         $id = $_GET['id'];
         $query = $db->prepare('select * from teachers where id=:id');
@@ -43,6 +42,7 @@
                         <select name="" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled><?php echo $results['subject_1']?></option>
                             <?php 
+                                $select_subjects->execute();
                                 displayMenu($select_subjects, 'name');
                             ?>
                         </select>
@@ -53,6 +53,7 @@
                         <select name="" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled><?php echo $results['subject_2']?></option>
                             <?php 
+                                $select_subjects->execute();
                                 displayMenu($select_subjects, 'name');
                             ?>
                         </select>
@@ -69,14 +70,16 @@
                     </div>
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Role</label>
                     <div class="col-sm-4">
-                        <input 
-                            type="email" class="form-control form-control-sm" id="name" required 
-                            value="<?php echo $results['role']?>" 
-                        >
+                        <select name="" id="" class="form-control form-control-sm" required>
+                            <option value="" selected disabled><?php echo $results['role']?></option>
+                            <?php 
+                                //roles population
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary" name="">Update</button>
                 </div>
             </form>
         </div>

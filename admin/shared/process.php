@@ -216,7 +216,8 @@
         $select_this_parent = $db->prepare('select id, parent_name, p_phone_number, 
         p_email from students where form=:form and stream=:stream ');
         $select_this_parent->execute(array(':form'=>$form, ':stream'=>$stream));
-        buildTable($select_this_parent, ['id', 'parent_name', 'p_phone_number', 'p_email'], [], []);
+        buildTable($select_this_parent, ['id', 'parent_name', 'p_phone_number', 'p_email'], 
+        ['updatepar.php','deletepar.php'], ['edit','delete']);
     }
 
     if(isset($_GET['staff_fname']) && isset($_GET['staff_mname']) && isset($_GET['staff_lname'])){
