@@ -3,7 +3,7 @@
 
     if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='edit'){
         $id = $_GET['id'];
-        $query = $db->prepare('select * from students where id=:id');
+        $query = $db->prepare('select * from subjects where id=:id');
         $query->execute(array(':id'=>$id));
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $results = $results[0];
@@ -13,88 +13,52 @@
 <div class="container-fluid">
     <di class="card">
         <div class="card-header">
-            <h4>Update student Records: Adm number <?php echo $results['adm_num']?></h4>
+            <h4>Update subject: <?php echo $results['name']?></h4>
         </div>
         <div class="card-body">
-            <form action="" method="post">
-
+            <form action="" method="get">
                 <div class="form-group row">
-                    <label for="Adm-num" class="col-sm-2 col-form-label col-form-label-sm">Adm Num</label>
+                    <label for="" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
                     <div class="col-sm-4">
-                        <input type="email" class="form-control form-control-sm" id="Adm-num" value="<?php echo $results['adm_num'];?>" readonly>
+                        <input type="text" name="" id="" readonly class="form-control form-control-sm" value="<?php echo $results['name']?>">
                     </div>
-                    <label for="" class="col-sm-2 col-form-label col-form-label-sm">Hostel</label>
+                    <label for="" class="col-sm-2 col-form-label col-form-label-sm">Subject Type</label>
                     <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm" required>
-                            <option value="" selected disabled><?php echo $results['hostel']?></option>
+                        <select name="" id="" class="form-control form-control-sm">
+                            <option value="" selected><?php echo $results['subject_type']?></option>
+                            <option value="elective">Elective</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label col-form-label-sm">HOS</label>
+                    <div class="col-sm-4">
+                        <select name="" id="" class="form-control form-control-sm">
+                            <option value="" selected><?php echo $results['head_of_subject']; ?></option>
                             <?php 
-                                $select_hostel->execute();
-                                displayMenu($select_hostel, 'name');
+                                $select_teacher->execute();
+                                $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($results as $result) {
+                                    $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                                    echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+
+                    <label for="" class="col-sm-2 col-form-label col-form-label-sm">Department</label>
+                    <div class="col-sm-4">
+                        <select name="" id="" class="form-control form-control-sm">
+                            <option value="" selected><?php //echo $results['department']?></option><!--problem here-->
+                            <?php 
+                                $select_department->execute();
+                                displayMenu($select_department, 'dpt_name');
                             ?>
                         </select>
                     </div>
                 </div>
-                
-                <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
-                    <div class="col-sm-4">
-                        <input 
-                            type="email" class="form-control form-control-sm" id="name" 
-                            value="<?php echo $results['first_name'].' '.$results['mid_name'].' '.$results['last_name'];?>" 
-                            readonly
-                        >
-                    </div>
-                    <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Parent Name</label>
-                    <div class="col-sm-4">
-                        <input 
-                            type="email" class="form-control form-control-sm" id="name" 
-                            value="<?php echo $results['parent_name']?>" 
-                            readonly
-                        >
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="form" class="col-sm-2 col-form-label col-form-label-sm">Form</label>
-                    <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm" required>
-                            <option value="" selected disabled><?php echo $results['form']?></option>
-                            <?php 
-                                $select_classes->execute();
-                                displayMenu($select_classes, 'name');
-                            ?>
-                        </select>
-                    </div>
-                    <label for="stream" class="col-sm-2 col-form-label col-form-label-sm">Stream</label>
-                    <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm" required>
-                            <option value="" selected disabled><?php echo $results['stream']?></option>
-                            <?php 
-                                $select_stream->execute();
-                                displayMenu($select_stream, 'name');
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Parent Number</label>
-                    <div class="col-sm-4">
-                        <input 
-                            type="number" class="form-control form-control-sm" id="name" required
-                            value="<?php echo $results['p_phone_number']?>"
-                        >
-                    </div>
-                    <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Parent Email</label>
-                    <div class="col-sm-4">
-                        <input 
-                            type="email" class="form-control form-control-sm" id="name" required 
-                            value="<?php echo $results['p_email']?>" 
-                        >
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Update Subjects</button>
                 </div>
             </form>
         </div>
