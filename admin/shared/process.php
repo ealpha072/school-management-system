@@ -205,7 +205,8 @@
         $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname');
         $select_this_teacher->execute(array(':fname'=> $fname));
         buildTable($select_this_teacher, 
-        ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2','email'], [], []);
+        ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2'], 
+        ['updateteach.php','deleteteach.php'], ['edit','delete']);
     }
 
     if (isset($_GET['form_name_parent']) && isset($_GET['stream_name_parent'])) {

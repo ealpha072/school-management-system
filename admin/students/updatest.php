@@ -39,7 +39,7 @@
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
                     <div class="col-sm-4">
                         <input 
-                            type="email" class="form-control form-control-sm" id="name" 
+                            type="text" class="form-control form-control-sm" id="name" 
                             value="<?php echo $results['first_name'].' '.$results['mid_name'].' '.$results['last_name'];?>" 
                             readonly
                         >
