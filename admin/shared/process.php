@@ -117,7 +117,9 @@
     $select_hostel = $db->prepare('select * from hostels');
     $select_parent = $db->prepare('select * from parents');
     $select_support_staff = $db->prepare('select * from support_staff');
+    //DELETE QUERIES
     $delete_student = $db->prepare('delete from students where id=:id');
+    $delete_parent = $db->prepare('delete from parents where email=:email');
     ///UPDATE QUERIES
 
     //BUTTON PUSHES
@@ -156,8 +158,11 @@
     //SOME GET DECS
     if(isset($_POST['delete-yes'])){
         $delete_id = $_SESSION['delete_id'];
+        $delete_email = $_SESSION['email'];
         $delete_student->execute(array(':id'=>$delete_id));
+        $delete_parent->execute(array('email'=>$delete_email));
         $_SESSION['success'] = 'Deleted record successfully';
+        unset($_SESSION['delete_id'], $_SESSION['email']);
         header('location: managest.php');
     }
 

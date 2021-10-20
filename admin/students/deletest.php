@@ -7,6 +7,7 @@
         $query = $db->prepare('select adm from students where id=:id');
         $query->execute(array(':id'=>$id));
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['email'] = $results[0]['p_email'];
     }
 ?>
 
@@ -18,7 +19,7 @@
         </div>
         <div class="card-body">
             <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-                <p class="text-danger">Delete this student ?</p>
+                <p class="text-danger">Delete this student ? This deletes both student and related parent info</p>
                 <div class="form-group row">
                     <div class="col">
                         <button class="btn btn-danger" type="submit" name="delete-yes">Yes</button>
