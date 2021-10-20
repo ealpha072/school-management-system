@@ -163,14 +163,18 @@
         from students where form =:form and stream=:stream');
 
         $select_this_student->execute(array(':form'=>$form_name, ':stream'=>$stream_name));
-        buildTable($select_this_student, ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream'], 'updatest.php');
+        buildTable($select_this_student, 
+        ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream'], 
+        ['updatest.php','deletest.php'], 
+        ['edit','delete']);
     }
 
     if(isset($_GET['admnum'])){
         $adm = htmlspecialchars($_GET['admnum']);
         $select_this_adm = $db->prepare('select * from students where adm_num=:num');
         $select_this_adm->execute(array(':num'=>$adm));
-        buildTable($select_this_adm, ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream'], 'updatest.php');
+        buildTable($select_this_adm, ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream'], 
+        ['updatest.php','deletest.php'], ['edit','delete']);
     }
 
     if(isset($_GET['to_find_subj'])){
@@ -178,7 +182,7 @@
         $select_this_sub = $db->prepare('select * from subjects where name=:name');
         $select_this_sub->execute(array(':name'=>$subject));
 
-        buildTable($select_this_sub, ['id', 'name', 'subject_type', 'head_of_subject', 'department'], 'trtrt');
+        buildTable($select_this_sub, ['id', 'name', 'subject_type', 'head_of_subject', 'department'], [], []);
     }
 
     if(isset($_GET['name_1']) && isset($_GET['name_2']) && isset($_GET['name_3'])){
@@ -186,7 +190,7 @@
         $select_this_teacher = $db->prepare('select * from teachers where first_name=:fname');
         $select_this_teacher->execute(array(':fname'=> $fname));
         buildTable($select_this_teacher, 
-        ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2','email'], 'tttt');
+        ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2','email'], [], []);
     }
 
     if (isset($_GET['form_name_parent']) && isset($_GET['stream_name_parent'])) {
@@ -196,7 +200,7 @@
         $select_this_parent = $db->prepare('select id, parent_name, p_phone_number, 
         p_email from students where form=:form and stream=:stream ');
         $select_this_parent->execute(array(':form'=>$form, ':stream'=>$stream));
-        buildTable($select_this_parent, ['id', 'parent_name', 'p_phone_number', 'p_email'], 'rete');
+        buildTable($select_this_parent, ['id', 'parent_name', 'p_phone_number', 'p_email'], [], []);
     }
 
     if(isset($_GET['staff_fname']) && isset($_GET['staff_mname']) && isset($_GET['staff_lname'])){
@@ -206,7 +210,7 @@
 
         $select_this_staff = $db->prepare('select * from support_staff where first_name=:name1 and mid_name=:name2');
         $select_this_staff->execute(array(':name1'=>$first_name, ':name2'=>$mid_name));
-        buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email'], 'tytyt');
+        buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email'], [], []);
     }
 
     if(isset($_GET['to_find_role'])){
@@ -214,7 +218,7 @@
 
         $select_this_role = $db->prepare('select * from staff_roles where role_name=:name');
         $select_this_role->execute(array(':name'=>$name));
-        buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name'], 'ttht');
+        buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name'], [], []);
     }
 
     //..........MAIN FUCTIONS HERE.........................//
@@ -655,7 +659,7 @@
         echo '</div>';
     }
 
-    function buildTable($query, array $columns, string $link){
+    function buildTable($query, array $columns, array $link, array $action){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         echo "<table class = \"table table-stripped table-bordered\">";
             echo "<thead>";
@@ -678,8 +682,8 @@
                                         Manage
                                     </a>
                                     <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
-                                        <a class=\"dropdown-item text-info\" href=\"{$link}?id={$row['id']}\">Edit</a>
-                                        <a class=\"dropdown-item text-danger\" href=\"#\">Delete</a>
+                                        <a class=\"dropdown-item text-info\" href=\"{$link[0]}?action={$action[0]}&id={$row['id']}\">Edit</a>
+                                        <a class=\"dropdown-item text-danger\" href=\"{$link[1]}?action={$action[1]}&id={$row['id']}\">Delete</a>
                                     </div>
                                 </div>
                             </td>";

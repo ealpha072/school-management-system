@@ -1,7 +1,7 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='edit'){
         $id = $_GET['id'];
         $query = $db->prepare('select * from students where id=:id');
         $query->execute(array(':id'=>$id));
