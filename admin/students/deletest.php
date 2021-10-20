@@ -4,7 +4,7 @@
     if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
         $id = $_GET['id'];
         $_SESSION['delete_id'] = $id;
-        $query = $db->prepare('select adm from students where id=:id');
+        $query = $db->prepare('select * from students where id=:id');
         $query->execute(array(':id'=>$id));
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['email'] = $results[0]['p_email'];

@@ -227,7 +227,8 @@
 
         $select_this_staff = $db->prepare('select * from support_staff where first_name=:name1 and mid_name=:name2');
         $select_this_staff->execute(array(':name1'=>$first_name, ':name2'=>$mid_name));
-        buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email'], [], []);
+        buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email'], 
+        ['updatestaff.php', 'deletestaff.php'], ['edit','delete']);
     }
 
     if(isset($_GET['to_find_role'])){
