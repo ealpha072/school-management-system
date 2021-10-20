@@ -196,7 +196,8 @@
         $select_this_sub = $db->prepare('select * from subjects where name=:name');
         $select_this_sub->execute(array(':name'=>$subject));
 
-        buildTable($select_this_sub, ['id', 'name', 'subject_type', 'head_of_subject', 'department'], [], []);
+        buildTable($select_this_sub, ['id', 'name', 'subject_type', 'head_of_subject', 'department'], 
+        ['updatesub.php','deletesub.php'], ['edit','delete']);
     }
 
     if(isset($_GET['name_1']) && isset($_GET['name_2']) && isset($_GET['name_3'])){
