@@ -117,6 +117,7 @@
     $select_hostel = $db->prepare('select * from hostels');
     $select_parent = $db->prepare('select * from parents');
     $select_support_staff = $db->prepare('select * from support_staff');
+    $delete_student = $db->prepare('delete from students where id=:id');
     ///UPDATE QUERIES
 
     //BUTTON PUSHES
@@ -150,6 +151,13 @@
 
      if(isset($_POST['add-stream']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         addStream();
+    }
+
+    //SOME GET DECS
+    if(isset($_POST['delete-yes'])){
+        $delete_id = $_SESSION['delete_id'];
+        $delete_student->execute(array(':id'=>$delete_id));
+        $_SESSION['success'] = 'Deleted record successfully';
     }
 
     //RESPONSE TEXTS FOR AJAX REQUESTS
@@ -604,6 +612,8 @@
             array_unshift($add_stream_error, $stream_addition_error);
         }
     }
+
+    
 
     //helper functions
 
