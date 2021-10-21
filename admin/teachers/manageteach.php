@@ -13,6 +13,7 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
+                            <?php showSuccessMessage(); ?>
                             <select name="" id="to-find-teacher" class="form-control">
                                 <option value="" selected disabled>Choose Teacher</option>
                                 <?php

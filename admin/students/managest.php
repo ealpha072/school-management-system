@@ -12,8 +12,8 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">
-                        <?php echo showSuccessMessage(); ?>
+                    <?php echo showSuccessMessage(); ?>
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">  
                         <div class="form-row">
                             <div class="col">
                                 <select name="" class="form-control" required="" id="class-option">

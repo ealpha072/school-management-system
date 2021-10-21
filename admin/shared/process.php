@@ -155,7 +155,7 @@
         addStream();
     }
 
-    //SOME GET DECS
+    //These are delete buttons
     if(isset($_POST['delete-yes'])){
         $delete_id = $_SESSION['delete_id'];
         $delete_email = $_SESSION['email'];
@@ -164,6 +164,15 @@
         $_SESSION['success'] = 'Deleted record successfully';
         unset($_SESSION['delete_id'], $_SESSION['email']);
         header('location: managest.php');
+    }
+
+    if(isset($_post['delete-teacher-yes'])){
+        $id = $_SESSION['delete_id'];
+        $delete_teacher = $db->prepare('delete from teachers where id=:id');
+        $delete_teacher->execute(array(':id'=>$id));
+        $_SESSION['success'] = 'Deleted teacher successfully';
+        unset($_SESSION['delete_id']);
+        header('location: manageteach.php');
     }
 
     //RESPONSE TEXTS FOR AJAX REQUESTS
