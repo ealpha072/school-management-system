@@ -14,22 +14,25 @@
                         <div class="form-group row">
                             <label for="search file" class="col-sm-2 col-form-label">Upload excell file</label>
                             <div class="col-sm-10">
-                              <input type="file" class="form-control" name="excell-file">
+                              <input type="file" class="form-control form-control-sm" name="excell-file">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="class" class="col-sm-2 col-form-label">Class</label>
                             <div class="col-sm-10">
-                                <select name="class" id="" class="form-control">
+                                <select name="class" id="" class="form-control form-control-sm">
                                     <option value="" selected="" disabled="">Select a class</option>
-                                    <option value="Form one">Form one</option>
+                                    <?php 
+                                        $select_classes->execute();
+                                        displayMenu($select_classes, 'name');
+                                    ?>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="stream" class="col-sm-2 col-form-label">Stream</label>
                             <div class="col-sm-10">
-                                <select name="class" id="" class="form-control">
+                                <select name="class" id="" class="form-control form-control-sm">
                                     <option value="" selected="" disabled="">Select a stream</option>
                                     <option value="Blue">Blue</option>
                                     <option value="Red">Red</option>
@@ -38,7 +41,7 @@
                         </div>
                         <hr>
                         <div class="button">
-                            <button class="btn btn-success" type="submit">Upload and add students</button>
+                            <button class="btn btn-success btn-small" type="submit">Upload and add students</button>
                         </div>
                     </form>
                 </div>
