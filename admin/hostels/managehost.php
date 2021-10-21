@@ -7,7 +7,12 @@
             <h6>All hostels</h6>
         </div>
         <div class="card-body">
-            <!-- query database for all hostels and display them-->
+            
+            <?php 
+                showSuccessMessage();
+                $select_hostel->execute();
+                buildTable($select_hostel, ['id','name','teacher_incharge'], ['updatehost.php','deletehost.php'],['edit','delete']);
+            ?>
         </div>
     </div>
 </div>
