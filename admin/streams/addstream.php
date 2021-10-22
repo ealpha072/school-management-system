@@ -22,7 +22,7 @@
                         <input type="text" class="form-control form-control-sm" placeholder="New stream name" name="stream-name">
                     </div>
 
-                    <button class="btn btn-primary btn-sm" name="add-stream">+ Add Stream</button>
+                    <button class="btn btn-primary btn-sm" name="add-stream" type="submit">+ Add Stream</button>
                 </div>
             </form>
         </div>

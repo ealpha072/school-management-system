@@ -14,39 +14,42 @@
                         displayErrors($add_role_error);
                     }
                 ?>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="staff-type">Staff Type(Type of staff Doing the role)</label>
-                        <select name="staff-type" id="" class="form-control" required="">
+                <div class="form-group row">
+
+                    <label for="staff-type" class="col-sm-2 col-form-label col-form-label-sm">Staff Type</label>
+                    <div class="col-sm-4">
+                        <select name="staff-type" id="" class="form-control form-control-sm" required="">
                             <option value="" selected="" disabled="">--Choose staff type--</option>
                             <option value="Teaching staff">Teaching Staff</option>
                             <option value="Support staff">Non Teaching Staff</option>
                         </select>
                     </div>
-                    <div class="col">
-                        <label for="role-name">Role Name</label>
-                        <input type="text" placeholder="Name of Role" class="form-control" name="role-name" required="">
+                    
+                    <label for="role-name" class="col-sm-2 col-form-label col-form-label-sm">Role Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" placeholder="Name of Role" class="form-control form-control-sm" name="role-name" required="">
                     </div>
                 </div>
-                <hr>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="staff-name">Staff Incharge</label>
-                        <select name="staff-name" id="" class="form-control">
+
+                <div class="form-group row">
+
+                    <label for="staff-name" class="col-sm-2 col-form-label col-form-label-sm">Staff Incharge</label>    
+                    <div class="col-sm-4">
+                        <select name="staff-name" id="" class="form-control form-control-sm">
                             <option value="" selected disabled>Choose Name of Staff Incharge</option>
                             <option value="Dont asign">Dont asign</option>
                             <option value="Mr Njiru">Mr Njiru</option>
                             <!--php population-->
                         </select>
                     </div>
-                    <div class="col">
-                        <label for="date">Date of assigning role</label>
-                        <input type="text" readonly value="<?php echo date("Y/m/d"); ?>" class="form-control">
+                    
+                    <label for="date" class="col-sm-2 col-form-label col-form-label-sm">Date</label>
+                    <div class="col-sm-4">
+                        <input type="text" readonly value="<?php echo date("Y/m/d"); ?>" class="form-control form-control-sm">
                     </div>
                 </div>
-                <hr>
                 <div class="button">
-                    <button class="btn btn-primary" name="add-role">Add Role</button><!--button spacing consider correcting-->
+                    <button class="btn btn-primary btn-sm" name="add-role">+ Add Role</button>
                 </div>
             </form>
         </div>
