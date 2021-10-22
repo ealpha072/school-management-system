@@ -107,18 +107,6 @@
                                 </select>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="county" class="col-sm-2 col-form-label col-form-label-sm">County<sup>*</sup></label>
-                            <div class="col-sm-4">
-                                <input type="text" placeholder="County" class="form-control" name="county" required>
-                            </div>
-
-                            <label for="photo" class="col-sm-2 col-form-label col-form-label-sm">Photo <sup>*</sup></label>
-                            <div class="col-sm-4">
-                                <input type="file" placeholder= "Upload a passport file" class="form-control" name="student-photo" required>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- END OF CARD-->

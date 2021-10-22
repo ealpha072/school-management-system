@@ -9,14 +9,8 @@
     }
 
     //declairing error variables
-    $login_error = [];
-    $add_student_error = [];
-    $add_subject_error = [];
-    $add_teacher_error = [];
-    $add_staff_error = [];
-    $add_hostel_error = [];
-    $add_role_error = [];
-    $add_stream_error = [];
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = array();
+    $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username
@@ -26,15 +20,13 @@
             adm_num,form,
             stream,hostel,
             first_name,mid_name, last_name,
-            county, gender,
-            photo,
+            gender,
             parent_name, p_email, p_phone_number, adm_date)
         values (
             :adm_num,:form,
             :stream,:hostel,
             :first_name,:mid_name,:last_name,
-            :county,:gender,
-            :photo,
+            :gender,
             :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
@@ -291,8 +283,6 @@
         $mid_name = htmlspecialchars($_POST['middle-name']);
         $last_name = htmlspecialchars($_POST['last-name']);
         $gender = htmlspecialchars($_POST['gender']);
-        $county = htmlspecialchars($_POST['county']);
-        $photo = htmlspecialchars($_FILES['student-photo']['name']);
         $parent_name = htmlspecialchars($_POST['pfirst-name']);
         $pemail = $_POST['pemail'];
         $pphone_number = htmlspecialchars($_POST['pphone-number']);
@@ -327,29 +317,8 @@
             array_push($add_student_error, $email_exists_error);
         }
 
-        //student image processing
-        $target_dir = "../images/students/";
-        $target_file_path = $target_dir.basename($_FILES['student-photo']['name']);
-        $extension = strtolower(pathinfo($target_file_path,PATHINFO_EXTENSION));
-
-        if(file_exists($target_file_path)){
-            $file_exist_error = "Photo already exists.";
-            array_push($add_student_error, $file_exist_error);
-        }
-
-        if(!in_array($extension, ['jpg','png'])){
-            $image_type_error = "Invalid image extension, please choose a valid format.";
-            array_push($add_student_error, $image_type_error);
-        }
-
-        if($_FILES['student-photo']['size'] > 5000000){
-            $image_size_error = "The image size is too large";
-            array_push($add_student_error, $image_size_error);
-        }
-
         //add new student and parent to database
         if(count($add_student_error) == 0){
-            move_uploaded_file($_FILES['student-photo']['tmp_name'], $target_file_path);
 
             $add_student_sql->execute(array(
                 ':adm_num'=>$adm_number,
@@ -359,9 +328,7 @@
                 ':first_name'=>$first_name,
                 ':mid_name'=>$mid_name,
                 ':last_name'=>$last_name,
-                ':county'=>$county,
                 ':gender'=>$gender,
-                ':photo'=>$photo,
                 ':parent_name'=>$parent_name,
                 ':p_email'=>$pemail,
                 ':p_phone_num'=>$pphone_number,
