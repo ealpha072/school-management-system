@@ -10,7 +10,7 @@
 
     //declairing error variables
     $login_error = $add_student_error = $add_subject_error = $add_teacher_error = array();
-    $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = array();
+    $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -119,6 +119,10 @@
 
      if(isset($_POST['add-stream']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         addStream();
+    }
+
+    if(isset($_POST['update-student']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateStudent();
     }
 
     //These are delete buttons
@@ -564,6 +568,27 @@
         }else{
             $stream_addition_error = 'Error adding new stream, please fix below issues';
             array_unshift($add_stream_error, $stream_addition_error);
+        }
+    }
+
+    // UPDATE RECORDS
+    function updateStudent(){
+        global $update_student_error, $db;
+
+        $hostel = htmlspecialchars($_POST['hostel-update']);
+        $form_name = htmlspecialchars($_POST['form-update']);
+        $stream = htmlspecialchars($_POST['stream-update']);
+        $email = htmlspecialchars($_POST['parent-email-update']);
+        $phone_number = htmlspecialchars($_POST['parent-phone-update']);
+
+        if(count($update_student_error) === 0){
+            $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
+            $update_student_query->execute(array($hostel,$form_name, $stream, $email, $phone_number, $_GET['id']));
+            $_SESSION['success'] = 'Records updated successfully';
+            header('location: managest.php');
+        }else{
+            $update_error = 'Error updating recods, fix below errors';
+            array_unshift($update_student_error, $update_error);
         }
     }
 
