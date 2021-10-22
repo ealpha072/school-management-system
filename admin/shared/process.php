@@ -46,19 +46,14 @@
     $add_teacher_sql = $db->prepare('insert into
         teachers (
             first_name, mid_name, last_name,
-            gender,
-            email,
+            gender,email,
             phone_number,
-            photo,
-            role, subject_1, subject_2)
+            role, subject_1, subject_2, date)
         values(
             :first_name, :mid_name, :last_name,
-            :gender,
-            :email,
+            :gender,:email,
             :phone_number,
-            :photo,
-            :role, :subject_1, :subject_2
-
+            :role, :subject_1, :subject_2, :date
         )');
 
     $select_teacher_sql = $db->prepare('select email from teachers where email=:email');
@@ -356,7 +351,6 @@
         $mid_name = htmlspecialchars($_POST['mid-name']);
         $last_name = htmlspecialchars($_POST['last-name']);
         $gender = htmlspecialchars($_POST['teacher-gender']);
-        $photo = $_FILES['teacher-photo']['name'];
         $email = htmlspecialchars($_POST['email']);
         $phone_number = htmlspecialchars($_POST['phone-number']);
         $subject_1 = htmlspecialchars($_POST['subject-1']);
@@ -376,28 +370,7 @@
             array_push($add_teacher_error, $teacher_exits_error);
         }
 
-        //IMAGE PROCESSING
-        $target_dir = "../images/teachers/";
-        $target_file_path = $target_dir.basename($_FILES['teacher-photo']['name']);
-        $extension = strtolower(pathinfo($target_file_path,PATHINFO_EXTENSION));
-
-        if(file_exists($target_file_path)){
-            $file_exist_error = "Photo already exists.";
-            array_push($add_teacher_error, $file_exist_error);
-        }
-
-        if(!in_array($extension, ['jpg','png'])){
-            $image_type_error = "Invalid image extension, please choose a valid format.";
-            array_push($add_teacher_error, $image_type_error);
-        }
-
-        if($_FILES['teacher-photo']['size'] > 5000000){
-            $image_size_error = "The image size is too large";
-            array_push($add_teacher_error, $image_size_error);
-        }
-
         if(count($add_teacher_error) == 0){
-            move_uploaded_file($_FILES['teacher-photo']['tmp_name'], $target_file_path);
 
             $add_teacher_sql->execute(array(
                 ':first_name'=> $first_name ,
@@ -406,12 +379,11 @@
                 ':gender'=> $gender,
                 ':email'=> $email,
                 ':phone_number'=> $phone_number,
-                ':photo'=> $photo,
                 ':role'=> $role,
                 ':subject_1'=> $subject_1,
-                ':subject_2'=> $subject_2
+                ':subject_2'=> $subject_2,
+                ':date'=>$date
             ));
-
             $_SESSION['success'] = "New Teacher, added succesfully to database";
         }else{
             $teacher_addition_error = "Failed to add techer to database, please correct below errors";

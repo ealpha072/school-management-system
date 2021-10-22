@@ -110,7 +110,7 @@
 
                             <label for="subject-2" class="col-sm-2 col-form-label col-form-label-sm">Subject 2</label>
                             <div class="col-sm-4">
-                                <select name="subject-1" id="" required="" class="form-control form-control-sm">
+                                <select name="subject-2" id="" required="" class="form-control form-control-sm">
                                     <option value="" selected="" disabled="">--Choose second subject--</option>
                                     <?php
                                         $select_subjects->execute();
