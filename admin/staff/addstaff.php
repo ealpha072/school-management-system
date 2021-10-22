@@ -1,8 +1,7 @@
 <?php
-
     require "../shared/home.php";
 
-    $select_roles = $db->prepare('select role_name from staff_roles where staff_type = :type and staff_name = :name');
+    $select_roles = $db->prepare('select * from staff_roles where staff_type=:type and staff_name=:name');
 ?>
 
 <div class="container">
@@ -47,7 +46,7 @@
 
                             <label for="gender" class="col-sm-2 col-form-label col-form-label-sm">Gender<sup>*</sup></label>
                             <div class="col-sm-4">
-                                <select name="gender" id="" class="form-control form-control-sm" required>
+                                <select name="gender" id="" class="form-control form-control-sm" required="">
                                     <option value="" selected disabled>Choose Gender</option>
                                     <option value="">Male</option>
                                     <option value="">Female</option>
@@ -87,7 +86,7 @@
                                     <option value="" selected disabled>Choose Role</option>
                                     <option value="No role">No role</option>
                                     <?php
-                                        $select_roles->execute(array(':type'=>'Support Staff', ':name'=>'No role'));
+                                        $select_roles->execute(array(':type'=>'Support staff', ':name'=>'Leave Unassigned'));
                                         displayMenu($select_roles, 'role_name');
                                     ?>
                                     <!--consider more roles-->
