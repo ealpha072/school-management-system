@@ -223,8 +223,8 @@
     }
 
     if(isset($_GET['staff_type'])){
-        $staff_type = $_GET['staff_type'];
-        if($staff_type === 'Teaching Staff'){
+        $staff_type = strtolower($_GET['staff_type']);
+        if($staff_type === 'teaching staff'){
             $select_teacher->execute();
             $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
             echo "<option value=\"\" selected disabled>--Select staff--</option>";
@@ -233,7 +233,7 @@
                 $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
                 echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
             }
-        }elseif ($staff_type === 'Support Staff') {
+        }elseif ($staff_type === 'support staff') {
             $select_support_staff->execute();
             $results = $select_support_staff->fetchAll(PDO::FETCH_ASSOC);
             echo "<option value=\"\" selected disabled>--Select staff--</option>";

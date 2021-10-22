@@ -138,7 +138,8 @@ $(document).ready(function() {
             }
         }
 
-        var searchValue = $('#staff-type').find(':selected').text()
+        //var searchValue = $('#staff-type').find(':selected').text()
+        searchValue = $('#staff-type option:selected').val();
         var queryString = '?staff_type='+searchValue
         request.open('GET', '../shared/process.php'+queryString, true)
         request.send(null)
