@@ -606,7 +606,10 @@
     function showSuccessMessage(){
         if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
             echo '<div class="alert alert-success" role="alert">';
-            echo $_SESSION['success'];
+                echo $_SESSION['success'];
+                echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>';
             echo '</div>';
 
             unset($_SESSION['success']);
