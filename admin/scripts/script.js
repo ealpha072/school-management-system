@@ -127,5 +127,23 @@ $(document).ready(function() {
         request.send(null)
     })
 
+    $('#staff-type').on('change',function () {
+        var staff_options = $('#staff-incharge')
+        request = new XMLHttpRequest
+
+        request.onreadystatechange = function (){
+            if(this.readyState === 4 && this.status === 200){
+                staff_options.html('')
+                staff_options.html(request.responseText)
+            }
+        }
+
+        var searchValue = $('#staff-type').find(':selected').text()
+        var queryString = '?staff_type='+searchValue
+        request.open('GET', '../shared/process.php'+queryString, true)
+        request.send(null)
+
+    })
+
 });
 

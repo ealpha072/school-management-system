@@ -231,6 +231,27 @@
         buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name'], [], []);
     }
 
+    if(isset($_GET['staff_type'])){
+        $staff_type = $_GET['staff_type'];
+        if($staff_type === 'Teaching Staff'){
+            $select_teacher->execute();
+            $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
+            echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            foreach ($results as $result) {
+                $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+            }
+        }elseif ($staff_type === 'Non Teaching Staff') {
+            $select_support_staff->execute();
+            $results = $select_support_staff->fetchAll(PDO::FETCH_ASSOC);
+            echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            foreach ($results as $result) {
+                $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
+                echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
+            }
+        }
+    }
+
     //..........MAIN FUCTIONS HERE.........................//
     //....................................................//
     function login() {

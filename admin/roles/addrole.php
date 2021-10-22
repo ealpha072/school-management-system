@@ -18,7 +18,7 @@
 
                     <label for="staff-type" class="col-sm-2 col-form-label col-form-label-sm">Staff Type</label>
                     <div class="col-sm-4">
-                        <select name="staff-type" id="" class="form-control form-control-sm" required="">
+                        <select name="staff-type" id="staff-type" class="form-control form-control-sm" required="">
                             <option value="" selected="" disabled="">--Choose staff type--</option>
                             <option value="Teaching staff">Teaching Staff</option>
                             <option value="Support staff">Non Teaching Staff</option>
@@ -35,11 +35,9 @@
 
                     <label for="staff-name" class="col-sm-2 col-form-label col-form-label-sm">Staff Incharge</label>    
                     <div class="col-sm-4">
-                        <select name="staff-name" id="" class="form-control form-control-sm">
-                            <option value="" selected disabled>Choose Name of Staff Incharge</option>
-                            <option value="Dont asign">Dont asign</option>
-                            <option value="Mr Njiru">Mr Njiru</option>
-                            <!--php population-->
+                        <select name="staff-name" id="staff-incharge" class="form-control form-control-sm">
+                            <option value="" selected disabled>Select staff</option>
+                            
                         </select>
                     </div>
                     
@@ -55,3 +53,7 @@
         </div>
     </div>
 </div>
+
+
+<!--
+   -->

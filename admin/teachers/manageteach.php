@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <select name="" id="to-find-teacher" class="form-control">
+                            <select name="" id="to-find-teacher" class="form-control form-control-sm">
                                 <option value="" selected disabled>Choose Teacher</option>
                                 <?php
                                     $select_teacher->execute();
