@@ -94,6 +94,7 @@
     //DELETE QUERIES
     $delete_student = $db->prepare('delete from students where id=:id');
     $delete_parent = $db->prepare('delete from parents where email=:email');
+    $delete_teacher = $db->prepare('delete from teachers where id=:id');
     ///UPDATE QUERIES
 
     //BUTTON PUSHES
@@ -130,7 +131,7 @@
     }
 
     //These are delete buttons
-    if(isset($_POST['delete-yes'])){
+    if(isset($_POST['delete-student'])){
         $delete_id = $_SESSION['delete_id'];
         $delete_email = $_SESSION['email'];
         $delete_student->execute(array(':id'=>$delete_id));
@@ -141,9 +142,8 @@
     }
 
     if(isset($_post['delete-teacher-yes'])){
-        $id = $_SESSION['delete_id'];
-        $delete_teacher = $db->prepare('delete from teachers where id=:id');
-        $delete_teacher->execute(array(':id'=>$id));
+        $teacher_id = $_SESSION['delete_id'];
+        $delete_teacher->execute(array(':id'=>$teacher_id));
         $_SESSION['success'] = 'Deleted teacher successfully';
         unset($_SESSION['delete_id']);
         header('location: manageteach.php');
@@ -163,7 +163,7 @@
         buildTable($select_this_student, 
         ['id','adm_num','first_name','mid_name', 'last_name','hostel', 'stream'], 
         ['updatest.php','deletest.php'], 
-        ['edit','delete']);
+        ['edit_student','delete_student']);
     }
 
     if(isset($_GET['admnum'])){
@@ -579,7 +579,7 @@
         }
     }
 
-    function buildCard(string $name, $sqlstatement, array $classes){
+    function buildCard(string $name, $sqlstatement, array $classes, string $link){
         $sqlstatement->execute();
         $results = $sqlstatement->fetchAll(PDO::FETCH_ASSOC);
         $count = count($results);
@@ -589,7 +589,7 @@
                     <h6>Total {$name}</h6>
                 </div>
                 <div class=\"card-footer\">
-                    <a href = \"\">View</a>
+                    <a href = \"{$link}\">View</a>
                 </div>";
         echo '</div>';
     }

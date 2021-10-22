@@ -10,10 +10,10 @@
             <h4>Manage Students</h4>
         </div>
         <div class="card-body">
+            <?php showSuccessMessage(); ?> 
             <div class="form-row">
                 <div class="col">
-                    <?php echo showSuccessMessage(); ?>
-                    <form action="<?php $_SERVER['PHP_SELF']?>" method="GET">  
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="GET"> 
                         <div class="form-row">
                             <div class="col">
                                 <select name="" class="form-control form-control-sm" required="" id="class-option">

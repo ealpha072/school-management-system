@@ -1,7 +1,7 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete_student'){
         $id = $_GET['id'];
         $_SESSION['delete_id'] = $id;
         $query = $db->prepare('select * from students where id=:id');
@@ -22,8 +22,8 @@
                 <p class="text-danger">Delete this student ? This deletes both student and related parent info</p>
                 <div class="form-group row">
                     <div class="col">
-                        <button class="btn btn-danger" type="submit" name="delete-yes">Yes</button>
-                        <button type="submit" class="btn btn-success" name="delete-no">No</button>
+                        <button class="btn btn-danger" type="submit" name="delete-student">Yes</button>
+                        <a href="managest.php" class="btn btn-success" name="delete-no">No</a>
                     </div>
                 </div>
             </form>
