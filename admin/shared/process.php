@@ -13,8 +13,7 @@
     $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
-    $login_sql = $db->prepare('select * from admin where user_name=:username
-            and password = :password');
+    $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
     $add_student_sql = $db->prepare('insert into
         students(
             adm_num,form,
@@ -30,19 +29,13 @@
             :parent_name,
             :p_email,:p_phone_num,:adm_date)'
     );
-
     $select_all_students_sql = $db->prepare('select adm_num, stream from students where adm_num=:adm and stream=:stream');
-
     $add_parent_sql = $db->prepare('insert into parents(parent_name, phone_number, email, childs_name)
         values(:parent_name, :phone_number, :email, :childs_name)');
     $select_all_parents_sql = $db->prepare('select email from parents where email = :email');
-
-        //subject sql statements;
     $add_subject_sql = $db->prepare('insert into subjects(name, subject_type, head_of_subject, department)
         values(:name, :subject_type, :head_of_subject, :department)');
-
     $select_all_subjects_sql = $db->prepare('select name from subjects where name=:name');
-
     $add_teacher_sql = $db->prepare('insert into
         teachers (
             first_name, mid_name, last_name,
@@ -57,7 +50,6 @@
         )');
 
     $select_teacher_sql = $db->prepare('select email from teachers where email=:email');
-
     $add_staff_sql = $db->prepare('insert into support_staff (
             first_name, mid_name, last_name, email, phone_number,
             role, date_employed, gender)
@@ -66,9 +58,7 @@
             :email, :phone_number, 
             :role, :date_employed,:gender
     )');
-
     $select_staff_sql = $db->prepare('select email from support_staff where email=:email');
-
     $add_hostel_sql =$db->prepare('insert into hostels (name, teacher_incharge)
         values (:name, :teacher)');
 
@@ -237,14 +227,16 @@
             $select_teacher->execute();
             $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
             echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            echo "<option value=\"Leave Unassigned\">Leave Unassigned</option>";
             foreach ($results as $result) {
                 $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
                 echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
             }
-        }elseif ($staff_type === 'Non Teaching Staff') {
+        }elseif ($staff_type === 'Support Staff') {
             $select_support_staff->execute();
             $results = $select_support_staff->fetchAll(PDO::FETCH_ASSOC);
             echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            echo "<option value=\"Leave Unassigned\">Leave Unassigned</option>";
             foreach ($results as $result) {
                 $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
                 echo '<option value = "'.$full_name.'">'.$full_name.'</option>';
@@ -564,8 +556,6 @@
             array_unshift($add_stream_error, $stream_addition_error);
         }
     }
-
-    
 
     //helper functions
 

@@ -21,7 +21,7 @@
                         <select name="staff-type" id="staff-type" class="form-control form-control-sm" required="">
                             <option value="" selected="" disabled="">--Choose staff type--</option>
                             <option value="Teaching staff">Teaching Staff</option>
-                            <option value="Support staff">Non Teaching Staff</option>
+                            <option value="Support staff">Support Staff</option>
                         </select>
                     </div>
                     
