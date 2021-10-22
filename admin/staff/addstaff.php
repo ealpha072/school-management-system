@@ -22,45 +22,48 @@
                 <!--personal info card-->
                 <div class="card">
                     <div class="card-header">
-                        <h5>Personal Information</h5>
+                        <h6>Personal Information</h6>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="first-name">First Name <sup>*</sup></label>
-                                <input type="text" placeholder="First Name" class="form-control" name="first-name" required="">
+                        <div class="form-group row">
+
+                            <label for="first-name" class="col-sm-2 col-form-label col-form-label-sm">First Name <sup>*</sup></label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="First Name" class="form-control form-control-sm" name="first-name" required="">
                             </div>
+
+                            <label for="mid-name" class="col-sm-2 col-form-label col-form-label-sm">Mid Name <sup>*</sup></label>
                             <div class="col">
-                                <label for="mid-name">Mid Name <sup>*</sup></label>
-                                <input type="text" placeholder="Mid Name" class="form-control" name="mid-name" required="">
-                            </div>
-                            <div class="col">
-                                <label for="">Last Name <sup>*</sup></label>
-                                <input type="text" placeholder="Last Name" class="form-control" name="last-name" required="">
+                                <input type="text" placeholder="Mid Name" class="form-control form-control-sm" name="mid-name" required="">
                             </div>
                         </div>
-                        <div class="form-row">
+
+                        <div class="form-group row">
+
+                            <label for="" class="col-sm-2 col-form-label col-form-label-sm">Last Name <sup>*</sup></label>
                             <div class="col">
-                                <label for="email">Email <sup>*</sup></label>
-                                <input type="email" placeholder="Email" class="form-control" name="email" required="">
+                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name" required="">
                             </div>
-                            <div class="col">
-                                <label for="phone-number">Phone Number <sup>*</sup></label>
-                                <input type="number" placeholder="Phone Number" class="form-control" name="phone-number" required="">
-                            </div>
+
+                            <label for="gender" class="col-sm-2 col-form-label col-form-label-sm">Gender<sup>*</sup></label>
+                            <div class="col-sm-4">
+                                <select name="gender" id="" class="form-control form-control-sm">
+                                    <option value="" selected disabled>Choose Gender</option>
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select>
+                            </div>                            
                         </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="gender">Gender<sup>*</sup></label>
-                                    <select name="gender" id="" class="form-control">
-                                        <option value="" selected disabled>Choose Gender</option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
-                                    </select>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email <sup>*</sup></label>
+                            <div class="col-sm-4">
+                                <input type="email" placeholder="Email" class="form-control form-control-sm" name="email" required="">
                             </div>
-                            <div class="col">
-                                <label for="photo">Photo <sup>*</sup></label>
-                                <input type="file" placeholder="Upload photo" class="form-control" name="staff-photo" required="">
+
+                            <label for="phone-number" class="col-sm-2 col-form-label col-form-label-sm">Phone Number <sup>*</sup></label>
+                            <div class="col-sm-4">
+                                <input type="number" placeholder="Phone Number" class="form-control form-control-sm" name="phone-number" required="">
                             </div>
                         </div>
                     </div>
@@ -68,17 +71,19 @@
                 <!--END OF CARD-->
                 <div class="card">
                     <div class="card-header">
-                        <h5>School Info</h5>
+                        <h6>School Info</h6>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="">Date Employed</label>
-                                <input type="text" class="form-control" disabled value="<?php echo date("Y/m/d")?>" readonly>
+                        <div class="form-group row">
+
+                            <label for="" class="col-sm-2 col-form-label col-form-label-sm">Date Employed</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control form-control-sm" disabled value="<?php echo date("Y/m/d")?>" readonly>
                             </div>
+
+                            <label for="role" class="col-sm-2 col-form-label col-form-label-sm">Role</label>
                             <div class="col">
-                                <label for="role">Role</label>
-                                <select name="staff-role" id="" class="form-control">
+                                <select name="staff-role" id="" class="form-control form-control-sm">
                                     <option value="" selected disabled>Choose Role</option>
                                     <option value="No role">No role</option>
                                     <?php
@@ -93,7 +98,7 @@
                 </div>
                 <hr>
                 <div class="button">
-                    <button class="btn btn-success" type="submit" name="add-staff">Add new staff</button>
+                    <button class="btn btn-success btn-sm" type="submit" name="add-staff">+Add new staff</button>
                 </div>
             </form>
         </div>

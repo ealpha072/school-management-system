@@ -22,7 +22,7 @@
                 <!--personal info card-->
                 <div class="card">
                     <div class="card-header">
-                        <h5>Personal Information</h5>
+                        <h6>Personal Info</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -72,7 +72,7 @@
                 <!--END OF CARD-->
                 <div class="card">
                     <div class="card-header">
-                        <h5>School Info</h5>
+                        <h6>School Info</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
