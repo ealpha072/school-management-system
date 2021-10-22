@@ -217,8 +217,9 @@
         $role = $_GET['to_find_role'];
 
         $select_this_role = $db->prepare('select * from staff_roles where role_name=:name');
-        $select_this_role->execute(array(':name'=>$name));
-        buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name'], [], []);
+        $select_this_role->execute(array(':name'=>$role));
+        buildTable($select_this_role, ['id', 'role_name', 'staff_type', 'staff_name'], ['updaterole.php','deleterole.php'], 
+        ['edit_role','delete_role']);
     }
 
     if(isset($_GET['staff_type'])){

@@ -110,7 +110,7 @@ $(document).ready(function() {
         request.send(null)
     })
 
-    $('#roles').on('change', function(){
+    $('#role-find').on('change', function(){
         var results_div = $('#result-holder')
         request = new XMLHttpRequest
         
@@ -121,7 +121,7 @@ $(document).ready(function() {
             }
         }
 
-        var searchValue = $('#roles').find(':selected').text()
+        var searchValue = $('#role-find').find(':selected').text()
         var queryString = '?to_find_role=' + searchValue
         request.open('GET', '../shared/process.php' + queryString, true)
         request.send(null)

@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="col">
-                    <select name="" id="roles" class="form-control">
+                    <select name="" id="role-find" class="form-control">
                         <option value="" selected disabled>Role to manage</option>
                         <?php 
                             $select_role->execute();
@@ -24,7 +24,7 @@
                     <h5>Results</h5>
                 </div>
                 <div class="card-body" id="result-holder">
-
+                <!--------------------------------------------------------------->
                 </div>
             </div>
         </div>
