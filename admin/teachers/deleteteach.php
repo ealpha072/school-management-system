@@ -1,9 +1,9 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete_teacher'){
         $id = $_GET['id'];
-        $_SESSION['delete_id'] = $id;
+        $_SESSION['delete_tid'] = $id;
         $query = $db->prepare('select * from teachers where id=:id');
         $query->execute(array(':id'=>$id));
     }
@@ -19,8 +19,8 @@
                 <p class="text-danger">Delete this teacher? This removes all records from the database</p>
                 <div class="form-group row">
                     <div class="col">
-                        <button class="btn btn-danger" type="submit" name="delete-teacher-yes">Yes</button>
-                        <a href="manageteach.php" class="btn btn-success" name="delete-teacher-no">No</a>
+                        <button class="btn btn-danger btn-sm" type="submit" name="delete-teacher">Yes</button>
+                        <a href="manageteach.php" class="btn btn-success  btn-sm">No</a>
                     </div>
                 </div>
             </form>

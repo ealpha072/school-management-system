@@ -141,11 +141,11 @@
         header('location: managest.php');
     }
 
-    if(isset($_post['delete-teacher-yes'])){
-        $teacher_id = $_SESSION['delete_id'];
+    if(isset($_POST['delete-teacher'])){
+        $teacher_id = $_SESSION['delete_tid'];
         $delete_teacher->execute(array(':id'=>$teacher_id));
         $_SESSION['success'] = 'Deleted teacher successfully';
-        unset($_SESSION['delete_id']);
+        unset($_SESSION['delete_tid']);
         header('location: manageteach.php');
     }
 
@@ -189,7 +189,7 @@
         $select_this_teacher->execute(array(':fname'=> $fname));
         buildTable($select_this_teacher, 
         ['id', 'first_name', 'mid_name', 'last_name','role', 'subject_1', 'subject_2'], 
-        ['updateteach.php','deleteteach.php'], ['edit','delete']);
+        ['updateteach.php','deleteteach.php'], ['edit_teacher','delete_teacher']);
     }
 
     if (isset($_GET['form_name_parent']) && isset($_GET['stream_name_parent'])) {
