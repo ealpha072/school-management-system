@@ -21,14 +21,14 @@
                 ?>
                 <div class="form-group row">
 
-                    <label for="role-name" class="col-sm-1 col-form-label col-form-label-sm">Name</label>
-                    <div class="col-sm-3">
-                        <input type="text" placeholder="Name of Hostel" class="form-control form-control-sm" name="name">
+                    <label for="role-name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" placeholder="Name of Hostel" class="form-control form-control-sm" name="name" required>
                     </div>
 
-                    <label for="role-name" class="col-sm-1 col-form-label col-form-label-sm">Teacher</label>
-                    <div class="col-sm-3">
-                        <select name="teacher" id="" class="form-control form-control-sm">
+                    <label for="role-name" class="col-sm-2 col-form-label col-form-label-sm">Teacher</label>
+                    <div class="col-sm-4">
+                        <select name="teacher" id="" class="form-control form-control-sm" required>
                             <option value="" selected disabled>Teacher Incharge</option>
                             <?php
                                 $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
@@ -38,11 +38,6 @@
                                 }
                             ?>
                         </select>
-                    </div>
-                    
-                    <label for="date" class="col-sm-1 col-form-label col-form-label-sm">Date</label>
-                    <div class="col-sm-3">
-                        <input type="text" readonly value="<?php echo date("Y/m/d"); ?>" class="form-control form-control-sm">
                     </div>
                 </div>
                 <div class="button">

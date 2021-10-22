@@ -596,7 +596,7 @@
 
     function buildTable($query, array $columns, array $link, array $action){
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        echo "<table class = \"table table-stripped table-bordered\">";
+        echo "<table class = \"table table-stripped table-bordered table-sm\">";
             echo "<thead>";
                 echo "<tr>";
                     foreach ($columns as $column) {
@@ -613,7 +613,7 @@
                             }
                             echo "<td>
                                 <div class=\"dropdown\">
-                                    <a class=\"btn btn-success dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                    <a class=\"btn btn-success btn-sm dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                                         Manage
                                     </a>
                                     <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
