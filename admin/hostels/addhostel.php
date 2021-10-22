@@ -19,15 +19,17 @@
                         displayErrors($add_hostel_error);
                     }
                 ?>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="role-name">Hostel Name</label>
-                        <input type="text" placeholder="Name of Hostel" class="form-control" name="name">
+                <div class="form-group row">
+
+                    <label for="role-name" class="col-sm-1 col-form-label col-form-label-sm">Name</label>
+                    <div class="col-sm-3">
+                        <input type="text" placeholder="Name of Hostel" class="form-control form-control-sm" name="name">
                     </div>
-                    <div class="col">
-                        <label for="staff-name">Teacher in Incharge</label>
-                        <select name="teacher" id="" class="form-control">
-                            <option value="" selected disabled>Choose name of Teacher Incharge</option>
+
+                    <label for="role-name" class="col-sm-1 col-form-label col-form-label-sm">Teacher</label>
+                    <div class="col-sm-3">
+                        <select name="teacher" id="" class="form-control form-control-sm">
+                            <option value="" selected disabled>Teacher Incharge</option>
                             <?php
                                 $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($results as $result) {
@@ -37,18 +39,14 @@
                             ?>
                         </select>
                     </div>
-                </div>
-                <hr>
-                <div class="form-row">
                     
-                    <div class="col">
-                        <label for="date">Date of creating</label>
-                        <input type="text" readonly value="<?php echo date("Y/m/d"); ?>" class="form-control">
+                    <label for="date" class="col-sm-1 col-form-label col-form-label-sm">Date</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly value="<?php echo date("Y/m/d"); ?>" class="form-control form-control-sm">
                     </div>
                 </div>
-                <hr>
                 <div class="button">
-                    <button class="btn btn-primary" type="submit" name="add-hostel">Add Hostel</button><!--button spacing consider correcting-->
+                    <button class="btn btn-primary btn-sm" type="submit" name="add-hostel">Add Hostel</button>
                 </div>
 
             </form>
