@@ -6,6 +6,7 @@
             <h5>Manage Roles</h5>
         </div>
         <div class="card-body">
+            <?php showSuccessMessage(); ?>
             <div class="form-row">
                 <div class="col">
                     <select name="" id="role-find" class="form-control">

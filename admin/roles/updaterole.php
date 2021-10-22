@@ -40,6 +40,7 @@
                         </select>
                     </div>
                 </div>
+                <button type="submit" class="btn btn-sm btn-dark" name="update-role">Update</button>
             </form>
         </div>
     </di>

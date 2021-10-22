@@ -148,6 +148,15 @@
         header('location: managestaff.php');
     }
 
+    if(isset($_POST['delete-role'])){
+        $delete_id  = $_SESSION['delete_id'];
+        $delete_role = $db->prepare('delete from staff_roles where id=:id');
+        $delete_role->execute(array(':id'=>$delete_id));
+        $_SESSION['success'] = 'Role deleted successfully';
+        unset($_SESSION['delete_id']);
+        header('location: managerole.php');
+    }
+
     //RESPONSE TEXTS FOR AJAX REQUESTS
     if(isset($_GET['form_name']) && isset($_GET['stream_name'])){
         //set variables
@@ -199,7 +208,7 @@
         p_email from students where form=:form and stream=:stream ');
         $select_this_parent->execute(array(':form'=>$form, ':stream'=>$stream));
         buildTable($select_this_parent, ['id', 'parent_name', 'p_phone_number', 'p_email'], 
-        ['updatepar.php','deletepar.php'], ['edit','delete']);
+        ['updatepar.php','deletepar.php'], ['edit_parent','delete_parent']);
     }
 
     if(isset($_GET['staff_fname']) && isset($_GET['staff_mname']) && isset($_GET['staff_lname'])){

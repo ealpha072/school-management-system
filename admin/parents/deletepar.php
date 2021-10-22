@@ -1,9 +1,8 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete_parent'){
         $id = $_GET['id'];
-        $_SESSION['delete_id'] = $id;
     }
 ?>
 
