@@ -98,7 +98,7 @@
                 </div>
                 <hr>
                 <div class="button">
-                    <button class="btn btn-success btn-sm" type="submit" name="add-staff">+Add new staff</button>
+                    <button class="btn btn-success btn-sm" type="submit" name="add-staff">+ Add new staff</button>
                 </div>
             </form>
         </div>

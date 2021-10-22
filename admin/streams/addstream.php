@@ -14,15 +14,15 @@
                         displayErrors($add_stream_error);
                     }
                 ?>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="stream-name">Name of stream</label>
-                        <input type="text" class="form-control" placeholder="Insert name of new stream" name="stream-name">
+
+                <div class="form-group row">
+
+                    <label for="stream-name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" placeholder="New stream name" name="stream-name">
                     </div>
-                </div>
-                <hr>
-                <div class="button">
-                    <button class="btn btn-primary" name="add-stream">Add Stream</button>
+
+                    <button class="btn btn-primary btn-sm" name="add-stream">+ Add Stream</button>
                 </div>
             </form>
         </div>
