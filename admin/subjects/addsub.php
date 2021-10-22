@@ -60,9 +60,7 @@
                             <div class="col-sm-4">
                                 <select name="department" id="" class="form-control form-control-sm" required="">
                                     <option value="" selected disabled>Choose Department</option>
-                                    <?php
-                                        displayMenu($select_department, 'dpt_name');
-                                    ?>
+                                    <?php displayMenu($select_department, 'dpt_name'); ?>
                                 </select>
                             </div>
                         </div>
