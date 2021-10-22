@@ -59,25 +59,12 @@
     $select_teacher_sql = $db->prepare('select email from teachers where email=:email');
 
     $add_staff_sql = $db->prepare('insert into support_staff (
-            first_name,
-            mid_name,
-            last_name,
-            email,
-            phone_number,
-            role,
-            date_employed,
-            photo,
-            gender)
+            first_name, mid_name, last_name, email, phone_number,
+            role, date_employed, gender)
         values(
-            :first_name,
-            :mid_name,
-            :last_name,
-            :email,
-            :phone_number,
-            :role,
-            :date_employed,
-            :photo,
-            :gender
+            :first_name, :mid_name, :last_name, 
+            :email, :phone_number, 
+            :role, :date_employed,:gender
     )');
 
     $select_staff_sql = $db->prepare('select email from support_staff where email=:email');
@@ -397,7 +384,6 @@
         $first_name = htmlspecialchars($_POST['first-name']);
         $mid_name = htmlspecialchars($_POST['mid-name']);
         $last_name = htmlspecialchars($_POST['last-name']);
-        $photo = $_FILES['staff-photo']['name'];
         $email = htmlspecialchars($_POST['email']);
         $gender = htmlspecialchars($_POST['gender']);
         $phone_number = htmlspecialchars($_POST['phone-number']);
@@ -415,29 +401,8 @@
             array_push($add_staff_error, $staff_exists_error);
         }
 
-        //photo processing
-        $target_dir = "../images/staffs/";
-        $target_file_path = $target_dir.basename($_FILES['staff-photo']['name']);
-        $extension = strtolower(pathinfo($target_file_path,PATHINFO_EXTENSION));
-
-        if(file_exists($target_file_path)){
-            $file_exist_error = "Photo already exists.";
-            array_push($add_staff_error, $file_exist_error);
-        }
-
-        if(!in_array($extension, ['jpg','png'])){
-            $image_type_error = "Invalid image extension, please choose a valid format.";
-            array_push($add_staff_error, $image_type_error);
-        }
-
-        if($_FILES['staff-photo']['size'] > 5000000){
-            $image_size_error = "The image size is too large";
-            array_push($add_staff_error, $image_size_error);
-        }
-
         //push to database
         if(count($add_staff_error) == 0){
-            move_uploaded_file($_FILES['staff-photo']['tmp_name'], $target_file_path);
 
             $add_staff_sql->execute(array(
                 ':first_name'=>$first_name,
@@ -447,7 +412,6 @@
                 ':phone_number'=>$phone_number,
                 ':role'=>$role,
                 ':date_employed'=>$date,
-                ':photo'=>$photo,
                 ':gender'=>$gender,
             ));
 
