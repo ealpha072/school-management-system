@@ -6,6 +6,7 @@
             <h5>Manage my staff</h5>
         </div>
         <div class="card-body">
+            <?php showSuccessMessage(); ?> 
             <div class="card forms">
                 <div class="card-header">
                     <h5>Search/Select Staff</h5>

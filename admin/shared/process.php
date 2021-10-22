@@ -95,6 +95,7 @@
     $delete_student = $db->prepare('delete from students where id=:id');
     $delete_parent = $db->prepare('delete from parents where email=:email');
     $delete_teacher = $db->prepare('delete from teachers where id=:id');
+    $delete_staff = $db->prepare('delete from support_staff where id =:id');
     ///UPDATE QUERIES
 
     //BUTTON PUSHES
@@ -147,6 +148,14 @@
         $_SESSION['success'] = 'Deleted teacher successfully';
         unset($_SESSION['delete_tid']);
         header('location: manageteach.php');
+    }
+
+    if(isset($_POST['delete-staff'])){
+        $delete_id = $_SESSION['delete_id'];
+        $delete_staff->execute(array(':id'=>$delete_id));
+        $_SESSION['success'] = 'Deleted staff successfully!!!';
+        unset($_SESSION['delete_id']);
+        header('location: managestaff.php');
     }
 
     //RESPONSE TEXTS FOR AJAX REQUESTS
@@ -211,7 +220,7 @@
         $select_this_staff = $db->prepare('select * from support_staff where first_name=:name1 and mid_name=:name2');
         $select_this_staff->execute(array(':name1'=>$first_name, ':name2'=>$mid_name));
         buildTable($select_this_staff, ['id', 'first_name', 'mid_name', 'last_name', 'phone_number', 'role', 'email'], 
-        ['updatestaff.php', 'deletestaff.php'], ['edit','delete']);
+        ['updatestaff.php', 'deletestaff.php'], ['edit_staff','delete_staff']);
     }
 
     if(isset($_GET['to_find_role'])){

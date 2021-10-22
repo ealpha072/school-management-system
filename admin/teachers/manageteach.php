@@ -6,6 +6,7 @@
             <h5>Manage my Teachers</h5>
         </div>
         <div class="card-body">
+            <?php showSuccessMessage(); ?>
             <div class="card forms">
                 <div class="card-header">
                     <h5>Search/Select Teacher</h5>
@@ -13,7 +14,6 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <?php showSuccessMessage(); ?>
                             <select name="" id="to-find-teacher" class="form-control">
                                 <option value="" selected disabled>Choose Teacher</option>
                                 <?php

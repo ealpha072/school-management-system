@@ -1,7 +1,7 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete_staff'){
         $id = $_GET['id'];
         $_SESSION['delete_id'] = $id;
         $query = $db->prepare('select * from support_staff where id=:id');
@@ -19,8 +19,8 @@
                 <p class="text-danger">Delete this staff? This removes all records from the database</p>
                 <div class="form-group row">
                     <div class="col">
-                        <button class="btn btn-danger" type="submit" name="delete-staff-yes">Yes</button>
-                        <a href="manageteach.php" class="btn btn-success" name="delete-staff-no">No</a>
+                        <button class="btn btn-danger" type="submit" name="delete-staff">Yes</button>
+                        <a href="managestaff.php" class="btn btn-success">No</a>
                     </div>
                 </div>
             </form>
