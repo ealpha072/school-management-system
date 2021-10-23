@@ -91,6 +91,7 @@
     $update_subject_query = $db->prepare('UPDATE subjects set subject_type=?, head_of_subject=? where id=?');
     $update_teacher_query = $db->prepare('UPDATE teachers set email=?,phone_number=?,role=? where id=?');
     $update_staff_query = $db->prepare('UPDATE support_staff set email=?, role=?, phone_number=? where id=?');
+    $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -548,14 +549,16 @@
     }
 
     function updateStaff(){
-        global $update_staff_query, $update_staff_error; 
+        global $update_staff_query, $update_staff_error, $update_role; 
 
         $email = htmlspecialchars($_POST['staff-email-update']);
         $phone = htmlspecialchars($_POST['staff-phone-update']);
         $role = htmlspecialchars($_POST['staff-role-update']);
+        $name = htmlspecialchars($_POST['staff-name']);
 
         if(count($update_staff_error) === 0){
             $update_staff_query->execute(array($email, $role, $phone, $_GET['id']));
+            $update_role->execute(array($name, $role));
             $_SESSION['success'] = 'Staff records updated successfully';
             header('location: managestaff.php');
         }else{
