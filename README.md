@@ -11,4 +11,4 @@ A school managemnt system.
 * Restructure the SQLs for universality
 * Provisions for no results in searches
 * adding roles to test the pages
-* Delete staff and delete teachers not working well
+* On update of support staff, make changes to roles table as well,  same to update and deletion of teacher
