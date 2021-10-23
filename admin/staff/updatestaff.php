@@ -47,7 +47,7 @@
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Role</label>
                     <div class="col-sm-4">
                         <select name="staff-role-update" id="" class="form-control form-control-sm">
-                            <option value="" selected><?php echo $results['role']?></option>
+                            <option value="" selected hidden><?php echo $results['role']?></option>
                             <option value="No role">No role</option>
                             <?php 
                                 $select_roles->execute(array(':type'=>'Support staff', ':name'=>'Leave Unassigned'));

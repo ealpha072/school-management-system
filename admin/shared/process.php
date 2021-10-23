@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -142,6 +142,12 @@
     if(isset($_POST['update-staff']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateStaff();
     }
+
+    if(isset($_POST['update-role']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateRole();
+    }
+
+
     
     //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
@@ -564,6 +570,21 @@
         }else{
             $update_error = 'Error updating teacher records, fix below errors';
             array_unshift($update_staff_error, $update_error);
+        }
+    }
+
+    function updateRole(){
+        global $update_role, $update_role_error;
+        $staff_name = htmlspecialchars($_POST['staff-incharge-update']);
+        $role = htmlspecialchars($_POST['role-name']);
+
+        if(count($update_role_error) === 0){
+            $update_role->execute(array($staff_name, $role));
+            $_SESSION['success'] = 'Role records updated successfully';
+            header('location: managerole.php');
+        }else{
+            $update_error = 'Error updating role records, fix below errors';
+            array_unshift($update_role_error, $update_error);
         }
     }
 

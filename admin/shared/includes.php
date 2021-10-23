@@ -77,7 +77,7 @@
         if($staff_type === 'teaching staff'){
             $select_teacher->execute();
             $results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
-            echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            echo "<option value=\"\" selected disabled hidden>--Select staff--</option>";
             echo "<option value=\"Leave Unassigned\">Leave Unassigned</option>";
             foreach ($results as $result) {
                 $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
@@ -86,7 +86,7 @@
         }elseif ($staff_type === 'support staff') {
             $select_support_staff->execute();
             $results = $select_support_staff->fetchAll(PDO::FETCH_ASSOC);
-            echo "<option value=\"\" selected disabled>--Select staff--</option>";
+            echo "<option value=\"\" selected disabled hidden>--Select staff--</option>";
             echo "<option value=\"Leave Unassigned\">Leave Unassigned</option>";
             foreach ($results as $result) {
                 $full_name = $result['first_name'].' '.$result['mid_name'].' '.$result['last_name'];
