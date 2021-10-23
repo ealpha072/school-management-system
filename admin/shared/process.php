@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -90,7 +90,7 @@
     $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
     $update_subject_query = $db->prepare('UPDATE subjects set subject_type=?, head_of_subject=? where id=?');
     $update_teacher_query = $db->prepare('UPDATE teachers set email=?,phone_number=?,role=? where id=?');
-
+    $update_staff_query = $db->prepare('UPDATE support_staff set email=?, role=?, phone_number=? where id=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -136,6 +136,10 @@
 
     if(isset($_POST['update-teacher']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateTeacher();
+    }
+
+    if(isset($_POST['update-staff']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateStaff();
     }
     
     //DELETE BUTTONS
@@ -522,7 +526,7 @@
             header('location: managesub.php');
         }else{
             $update_error = 'Error updating subject records, fix below errors';
-            array_unshift($update_student_error, $update_error);
+            array_unshift($update_subject_error, $update_error);
         }
 
     }
@@ -539,7 +543,24 @@
             header('location: manageteach.php');
         }else{
             $update_error = 'Error updating teacher records, fix below errors';
-            array_unshift($update_student_error, $update_error);
+            array_unshift($update_teacher_error, $update_error);
+        }
+    }
+
+    function updateStaff(){
+        global $update_staff_query, $update_staff_error; 
+
+        $email = htmlspecialchars($_POST['staff-email-update']);
+        $phone = htmlspecialchars($_POST['staff-phone-update']);
+        $role = htmlspecialchars($_POST['staff-role-update']);
+
+        if(count($update_staff_error) === 0){
+            $update_staff_query->execute(array($email, $role, $phone, $_GET['id']));
+            $_SESSION['success'] = 'Staff records updated successfully';
+            header('location: managestaff.php');
+        }else{
+            $update_error = 'Error updating teacher records, fix below errors';
+            array_unshift($update_staff_error, $update_error);
         }
     }
 
