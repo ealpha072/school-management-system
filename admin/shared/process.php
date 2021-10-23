@@ -9,8 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = array();
-    $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -87,8 +86,11 @@
     $delete_teacher = $db->prepare('delete from teachers where id=:id');
     $delete_staff = $db->prepare('delete from support_staff where id =:id');
     ///UPDATE QUERIES
+    $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
+    $update_subject_query = $db->prepare('UPDATE subjects set subject_type=?, head_of_subject=? where id=?');
 
-    //BUTTON PUSHES
+
+    //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
         login();
     }
@@ -121,10 +123,15 @@
         addStream();
     }
 
+    //UPDATE BUTTONS
     if(isset($_POST['update-student']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateStudent();
     }
 
+    if(isset($_POST['update-subject']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateSubject();
+    }
+    
     //These are delete buttons
     if(isset($_POST['delete-student'])){
         $delete_id = $_SESSION['delete_id'];
@@ -479,7 +486,7 @@
 
     // UPDATE RECORDS
     function updateStudent(){
-        global $update_student_error, $db;
+        global $update_student_error, $update_student_query;
 
         $hostel = htmlspecialchars($_POST['hostel-update']);
         $form_name = htmlspecialchars($_POST['form-update']);
@@ -488,14 +495,30 @@
         $phone_number = htmlspecialchars($_POST['parent-phone-update']);
 
         if(count($update_student_error) === 0){
-            $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
             $update_student_query->execute(array($hostel,$form_name, $stream, $email, $phone_number, $_GET['id']));
-            $_SESSION['success'] = 'Records updated successfully';
+            $_SESSION['success'] = 'Student records updated successfully';
             header('location: managest.php');
         }else{
-            $update_error = 'Error updating recods, fix below errors';
+            $update_error = 'Error updating student recods, fix below errors';
             array_unshift($update_student_error, $update_error);
         }
+    }
+
+    function updateSubject(){
+        global $update_subject_error, $update_subject_query;
+        
+        $type = htmlspecialchars($_POST['type-update']);
+        $hos = htmlspecialchars($_POST['hos-update']);
+
+        if(count($update_subject_error) === 0){
+            $update_subject_query->execute(array($type, $hos, $_GET['id']));
+            $_SESSION['success'] = 'Subject records updated successfully';
+            header('location: managesub.php');
+        }else{
+            $update_error = 'Error updating subject records, fix below errors';
+            array_unshift($update_student_error, $update_error);
+        }
+
     }
 
     //helper functions

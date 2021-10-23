@@ -8,6 +8,7 @@
             <h5>Manage Subjects</h5>
         </div>
         <div class="card-body">
+            <?php showSuccessMessage(); ?>
             <div class="form-row">
                 <div class="col">
                     <select name="" id="manage-subject" class="form-control">
