@@ -90,8 +90,9 @@
     $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
     $update_subject_query = $db->prepare('UPDATE subjects set subject_type=?, head_of_subject=? where id=?');
     $update_teacher_query = $db->prepare('UPDATE teachers set email=?,phone_number=?,role=? where id=?');
-    $update_staff_query = $db->prepare('UPDATE support_staff set email=?, role=?, phone_number=? where id=?');
+    $update_staff_query = $db->prepare('UPDATE support_staff set email=?, phone_number=? where id=?');
     $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
+    $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -559,12 +560,11 @@
 
         $email = htmlspecialchars($_POST['staff-email-update']);
         $phone = htmlspecialchars($_POST['staff-phone-update']);
-        $role = htmlspecialchars($_POST['staff-role-update']);
-        $name = htmlspecialchars($_POST['staff-name']);
+        //$role = htmlspecialchars($_POST['staff-role-update']);
+        //$name = htmlspecialchars($_POST['staff-name']);
 
         if(count($update_staff_error) === 0){
-            $update_staff_query->execute(array($email, $role, $phone, $_GET['id']));
-            $update_role->execute(array($name, $role));
+            $update_staff_query->execute(array($email, $phone, $_GET['id']));
             $_SESSION['success'] = 'Staff records updated successfully';
             header('location: managestaff.php');
         }else{
@@ -574,12 +574,14 @@
     }
 
     function updateRole(){
-        global $update_role, $update_role_error;
-        $staff_name = htmlspecialchars($_POST['staff-incharge-update']);
+        global $update_role, $update_role_error, $update_role2;
+        $staff_names = htmlspecialchars($_POST['staff-incharge-update']);
         $role = htmlspecialchars($_POST['role-name']);
+        $staff_name = explode(' ', $staff_names);
 
         if(count($update_role_error) === 0){
-            $update_role->execute(array($staff_name, $role));
+            $update_role->execute(array($staff_names, $role));
+            $update_role2->execute(array($role, $staff_name[0], $staff_name[1], $staff_name[2]));
             $_SESSION['success'] = 'Role records updated successfully';
             header('location: managerole.php');
         }else{
