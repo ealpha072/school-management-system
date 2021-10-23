@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -80,6 +80,7 @@
     $select_hostel = $db->prepare('select * from hostels');
     $select_parent = $db->prepare('select * from parents');
     $select_support_staff = $db->prepare('select * from support_staff');
+    $select_roles = $db->prepare('select * from staff_roles where staff_type=:type and staff_name=:name');
     //DELETE QUERIES
     $delete_student = $db->prepare('delete from students where id=:id');
     $delete_parent = $db->prepare('delete from parents where email=:email');
@@ -88,6 +89,7 @@
     ///UPDATE QUERIES
     $update_student_query = $db->prepare('UPDATE students set hostel=?, form=?, stream=?, p_email=?, p_phone_number=? where id=?');
     $update_subject_query = $db->prepare('UPDATE subjects set subject_type=?, head_of_subject=? where id=?');
+    $update_teacher_query = $db->prepare('UPDATE teachers set email=?,phone_number=?,role=? where id=?');
 
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
@@ -131,8 +133,12 @@
     if(isset($_POST['update-subject']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateSubject();
     }
+
+    if(isset($_POST['update-teacher']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateTeacher();
+    }
     
-    //These are delete buttons
+    //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
         $delete_id = $_SESSION['delete_id'];
         $delete_email = $_SESSION['email'];
@@ -519,6 +525,22 @@
             array_unshift($update_student_error, $update_error);
         }
 
+    }
+
+    function updateTeacher(){
+        global $update_teacher_query, $update_teacher_error;
+        $email = htmlspecialchars($_POST['teacher-email-update']);
+        $phone = htmlspecialchars($_POST['teacher-num-update']);
+        $role = htmlspecialchars($_POST['teacher-role-update']);
+
+        if(count($update_teacher_error) === 0){
+            $update_teacher_query->execute(array($email, $phone, $role, $_GET['id']));
+            $_SESSION['success'] = 'Teacher records updated successfully';
+            header('location: manageteach.php');
+        }else{
+            $update_error = 'Error updating teacher records, fix below errors';
+            array_unshift($update_student_error, $update_error);
+        }
     }
 
     //helper functions

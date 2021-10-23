@@ -1,7 +1,5 @@
 <?php
     require "../shared/home.php";
-
-    $select_roles = $db->prepare('select * from staff_roles where staff_type=:type and staff_name=:name');
 ?>
 
 <div class="container">
