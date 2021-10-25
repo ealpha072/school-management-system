@@ -10,7 +10,12 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <p class="header">Admit new student <?php //echo $log?></p>
+            <div class="float-left">
+                <p class="header">Admit new student</p>
+            </div>
+            <div class="float-right">
+                <a href="bulkstudents.php" class="text-primary">+ Add bulk</a>
+            </div>
         </div>
         <div class="card-body">
             <!--form for admitting new student-->

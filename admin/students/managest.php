@@ -7,7 +7,13 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h4>Manage Students</h4>
+            <div class="float-left">
+                <h4>Manage Students</h4>
+            </div>
+            <div class="float-right">
+                <a href="addst.php" class="text-primary">+ Add student</a>
+            </div>
+            
         </div>
         <div class="card-body">
             <?php showSuccessMessage(); ?> 
