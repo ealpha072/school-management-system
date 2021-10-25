@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -93,6 +93,7 @@
     $update_staff_query = $db->prepare('UPDATE support_staff set email=?, phone_number=? where id=?');
     $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
     $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
+    $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -148,6 +149,9 @@
         updateRole();
     }
 
+    if(isset($_POST['update-hostel']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateHostel();
+    }
 
     
     //DELETE BUTTONS
@@ -588,6 +592,21 @@
             $update_error = 'Error updating role records, fix below errors';
             array_unshift($update_role_error, $update_error);
         }
+    }
+
+    function updateHostel(){
+        global $update_hostel_query, $update_hostel_error;
+        $teacher = htmlspecialchars($_POST['teacher-update']);
+
+        if(count($update_hostel_error)===0){
+            $update_hostel_query->execute(array($teacher, $_GET['id']));
+            $_SESSION['success'] = 'Hostel records updated successfully';
+            header('location: managehost.php');
+        }else{
+            $update_error = 'Error updating hostel records, fix below errors';
+            array_unshift($update_hostel_error, $update_error);
+        }
+
     }
 
     //helper functions

@@ -1,7 +1,7 @@
 <?php
     require '../shared/home.php';
 
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='edit'){
+    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='edit_hostel'){
         $id = $_GET['id'];
         $query = $db->prepare('select * from hostels where id=:id');
         $query->execute(array(':id'=>$id));
@@ -13,10 +13,10 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Update hostel</h5>
+            <h5>Update hostel: <?php echo $results['name']?></h5>
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="form-group row">
                     <label for="" class = "col-sm-2 col-form-label col-form-label-sm">Name</label>
                     <div class="col-sm-4">
@@ -25,8 +25,8 @@
 
                     <label for="" class = "col-sm-2 col-form-label col-form-label-sm">Teacher</label>
                     <div class="col-sm-4">
-                        <select name="" id="" class="form-control form-control-sm">
-                            <option value="" selected><?php echo $results['teacher_incharge']?></option>
+                        <select name="teacher-update" id="" class="form-control form-control-sm">
+                            <option value="<?php echo $results['teacher_incharge']?>" selected hidden><?php echo $results['teacher_incharge']?></option>
                             <?php 
                                 $select_teacher->execute();
                                 $teacher_results = $select_teacher->fetchAll(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn btn-primary btn-sm" type="submit">Update</button>
+                    <button class="btn btn-primary btn-sm" type="submit" name="update-hostel">Update</button>
                 </div>
             </form>
         </div>
