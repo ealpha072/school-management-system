@@ -249,6 +249,10 @@
             $pemail = $pemail;
         }
 
+        if(empty($last_name)){
+            $last_name = ' ';
+        }
+
         //check if student exists;
         $select_all_students_sql->execute(array(
             ':adm'=>$adm_number,
@@ -266,7 +270,7 @@
         }
 
         if(count($results_select_parents_email) > 0){
-            $email_exists_error = "Parents email is already taken";
+            $email_exists_error = "Parent's email is already taken";
             array_push($add_student_error, $email_exists_error);
         }
 
@@ -295,7 +299,7 @@
                 ':childs_name'=>$first_name.' '.$mid_name.' '. $last_name
             ));
 
-            $_SESSION['success'] = "New student admission number ".$adm_number." added to database";
+            $_SESSION['success'] = "New student, admission number ".$adm_number.", added to database";
         }else{
             $addition_error = "Error adding student to database, correct below errors:";
             array_unshift($add_student_error, $addition_error);

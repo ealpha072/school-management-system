@@ -93,9 +93,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="last-name" class="col-sm-2 col-form-label col-form-label-sm">Last Name<sup>*</sup></label>
+                            <label for="last-name" class="col-sm-2 col-form-label col-form-label-sm">Last Name</label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name" required>
+                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name">
                             </div>
 
                             <label for="gender" class="col-sm-2 col-form-label col-form-label-sm">Gender<sup>*</sup></label>
