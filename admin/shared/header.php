@@ -10,8 +10,8 @@
 
     <!-- My Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/css/all.css">
 
 </head>
 <body>

@@ -30,15 +30,8 @@
 		  	</div>
 
 		  	<div class="row">
-				<div class="col-8">
-			  		<div class="icheck-primary">
-						<input type="checkbox" name="terms">
-						<label for="agreetoterms">Remember me</label>
-			  		</div>
-				</div>
-				<div class="col-4">
-			  		<button type="submit" class="btn btn-primary" name="login" id="loginbtn"> Login</button>
-				</div>
+			  		<button type="submit" class="btn btn-success btn-block" name="login" id="loginbtn"><i class="fa fa-sign-in"></i> <span>Login</span>
+				 	</button>
 		  	</div>
 		</form>
 	</div>
