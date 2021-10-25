@@ -7,7 +7,7 @@
 <!--consider customizing more-->
 <div class="row h-100 justify-content-center align-items-center">
 	<div class="col-10 col-md-8 col-lg-4">
-	  	<h3>Login</h3>
+	  	<h3 class="text-center">Login</h3>
 		<form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 			<?php
 				if(isset($login_error) && !empty($login_error)){
@@ -30,8 +30,10 @@
 		  	</div>
 
 		  	<div class="row">
-			  		<button type="submit" class="btn btn-success btn-block" name="login" id="loginbtn"><i class="fa fa-sign-in"></i> <span>Login</span>
+				  <div class="col">
+				  	<button type="submit" class="btn btn-success" name="login" id="loginbtn"><i class="fa fa-sign-in"></i> <span>Login</span>
 				 	</button>
+				  </div>
 		  	</div>
 		</form>
 	</div>

@@ -124,7 +124,7 @@
         addRole();
     }
 
-     if(isset($_POST['add-stream']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_POST['add-stream']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         addStream();
     }
 
@@ -152,7 +152,6 @@
     if(isset($_POST['update-hostel']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateHostel();
     }
-
     
     //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
