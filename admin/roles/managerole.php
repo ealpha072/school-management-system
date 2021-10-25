@@ -3,14 +3,14 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Manage Roles</h5>
+            <h6><i class="fa fa-wrench"></i> Manage Roles</h6>
         </div>
         <div class="card-body">
             <?php showSuccessMessage(); ?>
             <div class="form-row">
                 <div class="col">
                     <select name="" id="role-find" class="form-control">
-                        <option value="" selected disabled>Role to manage</option>
+                        <option value = " " selected disabled>Role to manage</option>
                         <?php 
                             $select_role->execute();
                             displayMenu($select_role, 'role_name');

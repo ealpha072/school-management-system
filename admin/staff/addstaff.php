@@ -19,7 +19,7 @@
                 <!--personal info card-->
                 <div class="card">
                     <div class="card-header">
-                        <h6>Personal Information</h6>
+                        <h6> Personal Information</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -39,7 +39,7 @@
 
                             <label for="" class="col-sm-2 col-form-label col-form-label-sm">Last Name <sup>*</sup></label>
                             <div class="col">
-                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name" required="">
+                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name">
                             </div>
 
                             <label for="gender" class="col-sm-2 col-form-label col-form-label-sm">Gender<sup>*</sup></label>

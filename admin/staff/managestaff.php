@@ -3,13 +3,13 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Manage my staff</h5>
+            <h6><i class="fa fa-wrench fa-sm"></i> Manage my staff</h6> 
         </div>
         <div class="card-body">
             <?php showSuccessMessage(); ?> 
             <div class="card forms">
                 <div class="card-header">
-                    <h5>Search/Select Staff</h5>
+                    <h6>Search/Select Staff</h6>
                 </div>
                 <div class="card-body">
                     <div class="form-row">

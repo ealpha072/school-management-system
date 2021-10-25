@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Manage Parents</h5>
+            <h6><i class="fa fa-wrench fa-sm"></i> Manage Parents</h6>
         </div>
         <div class="card-body">
             <div class="card forms">

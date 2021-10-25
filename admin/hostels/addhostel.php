@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Add a hostel</h5>
+            <h6><i class="fa fa-plus fa-sm"></i> Add a hostel</h6>
         </div>
         <div class="card-body">
             <form action="" method="post">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn btn-primary btn-sm" type="submit" name="add-hostel">Add Hostel</button>
+                    <button class="btn btn-primary btn-sm" type="submit" name="add-hostel"><i class="fa fa-plus fa-sm"></i> Add Hostel</button>
                 </div>
 
             </form>

@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Add a stream</h5>
+            <h6><i class="fa fa-plus fa-sm"></i> Add a stream</h6>
         </div>
         <div class="card-body">
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">

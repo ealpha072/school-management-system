@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Add a role</h5>
+            <h6><i class="fa fa-plus"></i> Add a role</h6>
         </div>
         <div class="card-body">
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
@@ -18,7 +18,7 @@
 
                     <label for="staff-type" class="col-sm-2 col-form-label col-form-label-sm">Staff Type</label>
                     <div class="col-sm-4">
-                        <select name="staff-type" id="staff-type" class="form-control form-control-sm" required="">
+                        <select name="staff-type" id="staff-type" class="form-control form-control-sm" required>
                             <option value="" selected="" disabled="">--Choose staff type--</option>
                             <option value="teaching staff">Teaching Staff</option>
                             <option value="support staff">Support Staff</option>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn btn-primary btn-sm" name="add-role">+ Add Role</button>
+                    <button class="btn btn-primary btn-sm" name="add-role"><i class="fa fa-plus"></i> Add Role</button>
                 </div>
             </form>
         </div>

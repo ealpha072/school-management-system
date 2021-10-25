@@ -4,7 +4,7 @@
     
     <div class="card">
         <div class="card-header">
-            <h6>All hostels</h6>
+            <h6><i class="fa fa-home"></i> All hostels</h6>
         </div>
         <div class="card-body">
             <?php 

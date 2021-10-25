@@ -3,7 +3,7 @@
 
     try {
         $db = new PDO('sqlite:../../mydatabase.db');
-        $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
         echo 'Connection to database failed '.$e->getMessage();
     }
@@ -193,8 +193,7 @@
     //RESPONSE TEXTS FOR AJAX REQUESTS
     require 'includes.php';
 
-    //..........MAIN FUCTIONS HERE.........................//
-    //....................................................//
+    //..........MAIN FUCTIONS HERE......................//
     function login() {
         global $login_sql, $login_error;
 
@@ -378,6 +377,10 @@
         if(count($results) > 0){
             $staff_exists_error = "Email is already taken, try a different one";
             array_push($add_staff_error, $staff_exists_error);
+        }
+        
+        if(empty($last_name)){
+            $last_name = ' ';
         }
 
         //push to database
@@ -697,8 +700,8 @@
                                         Manage
                                     </a>
                                     <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
-                                        <a class=\"dropdown-item text-info\" href=\"{$link[0]}?action={$action[0]}&id={$row['id']}\">Edit</a>
-                                        <a class=\"dropdown-item text-danger\" href=\"{$link[1]}?action={$action[1]}&id={$row['id']}\">Delete</a>
+                                        <a class=\"dropdown-item text-info\" href=\"{$link[0]}?action={$action[0]}&id={$row['id']}\"><i class=\"fa fa-pencil\"></i> Edit</a>
+                                        <a class=\"dropdown-item text-danger\" href=\"{$link[1]}?action={$action[1]}&id={$row['id']}\"><i class=\"fa fa-trash\"></i> Delete</a>
                                     </div>
                                 </div>
                             </td>";
