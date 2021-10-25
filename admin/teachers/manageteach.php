@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Manage my Teachers</h5>
+            <h6><i class="fa fa-wrench fa-sm"></i> Manage my Teachers</h6>
         </div>
         <div class="card-body">
             <?php showSuccessMessage(); ?>
@@ -32,7 +32,7 @@
             <hr>
             <div class="card results">
                 <div class="card-header">
-                    <h5>My Teachers(Based on Search/Select Value)</h5>
+                    <h6>My Teachers(Based on Search/Select Value)</h6>
                 </div>
                 <div class="card-body" id="result-holder">
                     <!--RESULTS FOR TEACHERS QUERRY-->

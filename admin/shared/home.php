@@ -46,10 +46,10 @@
                     <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-book"></i> Subjects</a>
                     <ul class="collapse list-unstyled" id="syllabus">
                         <li>
-                            <a href="../subjects/addsub.php"><i class="fa fa-plus"></i> Add Subjects</a>
+                            <a href="../subjects/addsub.php"><i class="fa fa-plus fa-sm"></i> Add Subjects</a>
                         </li>
                         <li>
-                            <a href="../subjects/managesub.php">Manage Subjects</a>
+                            <a href="../subjects/managesub.php"><i class="fa fa-wrench fa-sm"></i> Manage Subjects</a>
                             
                         </li>
                     </ul>
@@ -140,7 +140,7 @@
                 </button>
             </div>
             <div class="logout">
-                <b><a href="../shared/endsession.php" class="text-success">Logout</a></b>
+                <b><a href="../shared/endsession.php" class="text-success"><i class="fa fa-arrow fa-sm"></i> Logout</a></b>
             </div>
         </nav>
         <hr>

@@ -5,10 +5,10 @@
 
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Add new Teacher</h5>
+            <h6><i class="fa fa-plus fa-sm"></i> Add new Teacher</h6>
         </div>
         <div class="card-body">
             <form action="<?php $_SERVER['PHP_SELF']; ?> " method="post" enctype = "multipart/form-data">
@@ -29,20 +29,20 @@
 
                             <label for="first-name" class="col-sm-2 col-form-label col-form-label-sm">First Name <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="First Name" class="form-control form-control-sm" value = "Njiru" required="" name="first-name">
+                                <input type="text" placeholder="First Name" class="form-control form-control-sm" required="" name="first-name">
                             </div>
 
                             <label for="mid-name" class="col-sm-2 col-form-label col-form-label-sm">Mid Name <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Mid Name" class="form-control form-control-sm" value = "Maina" required="" name="mid-name">
+                                <input type="text" placeholder="Mid Name" class="form-control form-control-sm" required="" name="mid-name">
                             </div>
                         </div>
                         
                         <div class="form-group row">
 
-                            <label for="" class="col-sm-2 col-form-label col-form-label-sm">Last Name <sup>*</sup></label>
+                            <label for="" class="col-sm-2 col-form-label col-form-label-sm">Last Name </label>
                             <div class="col-sm-4 ">
-                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" value="Waithera" required="" name="last-name">
+                                <input type="text" placeholder="Last Name" class="form-control form-control-sm" name="last-name">
                             </div>
 
                             <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email <sup>*</sup></label>
@@ -123,7 +123,7 @@
                 </div>
                 <hr>
                 <div class="button-div">
-                    <button class="btn btn-success btn-sm" type="submit" name="add-teacher">Add teacher</button>
+                    <button class="btn btn-success btn-sm" type="submit" name="add-teacher"><i class="fa fa-plus fa-sm"></i>Add teacher</button>
                 </div>
             </form>
         </div>

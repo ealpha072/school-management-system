@@ -332,6 +332,10 @@
             array_push($add_teacher_error, $teacher_exits_error);
         }
 
+        if(empty($last_name)){
+            $last_name = ' ';
+        }
+
         if(count($add_teacher_error) == 0){
 
             $add_teacher_sql->execute(array(
