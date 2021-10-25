@@ -8,10 +8,10 @@
     <div class="card">
         <div class="card-header">
             <div class="float-left">
-                <h4>Manage Students</h4>
+                <h5><i class="fa fa-wrench fa-sm"></i> Manage Students</h5>
             </div>
             <div class="float-right">
-                <a href="addst.php" class="text-primary">+ Add student</a>
+                <a href="addst.php" class="text-primary"><i class="fa fa-plus fa-sm"></i> Add student</a>
             </div>
             
         </div>
@@ -36,7 +36,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-primary btn-sm" id="manage-st" >Manage</button>
+                                <button type="button" class="btn btn-primary btn-sm" id="manage-st">Manage</button>
                             </div>
                         </div>
                     </form>
@@ -45,10 +45,10 @@
                     <form action="<?php $_SERVER['PHP_SELF']?>" method="post" class="form-inline">
                         <div class="form-row">
                             <div class="col">
-                                <input type="text" class="form-control form-control-sm" placeholder="Search student Adm No" id="adm-no">
+                                <input type="text" class="form-control form-control-sm" placeholder="Search Adm No" id="adm-no">
                             </div>
                             <div class="col">
-                                <button class="btn btn-primary btn-sm mb-2" type="button" id="search-student">Search</button>
+                                <button class="btn btn-primary btn-sm mb-2" type="button" id="search-student"><i class="fa fa-search fa-sm"></i> Search</button>
                             </div>
                         </div>                        
                     </form>

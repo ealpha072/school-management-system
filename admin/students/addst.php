@@ -11,10 +11,10 @@
     <div class="card">
         <div class="card-header">
             <div class="float-left">
-                <p class="header">Admit new student</p>
+                <h5 class="header"><i class="fa fa-plus-circle fa-sm"></i> Admit new student</h5>
             </div>
             <div class="float-right">
-                <a href="bulkstudents.php" class="text-primary">+ Add bulk</a>
+                <a href="bulkstudents.php" class="text-primary"><i class="fa fa-plus fa-sm"></i> Add bulk</a>
             </div>
         </div>
         <div class="card-body">
@@ -143,7 +143,7 @@
                         </div>
                         <hr>
                         <div class="submit">
-                            <button class="btn btn-primary" type="submit" name="add-student" id="addnewstudent">Add Student</button>
+                            <button class="btn btn-primary" type="submit" name="add-student" id="addnewstudent"><i class="fa fa-plus-circle fa-sm"></i> Add Student</button>
                         </div>
                     </div>
                 </div>
