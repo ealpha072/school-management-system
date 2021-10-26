@@ -50,7 +50,7 @@
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
+                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" readonly>
                             </div>
@@ -86,7 +86,7 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Launch demo modal
+                        Edit
                         </button>
 
                         <!-- Modal -->
@@ -94,18 +94,55 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <h6 class="modal-title" id="exampleModalLabel">School settings</h6>
+                                    <button type="button" class="close btn-sm" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" name="edit-settings">Save changes</button>
-                            </div>
+                                <div class="modal-body">
+                                    <form action="" method="post">
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">School email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control form-control-sm" value="osiri@gmail.com" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control form-control-sm" value="0798975799" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success btn-sm" name="edit-settings">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
                             </div>
                         </div>
                         </div>
