@@ -1,5 +1,5 @@
 <?php
-require "../shared/home.php";
+    require "../shared/home.php";
 ?>
 
 <div class="container-fluid">
@@ -43,7 +43,7 @@ require "../shared/home.php";
                     </form>
                 </div>
             </div>
-            <div class="card" style="margin-top: 10px; ">
+            <div class="card" style="margin-top: 10px; margin-bottom:10px">
                 <div class="card-header">
                     <h6>School Settings</h6>
                 </div>
