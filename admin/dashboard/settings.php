@@ -1,5 +1,5 @@
 <?php
-    require "../shared/home.php";
+require "../shared/home.php";
 ?>
 
 <div class="container-fluid">
@@ -39,7 +39,7 @@
                             <div class="col-sm-9">
                                 <input type="email" class="form-control form-control-sm" value="ealpha072@gmail.com" readonly>
                             </div>
-                    </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -48,91 +48,87 @@
                     <h6>School Settings</h6>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" readonly>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" readonly>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Email</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" value="osirimixed@gmail.com" readonly>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Email</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="osirimixed@gmail.com" readonly>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control form-control-sm" value="254798579799" readonly>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control form-control-sm" value="254798579799" readonly>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
-                            <div class="col-sm-9">
-                                <textarea name="" id="" rows="" cols="" class="form-control form-control-sm"></textarea>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
+                        <div class="col-sm-9">
+                            <textarea name="" id="" rows="" cols="" class="form-control form-control-sm"></textarea>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
-                            <div class="col-sm-9">
-                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
+                        <div class="col-sm-9">
+                            <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
                         </div>
+                    </div>
 
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Edit
-                        </button>
+                    </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h6 class="modal-title" id="exampleModalLabel">School settings</h6>
-                                    <button type="button" class="close btn-sm" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="" method="post">
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" required>
+                                                <input type="text" class="form-control form-control-sm" value="" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control form-control-sm" value="osiri@gmail.com" required>
+                                                <input type="email" class="form-control form-control-sm" value="" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control form-control-sm" value="0798975799" required>
+                                                <input type="number" class="form-control form-control-sm" value="" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required></textarea>
                                             </div>
                                         </div>
 
@@ -142,11 +138,12 @@
                                         </div>
                                     </form>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        </div>
-                    </form>                    
+                    </div>
+                    <!--end of modal-->
+                    </form>
                 </div>
             </div>
         </div>
@@ -160,7 +157,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Image</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control form-control-sm" >
+                                <input type="file" class="form-control form-control-sm">
                             </div>
                         </div>
                     </form>
