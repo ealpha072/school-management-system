@@ -121,7 +121,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-cogs"></i> Settings</a>
+                    <a href="../dashboard/settings.php"><i class="fa fa-cogs"></i> Settings</a>
                 </li>
 
                 <!--OTHERS-->
