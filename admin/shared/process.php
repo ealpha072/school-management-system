@@ -153,6 +153,12 @@
     if(isset($_POST['update-hostel']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateHostel();
     }
+
+    if(isset($_POST['update-image']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateImage();
+    }
+
+
     
     //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
@@ -629,8 +635,30 @@
         $properties = getimagesize($name);
         $folder = '../images/staffs';
         $ext = pathinfo($_FILES['admin-photo']['name'], PATHINFO_EXTENSION);
+        $maxDim = 100;
 
-        
+        list($width, $height, $type, $attr) = getimagesize($name);
+        if($width > $maxDim || $height > $maxDim){
+            $target_filename = $name;
+            $ratio = $width/$height; 
+            if($ratio > 1){
+                $new_width = $maxDim;
+                $new_height = $maxDim;
+            }else{
+                $new_width = $maxDim;
+                $new_height = $maxDim;
+            }
+
+            $src = imagecreatefromstring( file_get_contents( $name ) );
+            $dst = imagecreatetruecolor( $new_width, $new_height );
+            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+            imagedestroy( $src );
+            imagepng( $dst, $target_filename ); // adjust format as needed
+            imagedestroy( $dst );
+
+            move_uploaded_file($target_filename, $folder);
+            echo "Success";
+        }    
     }
 
     //helper functions

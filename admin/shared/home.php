@@ -8,11 +8,11 @@
     }
 
     require 'header.php';
-    $maxDim = 100;
     list($width, $height, $type, $attr) = getimagesize('../images/staffs/48193.jpg');
-    if($width > $maxDim || $height > $maxDim){
-        
-    }
+    echo "Width: " .$width. "<br />";
+    echo "Height: " .$height. "<br />";
+    echo "Type: " .$type. "<br />";
+    echo "Attribute: " .$attr. "<br />";
 ?>
 
 
