@@ -8,11 +8,6 @@
     }
 
     require 'header.php';
-    list($width, $height, $type, $attr) = getimagesize('../images/staffs/48193.jpg');
-    echo "Width: " .$width. "<br />";
-    echo "Height: " .$height. "<br />";
-    echo "Type: " .$type. "<br />";
-    echo "Attribute: " .$attr. "<br />";
 ?>
 
 

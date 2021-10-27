@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -94,7 +94,7 @@
     $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
     $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
     $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
-    $update_settings = $db->prepare('UPDATE admin set image=?');
+    $update_settings = $db->prepare('UPDATE admin set image=? where user_name=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -154,9 +154,10 @@
         updateHostel();
     }
 
-    if(isset($_POST['update-image']) && $_SERVER['REQUEST_METHOD']==='POST'){
+    if(isset($_POST['upload-image']) && $_SERVER['REQUEST_METHOD']==='POST'){
         updateImage();
     }
+
 
 
     
@@ -629,36 +630,18 @@
 
     //user settings
     function updateImage(){
-        global $update_settings;
+        global $update_settings, $update_image_error;
+        $name = $_FILES['admin-photo']['name'];
+
+        if (count($update_image_error) === 0) {
+            $update_settings->execute(array($name, 'alpha'));
+            $_SESSION['success'] = 'Photo updated successfully';
+            header('location: ');
+        }else{
+            $update_error = 'Error uploading image';
+            array_unshift($update_image_error, $update_error);
+        }
         
-        $name = $_FILES['admin-photo']['tmp_name'];
-        $properties = getimagesize($name);
-        $folder = '../images/staffs';
-        $ext = pathinfo($_FILES['admin-photo']['name'], PATHINFO_EXTENSION);
-        $maxDim = 100;
-
-        list($width, $height, $type, $attr) = getimagesize($name);
-        if($width > $maxDim || $height > $maxDim){
-            $target_filename = $name;
-            $ratio = $width/$height; 
-            if($ratio > 1){
-                $new_width = $maxDim;
-                $new_height = $maxDim;
-            }else{
-                $new_width = $maxDim;
-                $new_height = $maxDim;
-            }
-
-            $src = imagecreatefromstring( file_get_contents( $name ) );
-            $dst = imagecreatetruecolor( $new_width, $new_height );
-            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
-            imagedestroy( $src );
-            imagepng( $dst, $target_filename ); // adjust format as needed
-            imagedestroy( $dst );
-
-            move_uploaded_file($target_filename, $folder);
-            echo "Success";
-        }    
     }
 
     //helper functions

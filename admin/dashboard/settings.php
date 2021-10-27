@@ -1,11 +1,14 @@
 <?php
-    require "../shared/home.php";
+    require "../shared/home.php";    
 ?>
 
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
             <h6><i class="fa fa-cogs"></i> Settings</h6>
+            <?php 
+                showSuccessMessage();
+            ?>
         </div>
     </div>
     <div class="row" style="margin-top: 10px;">
@@ -153,14 +156,14 @@
                     <h6>Change Image</h6>
                 </div>
                 <div class="card-body">
-                    <form action="../shared/imgresize.php" method="post">
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Image</label>
                             <div class="col-sm-9">
                                 <input type="file" class="form-control form-control-sm" name="admin-photo" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark btn-sm" name="upload-image">Upload</button>
+                        <button type="submit" class="btn btn-dark btn-sm" name="upload-image" id="upload-img">Upload</button>
                     </form>
                 </div>
             </div>

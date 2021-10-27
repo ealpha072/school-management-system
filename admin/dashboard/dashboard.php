@@ -6,6 +6,11 @@
     <div class="card">
         <div class="card-header">
             <h6>School Infomation</h6>
+            <?php
+                if(isset($_SESSION['success'])){
+                    echo $_SESSION['success'];
+                }
+            ?>
         </div>
         <div class="card-body">
             <div class="form-row">
