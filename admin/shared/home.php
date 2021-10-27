@@ -10,14 +10,15 @@
     require 'header.php';
 ?>
 
+
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>School System</h3>
-                <img alt="" class="img-fluid rounded">
-                <h5><?php //echo $loggedIn?></h5>
-                <h6>Thanks</h6>
+                <img src="../images/staffs/<?php echo $_SESSION['img'];?>" alt="" class="img-fluid rounded">
+                <h6> <?php echo $_SESSION['userLogin'];?> </h6>
+
             </div>
 
             <!--dashboard items-->

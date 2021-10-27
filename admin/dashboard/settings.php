@@ -84,7 +84,7 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                         Edit
                     </button>
 
@@ -150,16 +150,17 @@
         <div class="col">
             <div class="row card">
                 <div class="card-header">
-                    <h6>Update Logo</h6>
+                    <h6>Change Image</h6>
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Image</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control form-control-sm">
+                                <input type="file" class="form-control form-control-sm" name="admin-photo">
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-dark btn-sm" name="upload-image">Upload</button>
                     </form>
                 </div>
             </div>

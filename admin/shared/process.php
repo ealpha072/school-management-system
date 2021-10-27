@@ -94,6 +94,7 @@
     $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
     $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
     $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
+    $update_settings = $db->prepare('UPDATE admin set image=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -211,6 +212,7 @@
 
                 $_SESSION['userLogin'] = $username;
                 $_SESSION['msg'] = 'Successful login';
+                $_SESSION['img'] = $results[0]['image'];
 
                 header('location: ../shared/login_switch.php');
                 exit();
@@ -617,6 +619,14 @@
             array_unshift($update_hostel_error, $update_error);
         }
 
+    }
+
+    //user settings
+    function updateImage(){
+        global $update_settings;
+        $name = $_FILES['admin-photo']['name'];
+        $folder = '../images/staffs/';
+        move_uploaded_file($name, $folder.)
     }
 
     //helper functions
