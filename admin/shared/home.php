@@ -8,6 +8,11 @@
     }
 
     require 'header.php';
+    $maxDim = 100;
+    list($width, $height, $type, $attr) = getimagesize('../images/staffs/48193.jpg');
+    if($width > $maxDim || $height > $maxDim){
+        
+    }
 ?>
 
 
@@ -18,7 +23,6 @@
                 <h3>School System</h3>
                 <img src="../images/staffs/<?php echo $_SESSION['img'];?>" alt="" class="img-fluid rounded">
                 <h6> <?php echo $_SESSION['userLogin'];?> </h6>
-
             </div>
 
             <!--dashboard items-->

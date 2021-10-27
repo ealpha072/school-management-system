@@ -624,9 +624,13 @@
     //user settings
     function updateImage(){
         global $update_settings;
-        $name = $_FILES['admin-photo']['name'];
-        $folder = '../images/staffs/';
-        move_uploaded_file($name, $folder.)
+        
+        $name = $_FILES['admin-photo']['tmp_name'];
+        $properties = getimagesize($name);
+        $folder = '../images/staffs';
+        $ext = pathinfo($_FILES['admin-photo']['name'], PATHINFO_EXTENSION);
+
+        
     }
 
     //helper functions
