@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = $update_logins_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = $update_logins_error = $update_school_settings_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -97,6 +97,7 @@
     $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
     $update_image = $db->prepare('UPDATE admin set image=? where user_name=?');
     $update_login_details = $db->prepare('update admin set user_name=?, password=?');
+    $update_school_settings = $db->prepare('update admin set school_name=?, school_email=?, school_phone=?, vision=?, mission=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -708,6 +709,26 @@
             $update_login_details->execute(array($username, $new_pass));
             $_SESSION['success'] = 'Login details updated successfully';
             //header('location: settings.php');
+        }
+    }
+
+    function updateSchoolSettings(){
+        global $update_school_settings, $update_school_settings_error;
+
+        $name = $_POST['school-name'];
+        $email = $_POST['school-email'];
+        $phone = $_POST['school-phone'];
+        $vision = $_POST['school-vision'];
+        $mission = $_POST['school-mission'];
+
+        //form validation
+
+
+        //
+        if(count($update_school_settings_error) === 0){
+            $update_school_settings->execute(array($name, $email, $phone, $vision, $mission));
+
+
         }
     }
 

@@ -102,41 +102,41 @@ require "../shared/home.php";
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required>
+                                                <input type="text" class="form-control form-control-sm" value="" required name="school-name">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control form-control-sm" value="" required>
+                                                <input type="email" class="form-control form-control-sm" value="" required name="school-email">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control form-control-sm" value="" required>
+                                                <input type="number" class="form-control form-control-sm" value="" required name="school-phone">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required></textarea>
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required name="school-vision"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required></textarea>
+                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required name="school-mission"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-success btn-sm" name="edit-settings">Save</button>
+                                            <button type="button" class="btn btn-success btn-sm" name="edit-school-settings">Save</button>
                                         </div>
                                     </form>
                                 </div>
