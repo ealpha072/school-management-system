@@ -8,6 +8,9 @@
     }
 
     require 'header.php';
+    $select_settings ->execute();
+    $settings = $select_settings->fetchAll(PDO::FETCH_ASSOC);
+    $settings = $settings[0]
 ?>
 
 
@@ -16,7 +19,12 @@
     <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>School System</h3>
-                <img src="../images/staffs/<?php echo $_SESSION['img'];?>" alt="" class="img-fluid rounded">
+                <img src="../images/staffs/<?php echo $settings['image'];?>" alt="Admin img" class="rounded-circle">
+                <?php 
+                    //$arr = getimagesize("../images/staffs/".$settings['image']);
+                    //print_r($arr);
+                
+                ?>
                 <h6> <?php echo $_SESSION['userLogin'];?> </h6>
             </div>
 

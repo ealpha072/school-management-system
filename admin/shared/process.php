@@ -81,6 +81,7 @@
     $select_parent = $db->prepare('select * from parents');
     $select_support_staff = $db->prepare('select * from support_staff');
     $select_roles = $db->prepare('select * from staff_roles where staff_type=:type and staff_name=:name');
+    $select_settings = $db->prepare('select * from admin');
     //DELETE QUERIES
     $delete_student = $db->prepare('delete from students where id=:id');
     $delete_parent = $db->prepare('delete from parents where email=:email');
@@ -219,7 +220,6 @@
 
                 $_SESSION['userLogin'] = $username;
                 $_SESSION['msg'] = 'Successful login';
-                $_SESSION['img'] = $results[0]['image'];
 
                 header('location: ../shared/login_switch.php');
                 exit();
@@ -636,8 +636,8 @@
 
         $folder = '../images/staffs/';
 
-        $max_width = 100;
-        $max_height = 100;
+        $max_width = 150;
+        $max_height = 150;
 
         list($width, $height, $type, $attr) = getimagesize($_FILES['admin-photo']['tmp_name']);
         if($width > $max_width || $height > $max_height){
@@ -646,9 +646,9 @@
 
             if( $ratio > 1) {
                 $new_width = $max_width;
-                $new_height = $max_height/$ratio;
+                $new_height = $max_height; ///$ratio;
             } else {
-                $new_width = $max_width*$ratio;
+                $new_width = $max_width; //*$ratio;
                 $new_height = $max_height;
             }
 
@@ -658,10 +658,7 @@
             imagedestroy( $src );
             imagepng( $dst, $target_filename ); // adjust format as needed
             imagedestroy( $dst );
-            //$success = 'This section is okay';
-            //array_push($update_image_error, $success);
         }
-
 
         if (count($update_image_error) === 0) {
             move_uploaded_file($tmp_name, $folder.$name);
