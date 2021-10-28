@@ -664,7 +664,7 @@
             move_uploaded_file($tmp_name, $folder.$name);
             $update_settings->execute(array($name, 'alpha'));
             $_SESSION['success'] = 'Photo updated successfully';
-            //header('location: ');
+            //header('location: settings.php');
         }else{
             $update_error = 'Error uploading image';
             array_unshift($update_image_error, $update_error);

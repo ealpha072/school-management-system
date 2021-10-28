@@ -1,12 +1,12 @@
 <?php
-    require "../shared/home.php";    
+require "../shared/home.php";
 ?>
 
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
             <h6><i class="fa fa-cogs"></i> Settings</h6>
-            
+
         </div>
     </div>
     <div class="row" style="margin-top: 10px;">
@@ -16,32 +16,30 @@
                     <h6>System settings</h6>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" value="School Management System" readonly>
-                            </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="School Management System" readonly>
                         </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Address</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" value="BOX 232323-NAIROBI" readonly>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="BOX 232323-NAIROBI" readonly>
                         </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Language</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" value="English" readonly>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Language</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="English" readonly>
                         </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Email</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control form-control-sm" value="ealpha072@gmail.com" readonly>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control form-control-sm" value="ealpha072@gmail.com" readonly>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="card" style="margin-top: 10px; margin-bottom:10px">
@@ -73,14 +71,14 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
                         <div class="col-sm-9">
-                            <textarea name="" id="" rows="" cols="" class="form-control form-control-sm"></textarea>
+                            <textarea name="" id="" rows="" cols="" class="form-control form-control-sm" readonly><?php echo $settings['vision']?></textarea>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
                         <div class="col-sm-9">
-                            <textarea name="" id="" cols="" rows="" class="form-control form-control-sm"></textarea>
+                            <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" readonly><?php echo $settings['mission']?></textarea>
                         </div>
                     </div>
 
@@ -149,19 +147,19 @@
             </div>
         </div>
         <div class="col">
-            <div class="row card">
+            <div class="row card" style="margin-bottom: 10px;">
                 <div class="card-header">
                     <h6>Change Image</h6>
                 </div>
                 <div class="card-body">
-                    <?php 
-                        showSuccessMessage(); 
+                    <?php
+                    showSuccessMessage();
 
-                        if(isset($update_image_error) && !empty($update_image_error)){
-                            displayErrors($update_image_error);
-                        }                    
+                    if (isset($update_image_error) && !empty($update_image_error)) {
+                        displayErrors($update_image_error);
+                    }
                     ?>
-                    <form action="<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Image</label>
                             <div class="col-sm-9">
@@ -170,6 +168,25 @@
                         </div>
                         <button type="submit" class="btn btn-dark btn-sm" name="upload-image" id="upload-img">Upload</button>
                     </form>
+                </div>
+            </div>
+            <div class="card row">
+                <div class="card-header">
+                    <h6>Login Details</h6>
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Username</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-sm" value="<?php echo $settings['user_name']?>" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control form-control-sm" value="<?php echo $settings['password']?>" readonly>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
