@@ -631,9 +631,37 @@
     //user settings
     function updateImage(){
         global $update_settings, $update_image_error;
+        $tmp_name = $_FILES['admin-photo']['tmp_name'];
         $name = $_FILES['admin-photo']['name'];
 
-        if (count($update_image_error) === 0) {
+        $folder = '../images/staffs/';
+
+        $max_width = 100;
+        $max_height = 100;
+
+        list($width, $height, $type, $attr) = getimagesize($_FILES['admin-photo']['tmp_name']);
+        if($width > $max_width || $height > $max_height){
+            $target_filename = $tmp_name;
+            $ratio = $width/$height;
+
+            if( $ratio > 1) {
+                $new_width = $max_width;
+                $new_height = $max_height/$ratio;
+            } else {
+                $new_width = $max_width*$ratio;
+                $new_height = $max_height;
+            }
+
+            $src = imagecreatefromstring(file_get_contents($tmp_name));
+            $dst = imagecreatetruecolor($new_width, $new_height);
+            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+            imagedestroy( $src );
+            imagepng( $dst, $target_filename ); // adjust format as needed
+            imagedestroy( $dst );
+        }
+
+
+        if (move_uploaded_file($name, $folder.$name) && count($update_image_error) === 0) {
             $update_settings->execute(array($name, 'alpha'));
             $_SESSION['success'] = 'Photo updated successfully';
             //header('location: ');

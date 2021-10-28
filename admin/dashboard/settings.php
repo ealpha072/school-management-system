@@ -154,7 +154,13 @@
                     <h6>Change Image</h6>
                 </div>
                 <div class="card-body">
-                    <?php showSuccessMessage(); ?>
+                    <?php 
+                        showSuccessMessage(); 
+
+                        if(isset($update_image_error) && !empty($update_image_error)){
+                            displayErrors($update_image_error);
+                        }                    
+                    ?>
                     <form action="<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Image</label>
