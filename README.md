@@ -9,3 +9,5 @@ A school managemnt system.
 * Provisions for no results in searches
 * adding roles to test the pages
 * Add more columns to admin table to be used in sytem settings
+* password = west
+* Create a master reset password
