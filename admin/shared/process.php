@@ -687,10 +687,16 @@
         $database_pass = $settings[0]['password'];
 
         //check that old password matches database password
-        if($old_pass != $database_pass){
+        if(!password_verify($old_pass, $database_pass)){
             $oldpass_mismatch_error = 'Old password doesnt match database passowrd';
             array_push($update_logins_error, $oldpass_mismatch_error);
         }
+
+
+        /*if($old_pass != $database_pass){
+            $oldpass_mismatch_error = 'Old password doesnt match database passowrd';
+            array_push($update_logins_error, $oldpass_mismatch_error);
+        }*/
 
         //check that new password matches confirm pass
         if($new_pass != $confirm_pass){

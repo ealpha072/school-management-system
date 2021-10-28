@@ -15,7 +15,7 @@ require "../shared/home.php";
                     <h6>System settings</h6>
                 </div>
                 <div class="card-body">
-                    <?php showSuccessMessage(); ?>
+                    <?php echo showSuccessMessage(); ?>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
                         <div class="col-sm-9">
