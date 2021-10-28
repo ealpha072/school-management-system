@@ -96,7 +96,7 @@
     $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
     $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
     $update_image = $db->prepare('UPDATE admin set image=? where user_name=?');
-    $update_login_details = $db->prepare('update admin set user_name=?, password=? where user_name = ?');
+    $update_login_details = $db->prepare('update admin set user_name=?, password=?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -688,10 +688,9 @@
 
         //check that old password matches database password
         if(!password_verify($old_pass, $database_pass)){
-            $oldpass_mismatch_error = 'Old password doesnt match database passowrd';
+            $oldpass_mismatch_error = 'Old password doesnt match database passoword';
             array_push($update_logins_error, $oldpass_mismatch_error);
         }
-
 
         /*if($old_pass != $database_pass){
             $oldpass_mismatch_error = 'Old password doesnt match database passowrd';
@@ -705,10 +704,10 @@
         }
 
         if(count($update_logins_error) === 0){
-            $new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
-            $update_login_details->execute(array($username, $new_pass, $_SESSION['userLogin']));
+            $new_pass = password_hash($new_pass, PASSWORD_BCRYPT);
+            $update_login_details->execute(array($username, $new_pass));
             $_SESSION['success'] = 'Login details updated successfully';
-            header('location: settings.php');
+            //header('location: settings.php');
         }
     }
 

@@ -1,8 +1,11 @@
 <?php
 
-    $pass = 'fjkddksjksdsdf';
+//all
+//Alpha
 
-    $userpass = 'fjkddksjksdsdf';
+    $pass = 'Alpha';
+
+    $userpass = 'west';
 
     $options = [
         'cost' => 11
