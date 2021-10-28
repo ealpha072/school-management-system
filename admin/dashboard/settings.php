@@ -218,21 +218,21 @@ require "../shared/home.php";
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Old Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required name="old-password">
+                                                <input type="text" class="form-control form-control-sm" value="" required name="old-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">New Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required name="new-password">
+                                                <input type="text" class="form-control form-control-sm" value="" required name="new-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Confirm Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required name="confirm-password">
+                                                <input type="text" class="form-control form-control-sm" value="" required name="confirm-password">
                                             </div>
                                         </div>
 
