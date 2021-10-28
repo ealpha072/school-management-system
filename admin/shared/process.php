@@ -727,8 +727,7 @@
         //
         if(count($update_school_settings_error) === 0){
             $update_school_settings->execute(array($name, $email, $phone, $vision, $mission));
-
-
+            $_SESSION['success'] = 'Settins updated successfully';
         }
     }
 
