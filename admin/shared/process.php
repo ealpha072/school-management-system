@@ -693,7 +693,7 @@
         }
 
         //check that new password matches confirm pass
-        if($new_pass != $database_pass){
+        if($new_pass != $confirm_pass){
             $mismatch_error = 'Password mismatch: new password doesnt match confirm password';
             array_push($update_logins_error, $mismatch_error);
         }
