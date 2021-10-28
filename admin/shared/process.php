@@ -636,7 +636,7 @@
         if (count($update_image_error) === 0) {
             $update_settings->execute(array($name, 'alpha'));
             $_SESSION['success'] = 'Photo updated successfully';
-            header('location: ');
+            //header('location: ');
         }else{
             $update_error = 'Error uploading image';
             array_unshift($update_image_error, $update_error);
