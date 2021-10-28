@@ -658,10 +658,13 @@
             imagedestroy( $src );
             imagepng( $dst, $target_filename ); // adjust format as needed
             imagedestroy( $dst );
+            //$success = 'This section is okay';
+            //array_push($update_image_error, $success);
         }
 
 
-        if (move_uploaded_file($name, $folder.$name) && count($update_image_error) === 0) {
+        if (count($update_image_error) === 0) {
+            move_uploaded_file($tmp_name, $folder.$name);
             $update_settings->execute(array($name, 'alpha'));
             $_SESSION['success'] = 'Photo updated successfully';
             //header('location: ');
