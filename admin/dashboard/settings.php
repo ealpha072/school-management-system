@@ -170,6 +170,7 @@ require "../shared/home.php";
                     </form>
                 </div>
             </div>
+
             <div class="card row">
                 <div class="card-header">
                     <h6>Login Details</h6>
@@ -185,6 +186,56 @@ require "../shared/home.php";
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">Password</label>
                         <div class="col-sm-9">
                             <input type="password" class="form-control form-control-sm" value="<?php echo $settings['password']?>" readonly>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal1">
+                        Edit
+                    </button>
+
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="exampleModalLabel">Login settings</h6>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Username</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control form-control-sm" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Old Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">New Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Confirm Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success btn-sm" name="edit-logins">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
