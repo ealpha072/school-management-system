@@ -9,7 +9,7 @@
     }
 
     //declairing error variables
-    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = array();
+    $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = $update_logins_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
     $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
@@ -95,7 +95,8 @@
     $update_role = $db->prepare('UPDATE staff_roles set staff_name=? where role_name=?');
     $update_role2 = $db->prepare('UPDATE support_staff set role=? where first_name=? and mid_name=? and last_name=?');
     $update_hostel_query = $db->prepare('UPDATE hostels set teacher_incharge=? where id=?');
-    $update_settings = $db->prepare('UPDATE admin set image=? where user_name=?');
+    $update_image = $db->prepare('UPDATE admin set image=? where user_name=?');
+    $update_login_details = $db->prepare('update admin set user_name=?, password=? where user_name = ?');
 
     //BUTTON PUSHES ---ADD NEW RECORDS TO DATABASE
     if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD']=='POST'){
@@ -159,9 +160,12 @@
         updateImage();
     }
 
+    if(isset($_POST['update-logins']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateLogins();
+    }
 
 
-    
+
     //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
         $delete_id = $_SESSION['delete_id'];
@@ -625,12 +629,11 @@
             $update_error = 'Error updating hostel records, fix below errors';
             array_unshift($update_hostel_error, $update_error);
         }
-
     }
 
     //user settings
     function updateImage(){
-        global $update_settings, $update_image_error;
+        global $update_image, $update_image_error;
         $tmp_name = $_FILES['admin-photo']['tmp_name'];
         $name = $_FILES['admin-photo']['name'];
 
@@ -662,14 +665,45 @@
 
         if (count($update_image_error) === 0) {
             move_uploaded_file($tmp_name, $folder.$name);
-            $update_settings->execute(array($name, 'alpha'));
+            $update_image->execute(array($name, 'alpha'));
             $_SESSION['success'] = 'Photo updated successfully';
             //header('location: settings.php');
         }else{
             $update_error = 'Error uploading image';
             array_unshift($update_image_error, $update_error);
         }
-        
+    }
+
+    function updateLogins(){
+        global $update_login_details, $update_logins_error, $select_settings;
+
+        $username = htmlspecialchars($_POST['new-username']);
+        $old_pass = $_POST['old-password'];
+        $new_pass = $_POST['new-password'];
+        $confirm_pass = $_POST['confirm-password'];
+
+        $select_settings->execute();
+        $settings = $select_settings->fetchAll(PDO::FETCH_ASSOC);
+        $database_pass = $settings[0]['password'];
+
+        //check that old password matches database password
+        if($old_pass != $database_pass){
+            $oldpass_mismatch_error = 'Old password doesnt match database passowrd';
+            array_push($update_logins_error, $oldpass_mismatch_error);
+        }
+
+        //check that new password matches confirm pass
+        if($new_pass != $database_pass){
+            $mismatch_error = 'Password mismatch: new password doesnt match confirm password';
+            array_push($update_logins_error, $mismatch_error);
+        }
+
+        if(count($update_logins_error) === 0){
+            $new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+            $update_login_details->execute(array($username, $new_pass, $_SESSION['userLogin']));
+            $_SESSION['success'] = 'Login details updated successfully';
+            header('location: settings.php');
+        }
     }
 
     //helper functions

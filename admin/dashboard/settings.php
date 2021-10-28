@@ -6,7 +6,6 @@ require "../shared/home.php";
     <div class="card">
         <div class="card-header">
             <h6><i class="fa fa-cogs"></i> Settings</h6>
-
         </div>
     </div>
     <div class="row" style="margin-top: 10px;">
@@ -16,6 +15,7 @@ require "../shared/home.php";
                     <h6>System settings</h6>
                 </div>
                 <div class="card-body">
+                    <?php showSuccessMessage(); ?>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
                         <div class="col-sm-9">
@@ -201,37 +201,42 @@ require "../shared/home.php";
                                 </div>
                                 <div class="modal-body">
                                     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                                        <?php
+                                            if(isset($update_logins_error) && !empty($update_logins_error)){
+                                                displayErrors($update_logins_error);
+                                            }
+                                        ?>
                                         <div class="form-group row">
-                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">Username</label>
+                                            <label for="" class="col-sm-3 col-form-label col-form-label-sm">New Username</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required>
+                                                <input type="text" class="form-control form-control-sm" value="" required name="new-username">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Old Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                                <input type="password" class="form-control form-control-sm" value="" required name="old-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">New Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                                <input type="password" class="form-control form-control-sm" value="" required name="new-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Confirm Password</label>
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control form-control-sm" value="" required>
+                                                <input type="password" class="form-control form-control-sm" value="" required name="confirm-password">
                                             </div>
                                         </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-success btn-sm" name="edit-logins">Save</button>
+                                            <button type="submit" class="btn btn-success btn-sm" name="update-logins">Save</button>
                                         </div>
                                     </form>
                                 </div>
