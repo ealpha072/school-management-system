@@ -331,9 +331,9 @@
     function addTeacher(){
         global $add_teacher_error, $add_teacher_sql, $select_teacher_sql;
 
-        $first_name = htmlspecialchars($_POST['first-name']);
-        $mid_name = htmlspecialchars($_POST['mid-name']);
-        $last_name = htmlspecialchars($_POST['last-name']);
+        $first_name = ucfirst(strtolower(htmlspecialchars($_POST['first-name'])));
+        $mid_name = ucfirst(strtolower(htmlspecialchars($_POST['mid-name'])));
+        $last_name = ucfirst(strtolower(htmlspecialchars($_POST['last-name'])));
         $gender = htmlspecialchars($_POST['teacher-gender']);
         $email = htmlspecialchars($_POST['email']);
         $phone_number = htmlspecialchars($_POST['phone-number']);
@@ -385,9 +385,9 @@
     function addStaff(){
         global $add_staff_sql, $add_staff_error, $select_staff_sql;
 
-        $first_name = htmlspecialchars($_POST['first-name']);
-        $mid_name = htmlspecialchars($_POST['mid-name']);
-        $last_name = htmlspecialchars($_POST['last-name']);
+        $first_name = ucfirst(strtolower(htmlspecialchars($_POST['first-name'])));
+        $mid_name = ucfirst(strtolower(htmlspecialchars($_POST['mid-name'])));
+        $last_name = ucfirst(strtolower(htmlspecialchars($_POST['last-name'])));
         $email = htmlspecialchars($_POST['email']);
         $gender = htmlspecialchars($_POST['gender']);
         $phone_number = htmlspecialchars($_POST['phone-number']);
@@ -438,7 +438,7 @@
     function addSubject(){
         global $add_subject_sql, $add_subject_error, $select_all_subjects_sql;
 
-        $name = trim(htmlspecialchars($_POST['subject-name']));
+        $name = ucfirst(strtolower(trim(htmlspecialchars($_POST['subject-name']))));
         $head_of_subject= trim(htmlspecialchars($_POST['hos']));
         $subject_type= trim(htmlspecialchars($_POST['subject-type']));
         $department= trim(htmlspecialchars($_POST['department']));
@@ -449,7 +449,7 @@
 
         //check if exists
 
-        if(count($results)>0){
+        if(count($results)> 0){
             $subject_exists_error = 'Cannot add subject: '.$name.' it already exists in database. Try a different name';
             array_push($add_subject_error, $subject_exists_error);
         }
@@ -473,7 +473,7 @@
     function addHostel(){
         global $add_hostel_sql, $add_hostel_error, $select_hostel_sql;
 
-        $name = htmlspecialchars($_POST['name']);
+        $name = ucfirst(strtolower(htmlspecialchars($_POST['name'])));
         $teacher = htmlspecialchars($_POST['teacher']);
 
         //check if exists
@@ -500,11 +500,10 @@
     function addRole(){
         global $add_role_sql, $add_role_error;
 
-        $role_name = htmlspecialchars($_POST['role-name']);
+        $role_name =ucfirst(strtolower(htmlspecialchars($_POST['role-name'])));
         $staff_type = htmlspecialchars($_POST['staff-type']);
         $staff_name = htmlspecialchars($_POST['staff-name']);
         $date = date('Y/m/d');
-
 
         //form validation
         //check if exists
@@ -528,7 +527,7 @@
         global $add_stream_sql, $add_stream_error, $select_stream_sql;
 
 
-        $name = htmlspecialchars($_POST['stream-name']);
+        $name = ucfirst(strtolower(htmlspecialchars($_POST['stream-name'])));
         $select_stream_sql->execute(array(':name'=>$name));
         $results = $select_stream_sql->fetchAll(PDO::FETCH_ASSOC);
 
