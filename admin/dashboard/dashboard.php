@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h6>School Infomation</h6>
+            <h6><i class="fa fa-building"></i> School Infomation</h6>
             <?php
                 if(isset($_SESSION['success'])){
                     echo $_SESSION['success'];
@@ -44,12 +44,12 @@
                 </div>
             </div>
             <hr>
-            <div class="form-row">
+            <!--<div class="form-row">
                 <div class="col-8">
                     <div class="card">
                         <div class="card-header">Events</div>
                         <div class="card-body">
-                            <!--display calender-->
+
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
                                 Velit omnis modi deserunt, eos rem temporibus nesciunt quasi facilis? 
                                 Perspiciatis saepe, amet voluptatem quas dolor hic deleniti dolorum error 
@@ -68,18 +68,18 @@
                     <div class="card form-row">
                         <div class="card-header">Statistics</div>
                         <div class="card-body">
-                            <!--display school statistics-->
+
                         </div>
                     </div>
                     <hr>
                    <div class="card form-row">
                         <div class="card-header">Charts</div>
                         <div class="card-body">
-                            <!--display school statistics-->
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>

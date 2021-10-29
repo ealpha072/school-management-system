@@ -76,7 +76,7 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control form-control-sm" value="254798579799" readonly>
+                            <input type="number" class="form-control form-control-sm" value="<?php echo $settings['school_phone'];?>" readonly>
                         </div>
                     </div>
 
@@ -111,21 +111,21 @@
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required name="school-name">
+                                                <input type="text" class="form-control form-control-sm" value="<?php echo $settings['school_name']?>" required name="school-name">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control form-control-sm" value="" required name="school-email">
+                                                <input type="email" class="form-control form-control-sm" value="<?php echo $settings['school_email']?>" required name="school-email">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control form-control-sm" value="" required name="school-phone">
+                                                <input type="tel" class="form-control form-control-sm" value="<?php echo $settings['school_phone']?>" required name="school-phone">
                                                 <small id="emailHelp" class="form-text text-muted">Phone number must be 13 digits (+2547XXXXXXXX)</small>
                                             </div>
                                         </div>
@@ -133,14 +133,14 @@
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
                                             <div class="col-sm-9">
-                                                <textarea id="" cols="" rows="" class="form-control form-control-sm" required name="school-vision"></textarea>
+                                                <textarea cols="" rows="" class="form-control form-control-sm" required name="school-vision"><?php echo $settings['vision']; ?></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
                                             <div class="col-sm-9">
-                                                <textarea id="" cols="" rows="" class="form-control form-control-sm" required name="school-mission"></textarea>
+                                                <textarea cols="" rows="" class="form-control form-control-sm" required name="school-mission" ><?php echo $settings['mission']; ?></textarea>
                                             </div>
                                         </div>
 

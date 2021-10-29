@@ -47,7 +47,7 @@
 
                             <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Email" class="form-control form-control-sm" value="ealpha072@gmail.com" required="" name="email">
+                                <input type="text" placeholder="Email" class="form-control form-control-sm" value="" required="" name="email">
                             </div>     
                         </div>
 
@@ -55,7 +55,7 @@
 
                             <label for="phone-number" class="col-sm-2 col-form-label col-form-label-sm">Phone Number <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="tel" placeholder="Phone Number" class="form-control form-control-sm" value="0798975799" required="" name="phone-number">
+                                <input type="tel" placeholder="Phone Number(+2547XXXXXXXX)" class="form-control form-control-sm" value="" required="" name="phone-number">
                                 <small id="emailHelp" class="form-text text-muted">Phone number must be 13 digits (+2547XXXXXXXX)</small>
                             </div>
 
