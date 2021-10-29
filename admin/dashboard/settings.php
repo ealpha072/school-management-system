@@ -98,7 +98,7 @@ require "../shared/home.php";
                                     <h6 class="modal-title" id="exampleModalLabel">School settings</h6>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" method="post">
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                                             <div class="col-sm-9">

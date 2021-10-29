@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    //pass = Alpha
     try {
         $db = new PDO('sqlite:../../mydatabase.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -165,7 +166,9 @@
         updateLogins();
     }
 
-
+    if(isset($_POST['edit-school-settings']) && $_SERVER['REQUEST_METHOD']==='POST'){
+        updateSchoolSettings();
+    }
 
     //DELETE BUTTONS
     if(isset($_POST['delete-student'])){
@@ -715,19 +718,22 @@
     function updateSchoolSettings(){
         global $update_school_settings, $update_school_settings_error;
 
-        $name = $_POST['school-name'];
-        $email = $_POST['school-email'];
-        $phone = $_POST['school-phone'];
-        $vision = $_POST['school-vision'];
-        $mission = $_POST['school-mission'];
+        $name = htmlspecialchars($_POST['school-name']);
+        $email = htmlspecialchars($_POST['school-email']);
+        $phone = htmlspecialchars($_POST['school-phone']);
+        $vision = htmlspecialchars($_POST['school-vision']);
+        $mission = htmlspecialchars($_POST['school-mission']);
 
         //form validation
-
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $email_error = "Invalid email address";
+            array_push($update_school_settings, $email_error);
+        }
 
         //
         if(count($update_school_settings_error) === 0){
             $update_school_settings->execute(array($name, $email, $phone, $vision, $mission));
-            $_SESSION['success'] = 'Settins updated successfully';
+            $_SESSION['success'] = 'Settings updated successfully';
         }
     }
 
