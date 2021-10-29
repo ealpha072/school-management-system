@@ -2,6 +2,12 @@
     session_start();
 
     //pass = Alpha
+    //changed settings json file
+    //"navigation": false, -->default(true)
+    //"devtools": false, -->default(true)
+    //"view_source": false, --> default(true)
+    //"open_in_external_browser": false,
+
     try {
         $db = new PDO('sqlite:../../mydatabase.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
