@@ -70,6 +70,7 @@
     $select_stream_sql = $db->prepare('select name from streams where name = :name');
 
     //SQL STATEMENTS--these qeuries are executed in different pages mainly for select option population
+    $system_settings = $db->prepare('select * from system');
     $select_teacher = $db->prepare('select * from teachers');
     $select_department = $db->prepare('select dpt_name from departments');
     $select_subjects = $db->prepare('select name from subjects');

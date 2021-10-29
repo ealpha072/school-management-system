@@ -1,5 +1,5 @@
 <?php
-require "../shared/home.php";
+    require "../shared/home.php";
 ?>
 
 <div class="container-fluid">
@@ -19,28 +19,33 @@ require "../shared/home.php";
                     <h6>System settings</h6>
                 </div>
                 <div class="card-body">
+                    <?php
+                        $system_settings->execute();
+                        $sys = $system_settings->fetchAll(PDO::FETCH_ASSOC);
+                        $sys = $sys[0];
+                    ?>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" value="School Management System" readonly>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo $sys['name']?>" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" value="BOX 232323-NAIROBI" readonly>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo $sys['address']?>" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Language</label>
+                        <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" value="English" readonly>
+                            <input type="number" class="form-control form-control-sm" value="<?php echo $sys['phone']?>" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">System Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control form-control-sm" value="ealpha072@gmail.com" readonly>
+                            <input type="email" class="form-control form-control-sm" value="<?php echo $sys['email']?>" readonly>
                         </div>
                     </div>
                 </div>
