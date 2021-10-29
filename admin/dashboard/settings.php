@@ -10,7 +10,6 @@
         <div class="card-body">
             <?php showSuccessMessage(); ?>
         </div>
-
     </div>
     <div class="row" style="margin-top: 10px;">
         <div class="col">

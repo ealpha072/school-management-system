@@ -18,15 +18,15 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
 				</div>
-			  	<input type="text" class="form-control" placeholder="Enter username" name="username" required value="alpha">
+			  	<input type="text" class="form-control" placeholder="Enter username" name="username" required>
 		  	</div>
 
 		  	<div class="form-group input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+					<span class="input-group-text" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
 				</div>
 			  	<!--<label for="password">Password</label>-->
-			  	<input type="password" class="form-control" id="password" placeholder="Password" name="password" required value="alpha">
+			  	<input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 		  	</div>
 
 		  	<div class="row">
