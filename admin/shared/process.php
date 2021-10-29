@@ -265,6 +265,11 @@
         }else{
             $pemail = $pemail;
         }
+        //phone number validation
+        if(!validatePhone($pphone_number)){
+            $phone_error = 'Invalid phone number';
+            array_push($add_student_error, $phone_error);
+        }
 
         if(empty($last_name)){
             $last_name = ' ';
@@ -834,4 +839,12 @@
                     }
             echo "</tbody>";
         echo "</table>";
+    }
+
+    function validatePhone($phone){
+        if(preg_match('/^(\+254)\d{9}$/', $phone)){
+            return True;
+        }else{
+            return False;
+        }
     }

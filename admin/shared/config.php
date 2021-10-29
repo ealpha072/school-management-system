@@ -1,18 +1,10 @@
 
 <?php
-    $errors = ["Hello", "Hi there", "come here"];
-    $login_err = ["Incorrect username", "Wrong poassword"];
+    $phone = '+254798975799';
 
-
-    function display($array){
-        echo '<div>';
-            echo '<ul>';
-                foreach ($array as $error_msg) {
-                    // code...
-                    echo '<li>'.$error_msg.'</li>';
-                }
-            echo '</ul>';
-        echo '</div>';
+    if(preg_match('/^(\+254)\d{9}$/', $phone)){
+        echo "This is a valid number";
+    }else{
+        echo "Invalidd number";
     }
-
-    display($errors);
+?>

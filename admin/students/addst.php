@@ -132,13 +132,15 @@
                             <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email <sup>*</sup></label>
                             <div class="col-sm-4">
                                 <input type="email" placeholder="Email Address" class="form-control form-control-sm" name="pemail" required="">
+                                <small id="emailHelp" class="form-text text-muted">name@gmail.com</small>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="phone-number" class="col-sm-2 col-form-label col-form-label-sm">Phone Number <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Phone Number" class="form-control form-control-sm" name="pphone-number" required>
+                                <input type="tel" placeholder="Phone Number" class="form-control form-control-sm" name="pphone-number" required maxlength="13">
+                                <small id="emailHelp" class="form-text text-muted">Phone number must be 10 digits(07XXXXXXXX) or (+2547XXXXXXXX)</small>
                             </div>
                         </div>
                         <hr>
