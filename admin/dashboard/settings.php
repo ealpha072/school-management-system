@@ -50,6 +50,11 @@ require "../shared/home.php";
                     <h6>School Settings</h6>
                 </div>
                 <div class="card-body">
+                    <?php
+                        if(isset($update_school_settings_error) && !empty($update_school_settings_error)){
+                            displayErrors($update_school_settings_error);
+                        }
+                    ?>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                         <div class="col-sm-9">
@@ -123,20 +128,20 @@ require "../shared/home.php";
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Vision</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required name="school-vision"></textarea>
+                                                <textarea id="" cols="" rows="" class="form-control form-control-sm" required name="school-vision"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Mission</label>
                                             <div class="col-sm-9">
-                                                <textarea name="" id="" cols="" rows="" class="form-control form-control-sm" required name="school-mission"></textarea>
+                                                <textarea id="" cols="" rows="" class="form-control form-control-sm" required name="school-mission"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-success btn-sm" name="edit-school-settings">Save</button>
+                                            <button type="submit" class="btn btn-success btn-sm" name="edit-school-settings">Save</button>
                                         </div>
                                     </form>
                                 </div>
