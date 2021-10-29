@@ -712,6 +712,9 @@
             $update_login_details->execute(array($username, $new_pass));
             $_SESSION['success'] = 'Login details updated successfully';
             //header('location: settings.php');
+        }else{
+            $update_error = 'Error updating login details:Fix below';
+            array_unshift($update_logins_error, $update_error);
         }
     }
 
@@ -734,6 +737,9 @@
         if(count($update_school_settings_error) === 0){
             $update_school_settings->execute(array($name, $email, $phone, $vision, $mission));
             $_SESSION['success'] = 'Settings updated successfully';
+        }else{
+            $update_error = 'Error updating school setting:Fix below';
+            array_unshift($update_school_settings_error, $update_error);
         }
     }
 
