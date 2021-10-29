@@ -226,7 +226,7 @@
         if(count($results)=== 1){
             if($username === $results[0]['user_name'] && password_verify($password, $results[0]['password'])){
                 //$password === $results[0]['password']
-                $_SESSION['userLogin'] = $username;
+                $_SESSION['user'] = $username;
                 $_SESSION['msg'] = 'Successful login';
                 header('location: ../shared/login_switch.php');
                 exit();
@@ -671,9 +671,9 @@
 
         if (count($update_image_error) === 0) {
             move_uploaded_file($tmp_name, $folder.$name);
-            $update_image->execute(array($name, 'alpha'));
+            $update_image->execute(array($name, $_SESSION['user']));
             $_SESSION['success'] = 'Photo updated successfully';
-            //header('location: settings.php');
+            header('location: settings.php');
         }else{
             $update_error = 'Error uploading image';
             array_unshift($update_image_error, $update_error);
@@ -761,7 +761,7 @@
     }
 
     function isLoggedIn() {
-        if(isset($_SESSION['userLogin'])){
+        if(isset($_SESSION['user'])){
             return True;
         }else{
             return False;
