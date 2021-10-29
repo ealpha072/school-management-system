@@ -13,7 +13,7 @@
     $login_error = $add_student_error = $add_subject_error = $add_teacher_error = $add_staff_error = $add_hostel_error = $add_role_error = $add_stream_error = $update_student_error = $update_subject_error = $update_teacher_error = $update_staff_error = $update_role_error = $update_hostel_error = $update_image_error = $update_logins_error = $update_school_settings_error = array();
 
     //SQL STATEMENTS -- Below queries have been utilised by the functions in this page
-    $login_sql = $db->prepare('select * from admin where user_name=:username and password = :password');
+    $login_sql = $db->prepare('select * from admin where user_name=:username');
     $add_student_sql = $db->prepare('insert into
         students(
             adm_num,form,
@@ -217,24 +217,25 @@
         $password = $_POST['password'];
 
         $login_sql->execute(array(
-            ':username'=> $username,
-            ':password'=>$password,
+            ':username'=> $username
         ));
 
         $results = $login_sql->fetchAll(PDO::FETCH_ASSOC);
 
-        if(count($results)==1){
-            if($username === $results[0]['user_name'] && $password === $results[0]['password']){
-
+        if(count($results)=== 1){
+            if($username === $results[0]['user_name'] && password_verify($password, $results[0]['password'])){
+                //$password === $results[0]['password']
                 $_SESSION['userLogin'] = $username;
                 $_SESSION['msg'] = 'Successful login';
-
                 header('location: ../shared/login_switch.php');
                 exit();
+            }else{
+                $error = 'Wrong username or password, please try again';
+                array_push($login_error, $error);
             }
         }else{
-            $error = 'Wrong username or password, please try again';
-            array_push($login_error, $error);
+            $unfound_error = 'Details not found';
+            array_push($login_error, $unfound_error);
         }
     }
 
