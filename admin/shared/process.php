@@ -249,9 +249,9 @@
         $stream = htmlspecialchars($_POST['stream']);
         $hostel = htmlspecialchars($_POST['hostel']);
         $adm_date = date('Y/m/d');
-        $first_name = htmlspecialchars($_POST['first-name']);
-        $mid_name = htmlspecialchars($_POST['middle-name']);
-        $last_name = htmlspecialchars($_POST['last-name']);
+        $first_name = ucfirst(strtolower( htmlspecialchars($_POST['first-name'])));
+        $mid_name = ucfirst(strtolower(htmlspecialchars($_POST['middle-name'])));
+        $last_name = ucfirst(strtolower(htmlspecialchars($_POST['last-name'])));
         $gender = htmlspecialchars($_POST['gender']);
         $parent_name = htmlspecialchars($_POST['pfirst-name']);
         $pemail = $_POST['pemail'];
