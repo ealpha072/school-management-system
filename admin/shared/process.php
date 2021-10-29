@@ -342,9 +342,6 @@
         $role = htmlspecialchars($_POST['teacher-role']);
         $date = date('Y/m/d');
 
-        //FORM VALIDATION
-
-
         //check if teachers email is already taken
         $select_teacher_sql ->execute(array(':email'=>$email));
         $results  = $select_teacher_sql->fetchAll(PDO::FETCH_ASSOC);
@@ -352,6 +349,12 @@
         if(count($results) > 0){
             $teacher_exits_error = "Email address is already taken, try a different one.";
             array_push($add_teacher_error, $teacher_exits_error);
+        }
+
+        //FORM VALIDATION
+        if(!validatePhone($phone_number)){
+            $phone_error = 'Invalid phone number';
+            array_push($add_teacher_error, $phone_error);
         }
 
         if(empty($last_name)){
@@ -391,8 +394,6 @@
         $role = htmlspecialchars($_POST['staff-role']);
         $date = date('Y/m/d');
 
-        //FORM VALIDATION
-
         //Check if email is taken
         $select_staff_sql->execute(array(':email'=>$email));
         $results = $select_staff_sql->fetchAll(PDO::FETCH_ASSOC);
@@ -401,6 +402,13 @@
             $staff_exists_error = "Email is already taken, try a different one";
             array_push($add_staff_error, $staff_exists_error);
         }
+
+        //FORM VALIDATION
+        if(!validatePhone($phone_number)){
+            $phone_error = 'Invalid phone number';
+            array_push($add_staff_error, $phone_error);
+        }
+
         
         if(empty($last_name)){
             $last_name = ' ';
@@ -550,6 +558,12 @@
         $email = htmlspecialchars($_POST['parent-email-update']);
         $phone_number = htmlspecialchars($_POST['parent-phone-update']);
 
+        //FORM VALIDATION
+        if(!validatePhone($phone_number)){
+            $phone_error = 'Invalid phone number';
+            array_push($update_student_error, $phone_error);
+        }
+
         if(count($update_student_error) === 0){
             $update_student_query->execute(array($hostel,$form_name, $stream, $email, $phone_number, $_GET['id']));
             $_SESSION['success'] = 'Student records updated successfully';
@@ -583,6 +597,12 @@
         $phone = htmlspecialchars($_POST['teacher-num-update']);
         $role = htmlspecialchars($_POST['teacher-role-update']);
 
+        //FORM VALIDATION
+        if(!validatePhone($phone)){
+            $phone_error = 'Invalid phone number';
+            array_push($update_teacher_error, $phone_error);
+        }
+
         if(count($update_teacher_error) === 0){
             $update_teacher_query->execute(array($email, $phone, $role, $_GET['id']));
             $_SESSION['success'] = 'Teacher records updated successfully';
@@ -600,6 +620,12 @@
         $phone = htmlspecialchars($_POST['staff-phone-update']);
         //$role = htmlspecialchars($_POST['staff-role-update']);
         //$name = htmlspecialchars($_POST['staff-name']);
+
+        //FORM VALIDATION
+        if(!validatePhone($phone)){
+            $phone_error = 'Invalid phone number';
+            array_push($update_staff_error, $phone_error);
+        }
 
         if(count($update_staff_error) === 0){
             $update_staff_query->execute(array($email, $phone, $_GET['id']));
@@ -734,10 +760,15 @@
         $vision = htmlspecialchars($_POST['school-vision']);
         $mission = htmlspecialchars($_POST['school-mission']);
 
-        //form validation
+        ////FORM VALIDATION
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $email_error = "Invalid email address";
             array_push($update_school_settings, $email_error);
+        }
+
+        if(!validatePhone($phone)){
+            $phone_error = 'Invalid phone number';
+            array_push($update_school_settings_error, $phone_error);
         }
 
         //

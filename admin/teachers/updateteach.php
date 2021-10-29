@@ -64,6 +64,7 @@
                             type="number" class="form-control form-control-sm" id="name" required
                             value="<?php echo $results['phone_number']?>" name="teacher-num-update"
                         >
+                        <small id="emailHelp" class="form-text text-muted">Phone number must be 13 digits (+2547XXXXXXXX)</small>
                     </div>
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Role</label>
                     <div class="col-sm-4">

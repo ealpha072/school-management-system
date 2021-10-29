@@ -126,6 +126,7 @@
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Phone</label>
                                             <div class="col-sm-9">
                                                 <input type="number" class="form-control form-control-sm" value="" required name="school-phone">
+                                                <small id="emailHelp" class="form-text text-muted">Phone number must be 13 digits (+2547XXXXXXXX)</small>
                                             </div>
                                         </div>
 

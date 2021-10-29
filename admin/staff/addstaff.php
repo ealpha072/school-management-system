@@ -60,7 +60,8 @@
 
                             <label for="phone-number" class="col-sm-2 col-form-label col-form-label-sm">Phone Number <sup>*</sup></label>
                             <div class="col-sm-4">
-                                <input type="number" placeholder="Phone Number" class="form-control form-control-sm" name="phone-number" required="">
+                                <input type="tel" placeholder="Phone Number" class="form-control form-control-sm" name="phone-number" required="">
+                                <small id="emailHelp" class="form-text text-muted">Phone number must be 13 digits (+2547XXXXXXXX)</small>
                             </div>
                         </div>
                     </div>
