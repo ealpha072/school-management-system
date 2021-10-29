@@ -58,14 +58,14 @@ require "../shared/home.php";
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" value="OSIRI MIXED SECONDARY SCHOOL" readonly>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo $settings['school_name']; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label col-form-label-sm">School Email</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" value="osirimixed@gmail.com" readonly>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo $settings['school_email']; ?>" readonly>
                         </div>
                     </div>
 
@@ -204,6 +204,7 @@ require "../shared/home.php";
                         Edit
                     </button>
 
+                    <!--modal-->
                     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -223,21 +224,21 @@ require "../shared/home.php";
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Old Password</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required name="old-password">
+                                                <input type="password" class="form-control form-control-sm" value="" required name="old-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">New Password</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required name="new-password">
+                                                <input type="password" class="form-control form-control-sm" value="" required name="new-password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-sm-3 col-form-label col-form-label-sm">Confirm Password</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-control-sm" value="" required name="confirm-password">
+                                                <input type="password" class="form-control form-control-sm" value="" required name="confirm-password">
                                             </div>
                                         </div>
 
@@ -250,6 +251,8 @@ require "../shared/home.php";
                             </div>
                         </div>
                     </div>
+                    <!--end of modal-->
+
                 </div>
             </div>
         </div>
