@@ -4,7 +4,8 @@ A school managemnt system.
 
 ## About
 This is a school managemnet system(SMS) that can be used to manage secondary schools. This has been coded to work as a desktop application without connecting to the internet. It was coded with PHP mostly as part of my projects to build up my portfolios
-in PHP language
+in PHP language. The project is for admins only but i intend on adding logins for other users in future. The admin has exclusive rights of the entire application.The admin can;
+
 
 ## Technologies used in this project;
 * `PHP` - I used the PHP language as the main language for this project together with javascript for the frontend and the backend due to the ease in their operability. No frameworks were used for PHP but for javascript, i used jquery for ajax requests being sent to database and getting back the response to populate the DOM
@@ -15,3 +16,6 @@ in PHP language
 *  `DB Browser(SQLite)` - I used this as a database to hold the data. I chose this since it is a serverless database and portable, so it can be carried alongside the application without having to install XAMMP or other servers.
 *  `SQL` - This, i used to query the database and create a seamless connection between the application frontend and the backend.
 *  `CSS` - For the frontend, i used bootstrap offline for dynamics of the application. For icons, i used the fontawesome icons which i downloaded and used locally. The css sheet for bootstrap is the <a href = 'admin/styles/bootstrap.min.css'>bootstrap.min.css</a>. For fontawesome, i used the <a href="admin/styles/CSS/all.css">all.css</a>  style sheet and the <a href='/admin/styles/webfonts'>webfonts folder</a>. My custom CSS is in <a href='admin/styles/styles.css'>this file</a>.
+
+### Folder structure
+* Admin - This is the main folder and contains all the project files.
