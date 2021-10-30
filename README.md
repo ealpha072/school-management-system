@@ -12,6 +12,11 @@ in PHP language. The project is for admins only but i intend on adding logins fo
     * Change school details like phone number, email, mision and vision
     * Update the admin photo
 
+**Credential** | **Value**
+------------ | -------------
+**Username** | Administrator
+**Password** | Alpha
+
 ## Technologies used in this project;
 * `PHP` - I used the PHP language as the main language for this project together with javascript for the frontend and the backend due to the ease in their operability. No frameworks were used for PHP but for javascript, i used jquery for ajax requests being sent to database and getting back the response to populate the DOM
 * `javascript/jquery/ajax` - This was used for making the application more dynamic, for things like button clicks. Jquery was used for dom selection while ajax was used for sending requests to database and getting response without page refresh. All scripts are in the subfolder, admin/scripts. These have also been used to create the side navigation bar for the project.
@@ -25,3 +30,7 @@ in PHP language. The project is for admins only but i intend on adding logins fo
 ### Folder structure
 * `Admin` - This is the main folder and contains all the project files. Each folder is a section of the application; more like a module. The folder called shared, contains common files used by all modules.The config.php file is the backend file that starts the session in each module. 
 * `settings.json` - The settings.json file contains the phpdesktop configurations to be used by the application. The setings have been changed and are different from the original settings.json file.
+
+### Installation procedure
+This project was meanrt to be utilised as a desktop application running without servers. Too install, the project, you can run inno setup to generate the setup.exe file.Then run the setup file as an administrator on your PC. To use the application on the internet, install a server of choice, then open the application.
+>  Installation using XAMMP - Using XAMPP as a server, copy the entire project inside the htdocs folder and launch it on a browser. For more info, contact me via email.
