@@ -1,11 +1,16 @@
 # school-management-system
-
-A school managemnt system.
-
 ## About
 This is a school managemnet system(SMS) that can be used to manage secondary schools. This has been coded to work as a desktop application without connecting to the internet. It was coded with PHP mostly as part of my projects to build up my portfolios
 in PHP language. The project is for admins only but i intend on adding logins for other users in future. The admin has exclusive rights of the entire application.The admin can;
-
+1.  CRUD on students, teachers, staff, hostels, roles.
+    * Adding a new student, staff member, hostel, role
+    * Manage/edit an existing student, staff member, hostel and roles
+    * Delete existing student, staff and roles
+2.  Set/Change user settings
+    * Change the school name
+    * Change user login details
+    * Change school details like phone number, email, mision and vision
+    * Update the admin photo
 
 ## Technologies used in this project;
 * `PHP` - I used the PHP language as the main language for this project together with javascript for the frontend and the backend due to the ease in their operability. No frameworks were used for PHP but for javascript, i used jquery for ajax requests being sent to database and getting back the response to populate the DOM
@@ -18,4 +23,5 @@ in PHP language. The project is for admins only but i intend on adding logins fo
 *  `CSS` - For the frontend, i used bootstrap offline for dynamics of the application. For icons, i used the fontawesome icons which i downloaded and used locally. The css sheet for bootstrap is the <a href = 'admin/styles/bootstrap.min.css'>bootstrap.min.css</a>. For fontawesome, i used the <a href="admin/styles/CSS/all.css">all.css</a>  style sheet and the <a href='/admin/styles/webfonts'>webfonts folder</a>. My custom CSS is in <a href='admin/styles/styles.css'>this file</a>.
 
 ### Folder structure
-* Admin - This is the main folder and contains all the project files.
+* `Admin` - This is the main folder and contains all the project files. Each folder is a section of the application; more like a module. The folder called shared, contains common files used by all modules.The config.php file is the backend file that starts the session in each module. 
+* `settings.json` - The settings.json file contains the phpdesktop configurations to be used by the application. The setings have been changed and are different from the original settings.json file.
