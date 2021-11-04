@@ -1,47 +1,28 @@
 <?php
-    session_start();
 
+use function PHPSTORM_META\type;
+
+session_start();
 
     class Database{
-        private $conn;
+        private $conn = null;
         public $tablename = 'admin';
 
-        public function getConnection(){
+        public function __construct()
+        {
             try {
                 $this->conn = new PDO('sqlite:../../mydatabase.db');
-                return $this->conn;
+                echo "Connection successfull";
             } catch (Exception $e) {
                 //throw $th;
                 throw new Exception($e->getMessage());
             }
         }
 
-        public function select($query='', $param = [])
-        {
-            $stmt = $this->executeStatement($query, $param);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-
-        public function insert($query='', $param = []){
-            $this->executeStatement($query, $param);
-        }
-
-        public function executeStatement( $query="", $params=[] )
-        {
-            $stmt = $this->conn->prepare( $query );
-            $stmt->execute($params);
-            return $stmt;
-        }
+        
     }
 
-    class Person{
-        function __construct($db){
-            return $this->
-        }
-        {
-            
-        }
-    }
+    $database = new Database();
 
 
 ?>
