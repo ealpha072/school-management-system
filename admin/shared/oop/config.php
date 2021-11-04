@@ -1,6 +1,10 @@
 <?php
+    session_start();
+
+
     class Database{
         private $conn;
+        public $tablename = 'admin';
 
         public function getConnection(){
             try {
@@ -12,13 +16,31 @@
             }
         }
 
-        public function Login(){
-            
+        public function select($query='', $param = [])
+        {
+            $stmt = $this->executeStatement($query, $param);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function insert($query='', $param = []){
+            $this->executeStatement($query, $param);
+        }
+
+        public function executeStatement( $query="", $params=[] )
+        {
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute($params);
+            return $stmt;
         }
     }
 
     class Person{
-
+        function __construct($db){
+            return $this->
+        }
+        {
+            
+        }
     }
 
 
