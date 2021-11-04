@@ -768,7 +768,7 @@
         ////FORM VALIDATION
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $email_error = "Invalid email address";
-            array_push($update_school_settings, $email_error);
+            array_push($update_school_settings_error, $email_error);
         }
 
         if(!validatePhone($phone)){
