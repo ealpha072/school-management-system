@@ -19,10 +19,10 @@
     }
 
     class Students
-    {   
+    {
         private $conn;
         public $tablename = 'students';
-        public $adm; 
+        public $adm;
         public $form;
         public $stream;
         public $hostel;
