@@ -271,6 +271,7 @@
         }else{
             $pemail = $pemail;
         }
+
         //phone number validation
         if(!validatePhone($pphone_number)){
             $phone_error = 'Invalid phone number';
