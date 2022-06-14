@@ -1,7 +1,6 @@
-
 <?php
+	require "../shared/process.php";
 	require "../shared/header.php";
-  	require "../shared/process.php";
 ?>
 
 <!--consider customizing more-->
