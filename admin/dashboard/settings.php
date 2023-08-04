@@ -257,7 +257,6 @@
                         </div>
                     </div>
                     <!--end of modal-->
-
                 </div>
             </div>
         </div>
