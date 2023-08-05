@@ -37,7 +37,6 @@
                     <div class="col-sm-4">
                         <select name="staff-name" id="staff-incharge" class="form-control form-control-sm">
                             <option value="" selected disabled>Select staff</option>
-                            
                         </select>
                     </div>
                     
@@ -53,7 +52,3 @@
         </div>
     </div>
 </div>
-
-
-<!--
-   -->
