@@ -8,7 +8,6 @@
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $results = $results[0];
     }
-
 ?>
 
 <div class="container-fluid">

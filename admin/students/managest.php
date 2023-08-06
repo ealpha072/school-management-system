@@ -13,7 +13,7 @@
             <div class="float-right">
                 <a href="addst.php" class="text-primary"><i class="fa fa-plus fa-sm"></i> Add student</a>
             </div>
-            
+
         </div>
         <div class="card-body">
             <?php showSuccessMessage(); ?> 
@@ -50,7 +50,7 @@
                             <div class="col">
                                 <button class="btn btn-primary btn-sm mb-2" type="button" id="search-student"><i class="fa fa-search fa-sm"></i> Search</button>
                             </div>
-                        </div>                        
+                        </div>
                     </form>
                 </div>
             </div>
@@ -67,6 +67,3 @@
         </div>
     </div>
 </div>
-
-
-

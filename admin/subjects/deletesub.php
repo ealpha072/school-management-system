@@ -3,7 +3,6 @@
 
     if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete'){
         $id = $_GET['id'];
-        
     }
 ?>
 

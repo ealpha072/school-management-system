@@ -8,7 +8,6 @@
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         $results = $results[0];
     }
-    
 ?>
 
 <div class="container-fluid">
@@ -34,7 +33,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
                     <div class="col-sm-4">
