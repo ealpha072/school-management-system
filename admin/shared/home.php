@@ -20,7 +20,7 @@
             <div class="sidebar-header">
                 <h3>School System</h3>
                 <img src="../images/staffs/<?php echo $settings['image'];?>" alt="Admin img" class="rounded-circle">
-                
+
             </div>
 
             <!--dashboard items-->
@@ -43,7 +43,7 @@
                             <a href="../students/managest.php"><i class="fa fa-wrench fa-sm"></i>  Manage Students</a>
                         </li>
                     </ul>
-                </li>                
+                </li>
                 <!--syllabus-->
                 <li>
                     <a href="#syllabus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-book"></i> Subjects</a>
@@ -53,7 +53,6 @@
                         </li>
                         <li>
                             <a href="../subjects/managesub.php"><i class="fa fa-wrench fa-sm"></i> Manage Subjects</a>
-                            
                         </li>
                     </ul>
                 </li>
@@ -66,7 +65,6 @@
                         </li>
                         <li>
                             <a href="../teachers/manageteach.php"><i class="fa fa-wrench fa-sm"></i> Manage Teachers</a>
-                    
                         </li>
                     </ul>
                 </li>

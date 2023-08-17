@@ -32,5 +32,5 @@ in PHP language. The project is for admins only but i intend on adding logins fo
 * `settings.json` - The settings.json file contains the phpdesktop configurations to be used by the application. The setings have been changed and are different from the original settings.json file.
 
 ### Installation procedure
-This project was meanrt to be utilised as a desktop application running without servers. Too install, the project, you can run inno setup to generate the setup.exe file.Then run the setup file as an administrator on your PC. To use the application on the internet, install a server of choice, then open the application.
+This project was meant to be utilised as a desktop application running without servers. Too install, the project, you can run inno setup to generate the setup.exe file.Then run the setup file as an administrator on your PC. To use the application on the internet, install a server of choice, then open the application.
 >  Installation using XAMMP - Using XAMPP as a server, copy the entire project inside the htdocs folder and launch it on a browser. For more info, contact me via email.
