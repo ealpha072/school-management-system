@@ -41,7 +41,7 @@ $(document).ready(function() {
     $('#to-find-teacher').on('change', function() {
         var results_div = $('#result-holder')
         request = new XMLHttpRequest
-        
+
         request.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 results_div.html('')
@@ -59,7 +59,7 @@ $(document).ready(function() {
     $('#manage-subject').on('change',function(){
         var results_div = $('#result-holder')
         request = new XMLHttpRequest
-        
+
         request.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 results_div.html('')
@@ -95,7 +95,7 @@ $(document).ready(function() {
     $('#staff-name').on('change',function(){
         var results_div = $('#result-holder')
         request = new XMLHttpRequest
-        
+
         request.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 results_div.html('')
@@ -113,7 +113,7 @@ $(document).ready(function() {
     $('#role-find').on('change', function(){
         var results_div = $('#result-holder')
         request = new XMLHttpRequest
-        
+
         request.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 results_div.html('')
@@ -145,6 +145,5 @@ $(document).ready(function() {
         request.send(null)
 
     })
-
 });
 
