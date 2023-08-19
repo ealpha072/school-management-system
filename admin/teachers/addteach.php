@@ -37,7 +37,7 @@
                                 <input type="text" placeholder="Mid Name" class="form-control form-control-sm" required="" name="mid-name">
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
 
                             <label for="" class="col-sm-2 col-form-label col-form-label-sm">Last Name </label>
@@ -48,7 +48,7 @@
                             <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email <sup>*</sup></label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="Email" class="form-control form-control-sm" value="" required="" name="email">
-                            </div>     
+                            </div>
                         </div>
 
                         <div class="form-group row">
@@ -66,7 +66,7 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
-                            </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,6 @@
                         </div>
                         <hr>
                         <div class="form-group row">
-                            
                             <label for="subject_1" class="col-sm-2 col-form-label col-form-label-sm">Subject 1</label>
                             <div class="col-sm-4">
                                 <select name="subject-1" id="" required="" class="form-control form-control-sm">

@@ -55,7 +55,7 @@
                                     <option value="elective">Elective</option>
                                 </select>
                             </div>
-                            
+
                             <label for="department" class="col-sm-2 col-form-label col-form-label-sm">Department</label>
                             <div class="col-sm-4">
                                 <select name="department" id="" class="form-control form-control-sm" required="">

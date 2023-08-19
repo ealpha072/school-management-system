@@ -415,7 +415,6 @@
             array_push($add_staff_error, $phone_error);
         }
 
-        
         if(empty($last_name)){
             $last_name = ' ';
         }
@@ -581,7 +580,7 @@
 
     function updateSubject(){
         global $update_subject_error, $update_subject_query;
-        
+
         $type = htmlspecialchars($_POST['type-update']);
         $hos = htmlspecialchars($_POST['hos-update']);
 

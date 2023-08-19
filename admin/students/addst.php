@@ -38,7 +38,6 @@
                                 <div class="col-sm-4">
                                     <input type="number" placeholder="Adm Number" class="form-control form-control-sm" name="adm_num" required>
                                 </div>
-                            
                                 <label for="form" class="col-sm-2 col-form-label col-form-label-sm">Form<sup>*</sup></label>
                                 <div class="col-sm-4">
                                     <select name="form" id="" class="form-control form-control-sm" required>
@@ -48,7 +47,6 @@
                                         ?>
                                     </select>
                                 </div>
-                                
                         </div>
 
                         <div class="form-group row">
@@ -59,7 +57,7 @@
                                         <?php displayMenu($select_stream, 'name'); ?>
                                     </select>
                                 </div>
-                            
+
                                 <label for="hostel" class="col-sm-2 col-form-label col-form-label-sm">Hostel<sup>*</sup></label>
                                 <div class="col-sm-4">
                                     <select name="hostel" id="" class="form-control form-control-sm" required>
@@ -77,7 +75,7 @@
                     </div>
                 </div>
                 <!--END OF CARD-->
-                
+
                 <!--personal card info-->
                 <div class="card personal_info">
                     <div class="card-header">
@@ -94,7 +92,7 @@
                             <label for="middle-name" class="col-sm-2 col-form-label col-form-label-sm">Middle Name<sup>*</sup></label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="Middle Name" class="form-control form-control-sm" name="middle-name" required>
-                            </div>                           
+                            </div>
                         </div>
 
                         <div class="form-group row">
@@ -115,7 +113,7 @@
                     </div>
                 </div>
                 <!-- END OF CARD-->
-                
+
                 <!--conatct info card-->
                 <div class="card contact_info">
                     <div class="card-header">
